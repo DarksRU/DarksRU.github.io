@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO_ENGINEERING | Engineering Solutions</title>
+    <title>PRO_ENGINEERING | Servicii Electrice & SmartHome</title>
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -39,33 +39,67 @@
             background: linear-gradient(45deg, #00f2fe, #4facfe);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .hero p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
+        .hero p { color: var(--text-muted); font-size: 1rem; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
 
-        /* Вкладки в одну строку */
-        .tabs-nav {
-            display: flex; justify-content: center; gap: 8px;
-            border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px;
-            overflow-x: auto;
-        }
-        .tab-btn {
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            color: var(--text-color); padding: 10px 18px; border-radius: 8px;
-            cursor: pointer; font-size: 0.95rem; font-weight: 600; white-space: nowrap; transition: 0.2s;
-        }
-        .tab-btn.active, .tab-btn:hover {
-            background: rgba(0, 242, 254, 0.1); border-color: var(--accent-color); color: var(--accent-color);
+        /* Сетка как на electric-smart.net */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
         }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
 
-        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.2rem; }
-        .card h3 { color: var(--accent-color); margin-bottom: 0.8rem; font-size: 1.1rem; }
-        .card ul { list-style: none; }
-        .card ul li { position: relative; padding-left: 18px; margin-bottom: 6px; color: var(--text-muted); font-size: 0.9rem; }
-        .card ul li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
+        .service-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.1);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .service-card ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
 
         footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
     </style>
@@ -82,69 +116,70 @@
     </header>
 
     <section class="hero">
-        <h1 id="hero-title">Soluții Inspecții & Inginerie în Chișinău</h1>
-        <p id="hero-desc">Proiectare, montaj și automatizări moderne pentru domeniul rezidențial și industrial.</p>
+        <h1 id="hero-title">Servicii Electrice & Inginerie în Chișinău</h1>
+        <p id="hero-desc">Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.</p>
     </section>
 
     <div class="container">
-        <!-- НАВИГАЦИЯ В ОДНУ строку -->
-        <div class="tabs-nav">
-            <button class="tab-btn active" onclick="openTab('tab-1')" id="nav-1">⚡ Electrice</button>
-            <button class="tab-btn" onclick="openTab('tab-2')" id="nav-2">🌐 Curenți Slabi</button>
-            <button class="tab-btn" onclick="openTab('tab-3')" id="nav-3">🏠 Smart Home</button>
-            <button class="tab-btn" onclick="openTab('tab-4')" id="nav-4">🏭 Automatizări Industriale</button>
-        </div>
+        <div class="services-grid">
+            
+            <!-- 1. ELECTRICE -->
+            <div class="service-card">
+                <div class="icon">⚡</div>
+                <h3 id="c1-title">Instalații Electrice</h3>
+                <ul id="c1-list">
+                    <li>Proiectare Instalații Electrice</li>
+                    <li>Auditul instalațiilor electrice</li>
+                    <li>Montarea și înlocuirea cablurilor</li>
+                    <li>Montare prize și întrerupătoare</li>
+                    <li>Instalații Iluminare</li>
+                    <li>Conectare electrocasnice</li>
+                    <li>Asamblare panou distribuție</li>
+                    <li>Intervenții de avariere</li>
+                </ul>
+            </div>
 
-        <!-- 1. ELECTRICE -->
-        <div id="tab-1" class="tab-content active">
-            <div class="card">
-                <h3 id="t1-c1-t">Proiectare & Audit</h3>
-                <ul id="t1-c1-l"><li>Proiectare Instalații Electrice</li><li>Auditul instalațiilor electrice</li></ul>
+            <!-- 2. CURENTI SLABI -->
+            <div class="service-card">
+                <div class="icon">🌐</div>
+                <h3 id="c2-title">Sisteme Curenți Slabi</h3>
+                <ul id="c2-list">
+                    <li>Rețele Locale / Internet</li>
+                    <li>Puncte acces Wi-Fi</li>
+                    <li>Sisteme antiefracție</li>
+                    <li>Supraveghere Video</li>
+                    <li>Videointerfonie & Control acces</li>
+                    <li>Sisteme Audio / Multimedia</li>
+                </ul>
             </div>
-            <div class="card">
-                <h3 id="t1-c2-t">Execuție & Montaj</h3>
-                <ul id="t1-c2-l"><li>Montarea și înlocuirea cablurilor</li><li>Montare prize și întrerupătoare</li><li>Instalații Iluminare</li><li>Conectare electrocasnice</li></ul>
-            </div>
-            <div class="card">
-                <h3 id="t1-c3-t">Tablouri & Avarii</h3>
-                <ul id="t1-c3-l"><li>Asamblare panou distribuție</li><li>Intervenții de avariere</li></ul>
-            </div>
-        </div>
 
-        <!-- 2. CURENTI SLABI -->
-        <div id="tab-2" class="tab-content">
-            <div class="card">
-                <h3 id="t2-c1-t">Rețele & Wi-Fi</h3>
-                <ul id="t2-c1-l"><li>Instalații Rețele Locale / Internet</li><li>Puncte acces Wi-Fi</li></ul>
+            <!-- 3. SMART HOME -->
+            <div class="service-card">
+                <div class="icon">🏠</div>
+                <h3 id="c3-title">SmartHome</h3>
+                <ul id="c3-list">
+                    <li>Elaborarea proiectului tehnic</li>
+                    <li>Stabilirea caietului de sarcini</li>
+                    <li>Execuția tablourilor de automatizare</li>
+                    <li>Implementarea sistemului SmartHome</li>
+                    <li>Mentenanță post instalare</li>
+                </ul>
             </div>
-            <div class="card">
-                <h3 id="t2-c2-t">Securitate & Acces</h3>
-                <ul id="t2-c2-l"><li>Sisteme antiefracție</li><li>Supraveghere Video</li><li>Videointerfonie și Control acces</li></ul>
-            </div>
-            <div class="card">
-                <h3 id="t2-c3-t">Multimedia</h3>
-                <ul id="t2-c3-l"><li>Sisteme Audio / Multimedia</li></ul>
-            </div>
-        </div>
 
-        <!-- 3. SMART HOME -->
-        <div id="tab-3" class="tab-content">
-            <div class="card">
-                <h3 id="t3-c1-t">Proiectare & Implementare</h3>
-                <ul id="t3-c1-l"><li>Proiect tehnic & Caiet de sarcini</li><li>Tablouri electrice automatizare</li><li>Implementare sistem automatizare</li><li>Mentenanță SmartHome</li></ul>
+            <!-- 4. AUTOMATIZARI INDUSTRIALE -->
+            <div class="service-card">
+                <div class="icon">🏭</div>
+                <h3 id="c4-title">Automatizări Industriale</h3>
+                <ul id="c4-list">
+                    <li>Asamblare tablouri automatizare (PLC)</li>
+                    <li>Programare controlere industriale</li>
+                    <li>Dulapuri de comandă și protecție</li>
+                    <li>Convertizoare de frecvență</li>
+                    <li>Senzori industriali & traductori</li>
+                    <li>Automatizare linii de producție</li>
+                </ul>
             </div>
-        </div>
 
-        <!-- 4. AUTOMATIZARI INDUSTRIALE -->
-        <div id="tab-4" class="tab-content">
-            <div class="card">
-                <h3 id="t4-c1-t">Tablouri & PLC</h3>
-                <ul id="t4-c1-l"><li>Asamblare tablouri de automatizare (PLC)</li><li>Programare controlere industriale</li><li>Dulapuri de comandă și protecție</li></ul>
-            </div>
-            <div class="card">
-                <h3 id="t4-c2-t">Senzori & Motoare</h3>
-                <ul id="t4-c2-l"><li>Integrări convertizoare de frecvență</li><li>Senzori industriali și traductori</li><li>Automatizare linii de producție</li></ul>
-            </div>
         </div>
     </div>
 
@@ -153,62 +188,46 @@
     </footer>
 
     <script>
-        let currentLang = 'ro';
-
-        function openTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
         const translations = {
             ro: {
-                title: "Soluții Inspecții & Inginerie în Chișinău",
-                desc: "Proiectare, montaj și automatizări moderne pentru domeniul rezidențial și industrial.",
-                nav: ["⚡ Electrice", "🌐 Curenți Slabi", "🏠 Smart Home", "🏭 Automatizări Industriale"],
-                t1_c1: "Proiectare & Audit", t1_c1_l: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice"],
-                t1_c2: "Execuție & Montaj", t1_c2_l: ["Montarea și înlocuirea cablurilor", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice"],
-                t1_c3: "Tablouri & Avarii", t1_c3_l: ["Asamblare panou distribuție", "Intervenții de avariere"],
-                t2_c1: "Rețele & Wi-Fi", t2_c1_l: ["Instalații Rețele Locale / Internet", "Puncte acces Wi-Fi"],
-                t2_c2: "Securitate & Acces", t2_c2_l: ["Sisteme antiefracție", "Supraveghere Video", "Videointerfonie și Control acces"],
-                t2_c3: "Multimedia", t2_c3_l: ["Sisteme Audio / Multimedia"],
-                t3_c1: "Proiectare & Implementare", t3_c1_l: ["Proiect tehnic & Caiet de sarcini", "Tablouri electrice automatizare", "Implementare sistem automatizare", "Mentenanță SmartHome"],
-                t4_c1: "Tablouri & PLC", t4_c1_l: ["Asamblare tablouri automatizare (PLC)", "Programare controlere industriale", "Dulapuri de comandă și protecție"],
-                t4_c2: "Senzori & Motoare", t4_c2_l: ["Integrări convertizoare de frecvență", "Senzori industriali și traductori", "Automatizare linii de producție"]
+                title: "Servicii Electrice & Inginerie în Chișinău",
+                desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
+                c1: "Instalații Electrice",
+                c1_l: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice", "Montarea și înlocuirea cablurilor", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice", "Asamblare panou distribuție", "Intervenții de avariere"],
+                c2: "Sisteme Curenți Slabi",
+                c2_l: ["Rețele Locale / Internet", "Puncte acces Wi-Fi", "Sisteme antiefracție", "Supraveghere Video", "Videointerfonie & Control acces", "Sisteme Audio / Multimedia"],
+                c3: "SmartHome",
+                c3_l: ["Elaborarea proiectului tehnic", "Stabilirea caietului de sarcini", "Execuția tablourilor de automatizare", "Implementarea sistemului SmartHome", "Mentenanță post instalare"],
+                c4: "Automatizări Industriale",
+                c4_l: ["Asamblare tablouri automatizare (PLC)", "Programare controlere industriale", "Dulapuri de comandă și protecție", "Convertizoare de frecvență", "Senzori industriali & traductori", "Automatizare linii de producție"]
             },
             ru: {
-                title: "Инженерные решения в Кишиневе",
+                title: "Электромонтаж и Инженерия в Кишиневе",
                 desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
-                nav: ["⚡ Электрика", "🌐 Слаботочка", "🏠 Умный Дом", "🏭 Пром. Автоматизация"],
-                t1_c1: "Проектирование и Аудит", t1_c1_l: ["Проектирование электроустановок", "Аудит электрических сетей"],
-                t1_c2: "Монтаж и Работы", t1_c2_l: ["Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники"],
-                t1_c3: "Щиты и Аварии", t1_c3_l: ["Сборка распределительных щитов", "Оперативный выезд при авариях"],
-                t2_c1: "Сети и Wi-Fi", t2_c1_l: ["Локальные и интернет сети", "Установка точек доступа Wi-Fi"],
-                t2_c2: "Безопасность и Контроль", t2_c2_l: ["Охранная сигнализация", "Видеонаблюдение", "СКУД и видеодомофоны"],
-                t2_c3: "Мультимедиа", t2_c3_l: ["Аудио и мультимедийные системы"],
-                t3_c1: "Проектирование и Внедрение", t3_c1_l: ["Технический проект и ТЗ", "Щиты автоматики", "Внедрение систем Умный Дом", "Сервисное обслуживание"],
-                t4_c1: "Щиты и ПЛК (PLC)", t4_c1_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты"],
-                t4_c2: "Приводы и Двигатели", t4_c2_l: ["Подключение частотных преобразователей", "Промышленные датчики", "Автоматизация производственных линий"]
+                c1: "Электромонтажные работы",
+                c1_l: ["Проектирование электроустановок", "Аудит электрических сетей", "Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники", "Сборка распределительных щитов", "Оперативный выезд при авариях"],
+                c2: "Слаботочные системы",
+                c2_l: ["Локальные и интернет сети", "Установка точек доступа Wi-Fi", "Охранная сигнализация", "Видеонаблюдение", "СКУД и видеодомофоны", "Аудио и мультимедийные системы"],
+                c3: "Умный Дом (SmartHome)",
+                c3_l: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы SmartHome", "Сервисное обслуживание"],
+                c4: "Пром. Автоматизация",
+                c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация лини производства"]
             },
             en: {
-                title: "Engineering & Automation Solutions in Chisinau",
-                desc: "Design, installation, and modern automation for residential and industrial sectors.",
-                nav: ["⚡ Electrical", "🌐 Low Voltage", "🏠 Smart Home", "🏭 Industrial Automation"],
-                t1_c1: "Design & Audit", t1_c1_l: ["Electrical Installation Design", "Electrical Audit"],
-                t1_c2: "Execution & Installation", t1_c2_l: ["Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection"],
-                t1_c3: "Panels & Emergency", t1_c3_l: ["Distribution Board Assembly", "Emergency Repairs"],
-                t2_c1: "Networks & Wi-Fi", t2_c1_l: ["Local & Internet Networks", "Wi-Fi Access Points"],
-                t2_c2: "Security & Access", t2_c2_l: ["Burglar Alarm Systems", "Video Surveillance", "Access Control & Video Intercom"],
-                t2_c3: "Multimedia", t2_c3_l: ["Audio & Multimedia Systems"],
-                t3_c1: "Design & Implementation", t3_c1_l: ["Technical Design & ToR", "Automation Control Panels", "Automation System Setup", "SmartHome Maintenance"],
-                t4_c1: "Panels & PLC", t4_c1_l: ["PLC Automation Panel Assembly", "Industrial Controller Programming", "Control & Protection Cabinets"],
-                t4_c2: "Sensors & Drives", t4_c2_l: ["Frequency Inverter Integration", "Industrial Sensors & Transducers", "Production Line Automation"]
+                title: "Electrical & Engineering Services in Chisinau",
+                desc: "Design, installation, and automation for residential and industrial projects.",
+                c1: "Electrical Services",
+                c1_l: ["Electrical Installation Design", "Electrical Audit", "Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection", "Distribution Board Assembly", "Emergency Repairs"],
+                c2: "Low Voltage Systems",
+                c2_l: ["Local & Internet Networks", "Wi-Fi Access Points", "Burglar Alarm Systems", "Video Surveillance", "Access Control & Video Intercom", "Audio & Multimedia Systems"],
+                c3: "SmartHome",
+                c3_l: ["Technical Design Development", "Terms of Reference (ToR) Setup", "Automation Control Panel Assembly", "SmartHome System Setup", "Post-installation Maintenance"],
+                c4: "Industrial Automation",
+                c4_l: ["PLC Automation Panel Assembly", "Industrial Controller Programming", "Control & Protection Cabinets", "Frequency Inverters", "Industrial Sensors & Transducers", "Production Line Automation"]
             }
         };
 
         function setLang(lang) {
-            currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
 
@@ -216,22 +235,10 @@
             document.getElementById('hero-title').innerText = t.title;
             document.getElementById('hero-desc').innerText = t.desc;
 
-            for(let i=1; i<=4; i++) {
-                document.getElementById('nav-' + i).innerText = t.nav[i-1];
-            }
-
-            document.getElementById('t1-c1-t').innerText = t.t1_c1; updateList('t1-c1-l', t.t1_c1_l);
-            document.getElementById('t1-c2-t').innerText = t.t1_c2; updateList('t1-c2-l', t.t1_c2_l);
-            document.getElementById('t1-c3-t').innerText = t.t1_c3; updateList('t1-c3-l', t.t1_c3_l);
-
-            document.getElementById('t2-c1-t').innerText = t.t2_c1; updateList('t2-c1-l', t.t2_c1_l);
-            document.getElementById('t2-c2-t').innerText = t.t2_c2; updateList('t2-c2-l', t.t2_c2_l);
-            document.getElementById('t2-c3-t').innerText = t.t2_c3; updateList('t2-c3-l', t.t2_c3_l);
-
-            document.getElementById('t3-c1-t').innerText = t.t3_c1; updateList('t3-c1-l', t.t3_c1_l);
-
-            document.getElementById('t4-c1-t').innerText = t.t4_c1; updateList('t4-c1-l', t.t4_c1_l);
-            document.getElementById('t4-c2-t').innerText = t.t4_c2; updateList('t4-c2-l', t.t4_c2_l);
+            document.getElementById('c1-title').innerText = t.c1; updateList('c1-list', t.c1_l);
+            document.getElementById('c2-title').innerText = t.c2; updateList('c2-list', t.c2_l);
+            document.getElementById('c3-title').innerText = t.c3; updateList('c3-list', t.c3_l);
+            document.getElementById('c4-title').innerText = t.c4; updateList('c4-list', t.c4_l);
         }
 
         function updateList(id, items) {
