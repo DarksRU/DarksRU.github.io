@@ -54,69 +54,56 @@
     }
     .hero p { color: var(--text-muted); font-size: 1rem; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
-
-    .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-/* Перенос в 2 колонки на планшетах и 1 на телефонах */
-@media (max-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .container { 
+        max-width: 1400px; 
+        margin: 0 auto; 
+        padding: 1.5rem 1rem; 
     }
-}
 
-@media (max-width: 600px) {
     .services-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;
     }
-}
 
     .service-card {
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         border-radius: 12px;
-        padding: 1.5rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         transition: 0.3s;
         backdrop-filter: blur(6px);
     }
 
-    .service-card:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 242, 254, 0.15);
-    }
-
-    .icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        display: inline-block;
-    }
-
     .service-card h3 {
         color: var(--accent-color);
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        margin-bottom: 0.8rem;
         border-bottom: 1px solid var(--border-color);
-        padding-bottom: 0.5rem;
-    }
-
-    .service-card ul {
-        list-style: none;
-        flex-grow: 1;
+        padding-bottom: 0.4rem;
     }
 
     .service-card ul li {
         position: relative;
-        padding-left: 18px;
-        margin-bottom: 8px;
+        padding-left: 16px;
+        margin-bottom: 6px;
         color: var(--text-muted);
-        font-size: 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    /* Адаптируем под планшеты и мобилки */
+    @media (max-width: 1100px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .service-card ul li::before {
