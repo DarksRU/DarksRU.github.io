@@ -16,15 +16,14 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         
-        body { 
+       body { 
             background-color: var(--bg-color); 
-            /* Технологичный фон: неоновый свет + тонкая сетка */
+            /* Фото дома на фоне с затемнением для читаемости текста */
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(79, 172, 254, 0.1) 0%, transparent 40%),
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+                linear-gradient(rgba(8, 12, 20, 0.8), rgba(8, 12, 20, 0.8)), 
+                url('bg.jpg'); 
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
             color: var(--text-color); 
             line-height: 1.5; 
