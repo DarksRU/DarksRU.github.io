@@ -65,16 +65,18 @@
             gap: 1.2rem;
         }
 
-        .service-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: 0.3s;
-            backdrop-filter: blur(6px);
-        }
+       .service-card {
+    background: rgba(11, 15, 25, 0.75);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
         .service-card:hover {
             border-color: var(--accent-color);
