@@ -1,209 +1,377 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инженерные системы Кишинев | Электрика, Слаботочка, Умный Дом</title>
+    <title>PRO_ENGINEERING | Servicii Electrice & SmartHome</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --accent-hover: #0284c7;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f293d;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
-        /* Навигация */
         header {
-            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #334155;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: bold;
             color: var(--accent-color);
             text-decoration: none;
         }
 
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
         }
 
-        nav a:hover {
-            color: var(--accent-color);
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        /* Hero секция */
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            font-weight: bold;
+        }
+
         .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
             text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
 
-        .btn {
+        .cta-btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: #0f172a;
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #000;
+            padding: 12px 28px;
             border-radius: 8px;
             text-decoration: none;
-            transition: background 0.2s;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background-color: var(--accent-hover);
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.4);
         }
 
-        /* Карточки услуг */
-        .services {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .card {
-            background-color: var(--card-bg);
-            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            border: 1px solid #334155;
-            transition: transform 0.2s, border-color 0.2s;
+            padding: 1.5rem;
+            transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
             border-color: var(--accent-color);
+            transform: translateY(-5px);
         }
 
         .card h3 {
-            margin-bottom: 0.8rem;
             color: var(--accent-color);
+            margin-bottom: 1rem;
         }
 
-        .card p {
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
         }
 
-        .card a {
-            color: var(--text-main);
-            font-weight: 600;
-            text-decoration: none;
+        .card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
-        /* Футер */
         footer {
-            border-top: 1px solid #334155;
             text-align: center;
             padding: 2rem;
-            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.5rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">PRO_ENGINEERING</a>
-            <nav>
-                <a href="shields.html">Щиты</a>
-                <a href="electric.html">Электрика</a>
-                <a href="networks.html">Слаботочка</a>
-                <a href="smart-home.html">Умный дом</a>
-            </nav>
+        <a href="#" class="logo">PRO_ENGINEERING</a>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('ro')">RO</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Комплексная инженерия в Кишиневе</h1>
-        <p>Проектирование, профессиональная сборка щитов, слаботочные сети и автоматизация Умного Дома с детальным расчетом смет без скрытых переплат.</p>
-        <a href="https://t.me/your_telegram" class="btn" target="_blank">Написать в Telegram / WhatsApp</a>
+        <h1 id="hero-title">Instalații Electrice & SmartHome în Chișinău</h1>
+        <p id="hero-desc">Proiectare, montaj și automatizări moderne pentru locuința sau afacerea ta.</p>
+        <a href="https://t.me/" class="cta-btn" id="hero-cta">Contactează-ne</a>
     </section>
 
-    <section class="services">
-        <div class="card">
-            <h3>Сборка Щитов</h3>
-            <p>Проектирование и сборка силовых и слаботочных щитов с полной маркировкой и идеальным кабель-менеджментом.</p>
-            <a href="shields.html">Подробнее &rarr;</a>
+    <div class="container">
+        <!-- 1. SERVICII ELECTRICE -->
+        <h2 class="section-title" id="sec-1-title">Servicii Electrice</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3 id="card-1-title">Proiectare & Audit</h3>
+                <ul id="card-1-list">
+                    <li>Proiectare Instalații Electrice</li>
+                    <li>Auditul instalațiilor electrice</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="card-2-title">Execuție & Montaj</h3>
+                <ul id="card-2-list">
+                    <li>Montarea și înlocuirea cablurilor electrice</li>
+                    <li>Montare prize și întrerupătoare</li>
+                    <li>Instalații Iluminare</li>
+                    <li>Conectare electrocasnice</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="card-3-title">Tablouri & Avarii</h3>
+                <ul id="card-3-list">
+                    <li>Asamblare panou distribuție</li>
+                    <li>Intervenții de avariere</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>Силовая Электрика</h3>
-            <p>Черновой и чистовой монтаж по ПУЭ. Расчет нагрузок, поэтажные схемы и защита от скачков напряжения.</p>
-            <a href="electric.html">Подробнее &rarr;</a>
+
+        <!-- 2. CURENTI SLABI -->
+        <h2 class="section-title" id="sec-2-title">Sisteme Curenți Slabi</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3 id="card-4-title">Rețele & Wi-Fi</h3>
+                <ul id="card-4-list">
+                    <li>Instalații Rețele Locale / Corporative Internet</li>
+                    <li>Puncte acces Wi-Fi</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="card-5-title">Securitate & Acces</h3>
+                <ul id="card-5-list">
+                    <li>Sisteme de securitate antiefracție</li>
+                    <li>Sisteme supraveghere Video</li>
+                    <li>Instalații Videointerfonie și Control acces</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="card-6-title">Multimedia</h3>
+                <ul id="card-6-list">
+                    <li>Instalații sisteme Audio / Multimedia</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>Слаботочка & Wi-Fi</h3>
-            <p>Локальные сети (Cat6), бесшовный Wi-Fi, видеонаблюдение (IP / 12V) и нестандартные кабельные трассы.</p>
-            <a href="networks.html">Подробнее &rarr;</a>
+
+        <!-- 3. SMART HOME -->
+        <h2 class="section-title" id="sec-3-title">SmartHome</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3 id="card-7-title">Proiectare & Implementare</h3>
+                <ul id="card-7-list">
+                    <li>Elaborarea proiectului tehnic</li>
+                    <li>Stabilirea caietului de sarcini</li>
+                    <li>Execuția tablourilor electrice de automatizare</li>
+                    <li>Implementarea sistemului de automatizare</li>
+                    <li>Mentenanța post instalare SmartHome</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>Умный Дом</h3>
-            <p>Проводная и беспроводная автоматизация: управление светом, климатом, сценариями и защитой от протечек.</p>
-            <a href="smart-home.html">Подробнее &rarr;</a>
-        </div>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 PRO_ENGINEERING. Кишинев, Молдова. Все права защищены.</p>
+        <p>© 2026 PRO_ENGINEERING. Chișinău, Moldova.</p>
     </footer>
 
+    <script>
+        const translations = {
+            ro: {
+                heroTitle: "Instalații Electrice & SmartHome în Chișinău",
+                heroDesc: "Proiectare, montaj și automatizări moderne pentru locuința sau afacerea ta.",
+                heroCta: "Contactează-ne",
+                sec1: "Servicii Electrice",
+                card1Title: "Proiectare & Audit",
+                card1List: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice"],
+                card2Title: "Execuție & Montaj",
+                card2List: ["Montarea și înlocuirea cablurilor electrice", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice"],
+                card3Title: "Tablouri & Avarii",
+                card3List: ["Asamblare panou distribuție", "Intervenții de avariere"],
+                sec2: "Sisteme Curenți Slabi",
+                card4Title: "Rețele & Wi-Fi",
+                card4List: ["Instalații Rețele Locale / Corporative Internet", "Puncte acces Wi-Fi"],
+                card5Title: "Securitate & Acces",
+                card5List: ["Sisteme de securitate antiefracție", "Sisteme supraveghere Video", "Instalații Videointerfonie și Control acces"],
+                card6Title: "Multimedia",
+                card6List: ["Instalații sisteme Audio / Multimedia"],
+                sec3: "SmartHome",
+                card7Title: "Proiectare & Implementare",
+                card7List: ["Elaborarea proiectului tehnic", "Stabilirea caietului de sarcini", "Execuția tablourilor electrice de automatizare", "Implementarea sistemului de automatizare", "Mentenanța post instalare SmartHome"]
+            },
+            ru: {
+                heroTitle: "Электромонтаж и Умный Дом в Кишиневе",
+                heroDesc: "Проектирование, монтаж и современная автоматизация для вашего дома и бизнеса.",
+                heroCta: "Связаться с нами",
+                sec1: "Электромонтажные услуги",
+                card1Title: "Проектирование и Аудит",
+                card1List: ["Проектирование электроустановок", "Аудит электрических сетей"],
+                card2Title: "Монтаж и Работы",
+                card2List: ["Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники"],
+                card3Title: "Щиты и Аварии",
+                card3List: ["Сборка распределительных щитов", "Оперативный выезд при авариях"],
+                sec2: "Слаботочные системы",
+                card4Title: "Сети и Wi-Fi",
+                card4List: ["Монтаж локальных / корпоративных сетей", "Установка точек доступа Wi-Fi"],
+                card5Title: "Безопасность и Контроль",
+                card5List: ["Охранная сигнализация", "Системы видеонаблюдения", "Видеодомофоны и контроль доступа (СКУД)"],
+                card6Title: "Мультимедиа",
+                card6List: ["Аудио и мультимедийные системы"],
+                sec3: "Умный Дом (SmartHome)",
+                card7Title: "Проектирование и Внедрение",
+                card7List: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы автоматизации", "Обслуживание и сервисный уход"]
+            },
+            en: {
+                heroTitle: "Electrical Services & SmartHome in Chisinau",
+                heroDesc: "Design, installation, and modern automation for your home or business.",
+                heroCta: "Contact Us",
+                sec1: "Electrical Services",
+                card1Title: "Design & Audit",
+                card1List: ["Electrical Installation Design", "Electrical Audit"],
+                card2Title: "Execution & Installation",
+                card2List: ["Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection"],
+                card3Title: "Panels & Emergency",
+                card3List: ["Distribution Board Assembly", "Emergency Repairs"],
+                sec2: "Low Voltage Systems",
+                card4Title: "Networks & Wi-Fi",
+                card4List: ["Local / Corporate Network Installation", "Wi-Fi Access Points"],
+                card5Title: "Security & Access",
+                card5List: ["Burglar Alarm Systems", "Video Surveillance", "Video Intercom & Access Control"],
+                card6Title: "Multimedia",
+                card6List: ["Audio & Multimedia Systems"],
+                sec3: "SmartHome",
+                card7Title: "Design & Implementation",
+                card7List: ["Technical Design Development", "Terms of Reference (ToR) Setup", "Automation Control Panel Assembly", "Automation System Implementation", "Post-installation Maintenance"]
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const t = translations[lang];
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('hero-cta').innerText = t.heroCta;
+
+            document.getElementById('sec-1-title').innerText = t.sec1;
+            document.getElementById('card-1-title').innerText = t.card1Title;
+            updateList('card-1-list', t.card1List);
+            document.getElementById('card-2-title').innerText = t.card2Title;
+            updateList('card-2-list', t.card2List);
+            document.getElementById('card-3-title').innerText = t.card3Title;
+            updateList('card-3-list', t.card3List);
+
+            document.getElementById('sec-2-title').innerText = t.sec2;
+            document.getElementById('card-4-title').innerText = t.card4Title;
+            updateList('card-4-list', t.card4List);
+            document.getElementById('card-5-title').innerText = t.card5Title;
+            updateList('card-5-list', t.card5List);
+            document.getElementById('card-6-title').innerText = t.card6Title;
+            updateList('card-6-list', t.card6List);
+
+            document.getElementById('sec-3-title').innerText = t.sec3;
+            document.getElementById('card-7-title').innerText = t.card7Title;
+            updateList('card-7-list', t.card7List);
+        }
+
+        function updateList(elementId, items) {
+            const el = document.getElementById(elementId);
+            el.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                el.appendChild(li);
+            });
+        }
+    </script>
 </body>
 </html>
