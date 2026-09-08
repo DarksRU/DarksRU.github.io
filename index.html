@@ -5,131 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO_ENGINEERING | Servicii Electrice & SmartHome</title>
     <style>
-    :root {
-        --bg-color: #080c14;
-        --card-bg: rgba(17, 24, 39, 0.75);
-        --accent-color: #00f2fe;
-        --text-color: #f3f4f6;
-        --text-muted: #9ca3af;
-        --border-color: rgba(31, 41, 61, 0.8);
-    }
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(31, 41, 61, 0.8);
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(79, 172, 254, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            color: var(--text-color); 
+            line-height: 1.5; 
+        }
 
-    body { 
-        background-color: var(--bg-color); 
-        /* Технологичный фон: неоновый свет + тонкая сетка */
-        background-image: 
-            radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(79, 172, 254, 0.1) 0%, transparent 40%),
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-        background-attachment: fixed;
-        color: var(--text-color); 
-        line-height: 1.5; 
-    }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2rem; background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    header {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 1rem 2rem; background: rgba(11, 15, 25, 0.85);
-        backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
-        border-bottom: 1px solid var(--border-color);
-    }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); text-decoration: none; }
+        .lang-switcher { display: flex; gap: 6px; }
+        .lang-btn {
+            background: transparent; border: 1px solid var(--border-color);
+            color: var(--text-color); padding: 4px 10px; border-radius: 6px;
+            cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+        }
+        .lang-btn.active, .lang-btn:hover { background: var(--accent-color); color: #000; border-color: var(--accent-color); font-weight: bold; }
 
-    .logo { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); text-decoration: none; }
-    .lang-switcher { display: flex; gap: 6px; }
-    .lang-btn {
-        background: transparent; border: 1px solid var(--border-color);
-        color: var(--text-color); padding: 4px 10px; border-radius: 6px;
-        cursor: pointer; font-size: 0.85rem; transition: 0.2s;
-    }
-    .lang-btn.active, .lang-btn:hover { background: var(--accent-color); color: #000; border-color: var(--accent-color); font-weight: bold; }
+        .hero { text-align: center; padding: 2.5rem 1rem 1.5rem; max-width: 800px; margin: 0 auto; }
+        .hero h1 {
+            font-size: 2rem; margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { color: var(--text-muted); font-size: 1rem; }
 
-    .hero { text-align: center; padding: 2.5rem 1rem 1.5rem; max-width: 800px; margin: 0 auto; }
-  .container { 
-        max-width: 1600px; 
-        margin: 0 auto; 
-        padding: 2rem 1.5rem; 
-    }
+        .container { 
+            max-width: 1600px; 
+            margin: 0 auto; 
+            padding: 2rem 1.5rem; 
+        }
 
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(260px, 1fr));
-        gap: 1.2rem;
-    }
-
-    .service-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        transition: 0.3s;
-        backdrop-filter: blur(6px);
-    }
-
-    .service-card:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 242, 254, 0.15);
-    }
-
-    .icon {
-        font-size: 2.2rem;
-        margin-bottom: 0.8rem;
-        display: inline-block;
-    }
-
-    .service-card h3 {
-        color: var(--accent-color);
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 0.5rem;
-    }
-
-    .service-card ul {
-        list-style: none;
-        flex-grow: 1;
-    }
-
-    .service-card ul li {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 8px;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-    }
-
-    .service-card ul li::before {
-        content: "✓";
-        color: var(--accent-color);
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-    }
-
-    /* Адаптируем под планшеты и мобилки */
-    @media (max-width: 1200px) {
         .services-grid {
-            grid-template-columns: repeat(2, 1fr);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
         }
-    }
 
-    @media (max-width: 650px) {
-        .services-grid {
-            grid-template-columns: 1fr;
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
         }
-    }
-       footer { 
-            text-align: center; 
-            padding: 1.5rem; 
-            border-top: 1px solid var(--border-color); 
-            color: var(--text-muted); 
-            font-size: 0.85rem; 
+
+        .service-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.15);
         }
+
+        .icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .service-card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 650px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
+        footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -142,6 +138,19 @@
             <button class="lang-btn" onclick="setLang('en')">EN</button>
         </div>
     </header>
+
+    <section class="hero">
+        <h1 id="hero-title">Servicii Electrice & Inginerie în Chișinău</h1>
+        <p id="hero-desc">Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.</p>
+    </section>
+
+    <div class="container">
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="icon">⚡</div>
+                <h3 id="c1-title">Instalații Electrice</h3>
+                <ul id="c1-list">
                     <li>Proiectare Instalații Electrice</li>
                     <li>Auditul instalațiilor electrice</li>
                     <li>Montarea și înlocuirea cablurilor</li>
@@ -153,7 +162,6 @@
                 </ul>
             </div>
 
-            <!-- 2. CURENTI SLABI -->
             <div class="service-card">
                 <div class="icon">🌐</div>
                 <h3 id="c2-title">Sisteme Curenți Slabi</h3>
@@ -167,7 +175,6 @@
                 </ul>
             </div>
 
-            <!-- 3. SMART HOME -->
             <div class="service-card">
                 <div class="icon">🏠</div>
                 <h3 id="c3-title">SmartHome</h3>
@@ -180,7 +187,6 @@
                 </ul>
             </div>
 
-            <!-- 4. AUTOMATIZARI INDUSTRIALE -->
             <div class="service-card">
                 <div class="icon">🏭</div>
                 <h3 id="c4-title">Automatizări Industriale</h3>
@@ -225,7 +231,7 @@
                 c3: "Умный Дом (SmartHome)",
                 c3_l: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы SmartHome", "Сервисное обслуживание"],
                 c4: "Пром. Автоматизация",
-                c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация лини производства"]
+                c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация линий производства"]
             },
             en: {
                 title: "Electrical & Engineering Services in Chisinau",
