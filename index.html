@@ -123,29 +123,25 @@
             grid-template-columns: 1fr;
         }
     }
-        color: var(--accent-color);
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-    }
+       footer { 
+            text-align: center; 
+            padding: 1.5rem; 
+            border-top: 1px solid var(--border-color); 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+        }
+    </style>
+</head>
+<body>
 
-    footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
-</style>
+    <header>
+        <a href="#" class="logo">PRO_ENGINEERING</a>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('ro')">RO</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
     </header>
-
-    <section class="hero">
-        <h1 id="hero-title">Servicii Electrice & Inginerie în Chișinău</h1>
-        <p id="hero-desc">Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.</p>
-    </section>
-
-    <div class="container">
-        <div class="services-grid">
-            
-            <!-- 1. ELECTRICE -->
-            <div class="service-card">
-                <div class="icon">⚡</div>
-                <h3 id="c1-title">Instalații Electrice</h3>
-                <ul id="c1-list">
                     <li>Proiectare Instalații Electrice</li>
                     <li>Auditul instalațiilor electrice</li>
                     <li>Montarea și înlocuirea cablurilor</li>
