@@ -7,89 +7,118 @@
     <style>
         :root {
             --bg-color: #080c14;
-            --card-bg: rgba(17, 24, 39, 0.75);
+            --card-bg: rgba(11, 15, 25, 0.75);
             --accent-color: #00f2fe;
             --text-color: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: rgba(31, 41, 61, 0.8);
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-        
-       body { 
-            background-color: var(--bg-color); 
-            /* Фото дома на фоне с затемнением для читаемости текста */
-            background-image: 
-                linear-gradient(rgba(8, 12, 20, 0.8), rgba(8, 12, 20, 0.8)), 
-                url('bg.jpg'); 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--text-color); 
-            line-height: 1.5; 
+            color: var(--text-color);
+            line-height: 1.6;
         }
-
         header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 2rem; background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
             border-bottom: 1px solid var(--border-color);
         }
-
-        .logo { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); text-decoration: none; }
-        .lang-switcher { display: flex; gap: 6px; }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .lang-switcher {
+            display: flex;
+            gap: 6px;
+        }
         .lang-btn {
-            background: transparent; border: 1px solid var(--border-color);
-            color: var(--text-color); padding: 4px 10px; border-radius: 6px;
-            cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.2s;
         }
-        .lang-btn.active, .lang-btn:hover { background: var(--accent-color); color: #000; border-color: var(--accent-color); font-weight: bold; }
-
-        .hero { text-align: center; padding: 2.5rem 1rem 1.5rem; max-width: 800px; margin: 0 auto; }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
         .hero h1 {
-            font-size: 2rem; margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             background: linear-gradient(45deg, #00f2fe, #4facfe);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .hero p { color: var(--text-muted); font-size: 1rem; }
-
-        .container { 
-            max-width: 1600px; 
-            margin: 0 auto; 
-            padding: 2rem 1.5rem; 
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
         }
-
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin: 3rem 0 1.5rem;
+        }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.2rem;
         }
-
-       .service-card {
-    background: rgba(11, 15, 25, 0.75);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
         .service-card:hover {
             border-color: var(--accent-color);
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.15);
         }
-
         .icon {
             font-size: 2.2rem;
             margin-bottom: 0.8rem;
-            display: inline-block;
         }
-
         .service-card h3 {
             color: var(--accent-color);
             font-size: 1.25rem;
@@ -97,20 +126,16 @@
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
-
         .service-card ul {
             list-style: none;
-            flex-grow: 1;
         }
-
         .service-card ul li {
             position: relative;
             padding-left: 20px;
             margin-bottom: 8px;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
-
         .service-card ul li::before {
             content: "✓";
             color: var(--accent-color);
@@ -118,16 +143,47 @@
             left: 0;
             font-weight: bold;
         }
-
-        @media (max-width: 1200px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .about-box, .contact-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: center;
         }
-
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+        }
+        .feature-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: rgba(8, 12, 20, 0.95);
+        }
+        @media (max-width: 1100px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 650px) {
             .services-grid { grid-template-columns: 1fr; }
         }
-
-        footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -147,62 +203,59 @@
     </section>
 
     <div class="container">
+        
+        <!-- SERVICES SECTION -->
+        <h2 class="section-title" id="sec-services">Serviciile Noastre</h2>
         <div class="services-grid">
-            
             <div class="service-card">
                 <div class="icon">⚡</div>
                 <h3 id="c1-title">Instalații Electrice</h3>
-                <ul id="c1-list">
-                    <li>Proiectare Instalații Electrice</li>
-                    <li>Auditul instalațiilor electrice</li>
-                    <li>Montarea și înlocuirea cablurilor</li>
-                    <li>Montare prize și întrerupătoare</li>
-                    <li>Instalații Iluminare</li>
-                    <li>Conectare electrocasnice</li>
-                    <li>Asamblare panou distribuție</li>
-                    <li>Intervenții de avariere</li>
-                </ul>
+                <ul id="c1-list"></ul>
             </div>
-
             <div class="service-card">
                 <div class="icon">🌐</div>
                 <h3 id="c2-title">Sisteme Curenți Slabi</h3>
-                <ul id="c2-list">
-                    <li>Rețele Locale / Internet</li>
-                    <li>Puncte acces Wi-Fi</li>
-                    <li>Sisteme antiefracție</li>
-                    <li>Supraveghere Video</li>
-                    <li>Videointerfonie & Control acces</li>
-                    <li>Sisteme Audio / Multimedia</li>
-                </ul>
+                <ul id="c2-list"></ul>
             </div>
-
             <div class="service-card">
                 <div class="icon">🏠</div>
                 <h3 id="c3-title">SmartHome</h3>
-                <ul id="c3-list">
-                    <li>Elaborarea proiectului tehnic</li>
-                    <li>Stabilirea caietului de sarcini</li>
-                    <li>Execuția tablourilor de automatizare</li>
-                    <li>Implementarea sistemului SmartHome</li>
-                    <li>Mentenanță post instalare</li>
-                </ul>
+                <ul id="c3-list"></ul>
             </div>
-
             <div class="service-card">
                 <div class="icon">🏭</div>
                 <h3 id="c4-title">Automatizări Industriale</h3>
-                <ul id="c4-list">
-                    <li>Asamblare tablouri automatizare (PLC)</li>
-                    <li>Programare controlere industriale</li>
-                    <li>Dulapuri de comandă și protecție</li>
-                    <li>Convertizoare de frecvență</li>
-                    <li>Senzori industriali & traductori</li>
-                    <li>Automatizare linii de producție</li>
-                </ul>
+                <ul id="c4-list"></ul>
             </div>
-
         </div>
+
+        <!-- ABOUT SECTION -->
+        <h2 class="section-title" id="sec-about">De Ce Noi?</h2>
+        <div class="about-box">
+            <p id="about-text">Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune. Garantăm calitate înaltă, siguranță și respectarea termenilor limita.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4 id="f1-t">Calitate & Siguranță</h4>
+                    <p id="f1-d">Respectăm toate normele și standardele tehnice în vigoare.</p>
+                </div>
+                <div class="feature-item">
+                    <h4 id="f2-t">Proiecte Complexe</h4>
+                    <p id="f2-d">De la case inteligente până la linii industriale automatizate.</p>
+                </div>
+                <div class="feature-item">
+                    <h4 id="f3-t">Garanție & Suport</h4>
+                    <p id="f3-d">Mentenanță și asistență tehnică post-instalare.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <h2 class="section-title" id="sec-contact">Contactează-ne</h2>
+        <div class="contact-box">
+            <p id="contact-desc">Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.</p>
+            <p style="margin-top: 1rem; font-size: 1.2rem; color: var(--accent-color);"><strong>📍 Chișinău, Moldova</strong></p>
+        </div>
+
     </div>
 
     <footer>
@@ -214,48 +267,70 @@
             ro: {
                 title: "Servicii Electrice & Inginerie în Chișinău",
                 desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
-                c1: "Instalații Electrice",
-                c1_l: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice", "Montarea și înlocuirea cablurilor", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice", "Asamblare panou distribuție", "Intervenții de avariere"],
-                c2: "Sisteme Curenți Slabi",
-                c2_l: ["Rețele Locale / Internet", "Puncte acces Wi-Fi", "Sisteme antiefracție", "Supraveghere Video", "Videointerfonie & Control acces", "Sisteme Audio / Multimedia"],
-                c3: "SmartHome",
-                c3_l: ["Elaborarea proiectului tehnic", "Stabilirea caietului de sarcini", "Execuția tablourilor de automatizare", "Implementarea sistemului SmartHome", "Mentenanță post instalare"],
-                c4: "Automatizări Industriale",
-                c4_l: ["Asamblare tablouri automatizare (PLC)", "Programare controlere industriale", "Dulapuri de comandă și protecție", "Convertizoare de frecvență", "Senzori industriali & traductori", "Automatizare linii de producție"]
+                sec_services: "Serviciile Noastre",
+                sec_about: "De Ce Noi?",
+                sec_contact: "Contactează-ne",
+                about_text: "Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune. Garantăm calitate înaltă, siguranță și respectarea termenilor limita.",
+                f1_t: "Calitate & Siguranță", f1_d: "Respectăm toate normele și standardele tehnice în vigoare.",
+                f2_t: "Proiecte Complexe", f2_d: "De la case inteligente până la linii industriale automatizate.",
+                f3_t: "Garanție & Suport", f3_d: "Mentenanță și asistență tehnică post-instalare.",
+                contact_desc: "Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.",
+                c1: "Instalații Electrice", c1_l: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice", "Montarea și înlocuirea cablurilor", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice", "Asamblare panou distribuție", "Intervenții de avariere"],
+                c2: "Sisteme Curenți Slabi", c2_l: ["Rețele Locale / Internet", "Puncte acces Wi-Fi", "Sisteme antiefracție", "Supraveghere Video", "Videointerfonie & Control acces", "Sisteme Audio / Multimedia"],
+                c3: "SmartHome", c3_l: ["Elaborarea proiectului tehnic", "Stabilirea caietului de sarcini", "Execuția tablourilor de automatizare", "Implementarea sistemului SmartHome", "Mentenanță post instalare"],
+                c4: "Automatizări Industriale", c4_l: ["Asamblare tablouri automatizare (PLC)", "Programare controlere industriale", "Dulapuri de comandă și protecție", "Convertizoare de frecvență", "Senzori industriali & traductori", "Automatizare linii de producție"]
             },
             ru: {
                 title: "Электромонтаж и Инженерия в Кишиневе",
                 desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
-                c1: "Электромонтажные работы",
-                c1_l: ["Проектирование электроустановок", "Аудит электрических сетей", "Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники", "Сборка распределительных щитов", "Оперативный выезд при авариях"],
-                c2: "Слаботочные системы",
-                c2_l: ["Локальные и интернет сети", "Установка точек доступа Wi-Fi", "Охранная сигнализация", "Видеонаблюдение", "СКУД и видеодомофоны", "Аудио и мультимедийные системы"],
-                c3: "Умный Дом (SmartHome)",
-                c3_l: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы SmartHome", "Сервисное обслуживание"],
-                c4: "Пром. Автоматизация",
-                c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация линий производства"]
+                sec_services: "Наши Услуги",
+                sec_about: "Почему Мы?",
+                sec_contact: "Связаться с нами",
+                about_text: "Мы предоставляем полный спектр инженерных решений от проектирования до сдачи объекта под ключ. Гарантируем высокое качество, безопасность и соблюдение сроков.",
+                f1_t: "Качество и Безопасность", f1_d: "Строго соблюдаем все действующих нормы и технические стандарты.",
+                f2_t: "Сложные Проекты", f2_d: "От систем «Умный Дом» до автоматизированных промышленных линий.",
+                f3_t: "Гарантия и Поддержка", f3_d: "Сервисное обслуживание и техническая поддержка после монтажа.",
+                contact_desc: "Готовы начать проект? Свяжитесь с нами для консультации или расчёта стоимости.",
+                c1: "Электромонтажные работы", c1_l: ["Проектирование электроустановок", "Аудит электрических сетей", "Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники", "Сборка распределительных щитов", "Оперативный выезд при авариях"],
+                c2: "Слаботочные системы", c2_l: ["Локальные и интернет сети", "Установка точек доступа Wi-Fi", "Охранная сигнализация", "Видеонаблюдение", "СКУД и видеодомофоны", "Аудио и мультимедийные системы"],
+                c3: "Умный Дом (SmartHome)", c3_l: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы SmartHome", "Сервисное обслуживание"],
+                c4: "Пром. Автоматизация", c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация линий производства"]
             },
             en: {
                 title: "Electrical & Engineering Services in Chisinau",
                 desc: "Design, installation, and automation for residential and industrial projects.",
-                c1: "Electrical Services",
-                c1_l: ["Electrical Installation Design", "Electrical Audit", "Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection", "Distribution Board Assembly", "Emergency Repairs"],
-                c2: "Low Voltage Systems",
-                c2_l: ["Local & Internet Networks", "Wi-Fi Access Points", "Burglar Alarm Systems", "Video Surveillance", "Access Control & Video Intercom", "Audio & Multimedia Systems"],
-                c3: "SmartHome",
-                c3_l: ["Technical Design Development", "Terms of Reference (ToR) Setup", "Automation Control Panel Assembly", "SmartHome System Setup", "Post-installation Maintenance"],
-                c4: "Industrial Automation",
-                c4_l: ["PLC Automation Panel Assembly", "Industrial Controller Programming", "Control & Protection Cabinets", "Frequency Inverters", "Industrial Sensors & Transducers", "Production Line Automation"]
+                sec_services: "Our Services",
+                sec_about: "Why Choose Us?",
+                sec_contact: "Contact Us",
+                about_text: "We provide complete engineering solutions from design to commissioning. We guarantee top quality, safety, and meeting deadlines.",
+                f1_t: "Quality & Safety", f1_d: "We strictly comply with all current technical standards and norms.",
+                f2_t: "Complex Projects", f2_d: "From Smart Home systems to fully automated industrial lines.",
+                f3_t: "Warranty & Support", f3_d: "Post-installation maintenance and dedicated technical support.",
+                contact_desc: "Ready to start your project? Contact us for a consultation or quote.",
+                c1: "Electrical Services", c1_l: ["Electrical Installation Design", "Electrical Audit", "Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection", "Distribution Board Assembly", "Emergency Repairs"],
+                c2: "Low Voltage Systems", c2_l: ["Local & Internet Networks", "Wi-Fi Access Points", "Burglar Alarm Systems", "Video Surveillance", "Access Control & Video Intercom", "Audio & Multimedia Systems"],
+                c3: "SmartHome", c3_l: ["Technical Design Development", "Terms of Reference (ToR) Setup", "Automation Control Panel Assembly", "SmartHome System Setup", "Post-installation Maintenance"],
+                c4: "Industrial Automation", c4_l: ["PLC Automation Panel Assembly", "Industrial Controller Programming", "Control & Protection Cabinets", "Frequency Inverters", "Industrial Sensors & Transducers", "Production Line Automation"]
             }
         };
 
         function setLang(lang) {
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-
             const t = translations[lang];
+
             document.getElementById('hero-title').innerText = t.title;
             document.getElementById('hero-desc').innerText = t.desc;
+            document.getElementById('sec-services').innerText = t.sec_services;
+            document.getElementById('sec-about').innerText = t.sec_about;
+            document.getElementById('sec-contact').innerText = t.sec_contact;
+            document.getElementById('about-text').innerText = t.about_text;
+
+            document.getElementById('f1-t').innerText = t.f1_t; document.getElementById('f1-d').innerText = t.f1_d;
+            document.getElementById('f2-t').innerText = t.f2_t; document.getElementById('f2-d').innerText = t.f2_d;
+            document.getElementById('f3-t').innerText = t.f3_t; document.getElementById('f3-d').innerText = t.f3_d;
+
+            document.getElementById('contact-desc').innerText = t.contact_desc;
 
             document.getElementById('c1-title').innerText = t.c1; updateList('c1-list', t.c1_l);
             document.getElementById('c2-title').innerText = t.c2; updateList('c2-list', t.c2_l);
@@ -264,9 +339,20 @@
         }
 
         function updateList(id, items) {
-            const el = document.getElementById(id); el.innerHTML = '';
-            items.forEach(i => { const li = document.createElement('li'); li.innerText = i; el.appendChild(li); });
+            const el = document.getElementById(id);
+            el.innerHTML = '';
+            items.forEach(i => {
+                const li = document.createElement('li');
+                li.innerText = i;
+                el.appendChild(li);
+            });
         }
+
+        // Init
+        updateList('c1-list', translations.ro.c1_l);
+        updateList('c2-list', translations.ro.c2_l);
+        updateList('c3-list', translations.ro.c3_l);
+        updateList('c4-list', translations.ro.c4_l);
     </script>
 </body>
 </html>
