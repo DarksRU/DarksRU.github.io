@@ -6,7 +6,189 @@
     <title>Servicii Electrice | PRO_ENGINEERING</title>
 
     <style>
-        /* Стили остаются без изменений */
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(11, 15, 25, 0.60);
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(31, 41, 61, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(
+                    rgba(8, 12, 20, 0.82),
+                    rgba(8, 12, 20, 0.82)
+                ),
+                url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            padding: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .lang-btn {
+            padding: 5px 10px;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            color: #000;
+            background: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 10px 20px;
+            color: var(--accent-color);
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #000;
+            background: var(--accent-color);
+        }
+
+        .page-title {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            background: linear-gradient(
+                135deg,
+                #fff 0%,
+                var(--accent-color) 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-desc {
+            max-width: 800px;
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(300px, 1fr)
+            );
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-item {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            transition:
+                transform 0.3s,
+                border-color 0.3s;
+        }
+
+        .service-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            margin-bottom: 0.8rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .service-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 
@@ -17,19 +199,53 @@
         </a>
 
         <div class="lang-switch">
-            <button type="button" class="lang-btn" data-lang="ro" onclick="setLang('ro')">RO</button>
-            <button type="button" class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-            <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="ro"
+                onclick="setLang('ro')"
+            >
+                RO
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="ru"
+                onclick="setLang('ru')"
+            >
+                RU
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="en"
+                onclick="setLang('en')"
+            >
+                EN
+            </button>
         </div>
     </header>
 
     <main class="container">
-        <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
+        <a href="index.html" class="back-btn" id="back-btn">
+            ← Înapoi
+        </a>
 
-        <h1 class="page-title" id="page-title">Servicii Electrice</h1>
-        <p class="page-desc" id="page-desc">Soluții electrice complete pentru proiecte rezidențiale și comerciale.</p>
+        <h1 class="page-title" id="page-title">
+            Servicii Electrice
+        </h1>
 
-        <h2 class="section-title" id="services-title">Servicii la fața locului</h2>
+        <p class="page-desc" id="page-desc">
+            Soluții complete de electrificare pentru proiecte
+            rezidențiale și comerciale.
+        </p>
+
+        <h2 class="section-title" id="services-title">
+            Servicii la fața locului
+        </h2>
+
         <div class="services-list" id="services-list"></div>
     </main>
 
@@ -41,56 +257,159 @@
         const translations = {
             ro: {
                 pageTitle: "Servicii Electrice",
-                pageDesc: "Soluții electrice complete pentru proiecte rezidențiale și comerciale.",
+                pageDesc:
+                    "Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.",
                 backButton: "← Înapoi",
                 servicesTitle: "Servicii la fața locului",
                 services: [
-                    { title: "Proiectare instalații electrice", desc: "Proiectare conform normelor de siguranță." },
-                    { title: "Audit instalații electrice", desc: "Evaluare și recomandări pentru îmbunătățire." },
-                    { title: "Montaj cabluri", desc: "Montaj profesional de cabluri de calitate." },
-                    { title: "Instalare prize și întrerupătoare", desc: "Montaj în locațiile stabilite." },
-                    { title: "Instalații de iluminat", desc: "Proiectare și instalare eficiente." },
-                    { title: "Conectare electrocasnice", desc: "Conectare sigură a aparatelor." },
-                    { title: "Asamblare panouri de distribuție", desc: "Asamblare și cablare corectă." },
-                    { title: "Intervenții de urgență", desc: "Reparații rapide 24/7." }
+                    {
+                        title: "Proiectare instalații electrice",
+                        desc:
+                            "Proiectare detaliată conform normelor tehnice și cerințelor de siguranță electrică."
+                    },
+                    {
+                        title: "Auditul instalațiilor electrice",
+                        desc:
+                            "Evaluarea completă a sistemelor electrice existente și elaborarea recomandărilor."
+                    },
+                    {
+                        title: "Montarea și înlocuirea cablurilor",
+                        desc:
+                            "Montaj profesional de cabluri de calitate, cu certificat de conformitate."
+                    },
+                    {
+                        title: "Montarea prizelor și întrerupătoarelor",
+                        desc:
+                            "Instalarea prizelor și întrerupătoarelor în locațiile stabilite."
+                    },
+                    {
+                        title: "Instalații de iluminat",
+                        desc:
+                            "Proiectarea și instalarea sistemelor eficiente de iluminat."
+                    },
+                    {
+                        title: "Conectarea electrocasnicelor",
+                        desc:
+                            "Conectarea sigură a aparatelor electrice și electronice."
+                    },
+                    {
+                        title: "Asamblarea panourilor de distribuție",
+                        desc:
+                            "Asamblarea și cablarea panourilor electrice de distribuție."
+                    },
+                    {
+                        title: "Intervenții de urgență",
+                        desc:
+                            "Reparații rapide și intervenții de urgență 24/7."
+                    }
                 ]
             },
+
             ru: {
                 pageTitle: "Электромонтажные услуги",
-                pageDesc: "Полный спектр электромонтажных решений для жилых и коммерческих объектов.",
+                pageDesc:
+                    "Полный комплекс электромонтажных решений для жилых и коммерческих объектов.",
                 backButton: "← Назад",
                 servicesTitle: "Услуги на объекте",
                 services: [
-                    { title: "Проектирование электроустановок", desc: "Проектирование по нормам безопасности." },
-                    { title: "Аудит электроустановок", desc: "Оценка и рекомендации по улучшению." },
-                    { title: "Монтаж кабелей", desc: "Профессиональный монтаж качественных кабелей." },
-                    { title: "Установка розеток и выключателей", desc: "Монтаж в предусмотренных местах." },
-                    { title: "Монтаж освещения", desc: "Эффективное проектирование и установка." },
-                    { title: "Подключение бытовой техники", desc: "Безопасное подключение приборов." },
-                    { title: "Сборка распределительных щитов", desc: "Правильная сборка и подключение." },
-                    { title: "Аварийные работы", desc: "Быстрые ремонты 24/7." }
+                    {
+                        title: "Проектирование электроустановок",
+                        desc:
+                            "Детальное проектирование в соответствии с техническими нормами и требованиями электробезопасности."
+                    },
+                    {
+                        title: "Аудит электроустановок",
+                        desc:
+                            "Полная оценка существующих электрических систем и разработка рекомендаций."
+                    },
+                    {
+                        title: "Монтаж и замена кабелей",
+                        desc:
+                            "Профессиональный монтаж качественных сертифицированных кабелей."
+                    },
+                    {
+                        title: "Установка розеток и выключателей",
+                        desc:
+                            "Монтаж розеток и выключателей в предусмотренных местах."
+                    },
+                    {
+                        title: "Монтаж освещения",
+                        desc:
+                            "Проектирование и установка эффективных систем освещения."
+                    },
+                    {
+                        title: "Подключение бытовой техники",
+                        desc:
+                            "Безопасное подключение электрических и электронных приборов."
+                    },
+                    {
+                        title: "Сборка распределительных щитов",
+                        desc:
+                            "Сборка и подключение электрических распределительных щитов."
+                    },
+                    {
+                        title: "Аварийные работы",
+                        desc:
+                            "Оперативный ремонт и аварийные выезды 24/7."
+                    }
                 ]
             },
+
             en: {
                 pageTitle: "Electrical Services",
-                pageDesc: "Complete electrical solutions for residential and commercial projects.",
+                pageDesc:
+                    "Complete electrical solutions for residential and commercial projects.",
                 backButton: "← Back",
                 servicesTitle: "On-Site Services",
                 services: [
-                    { title: "Electrical Installation Design", desc: "Design compliant with safety standards." },
-                    { title: "Electrical Installation Audit", desc: "Evaluation and improvement recommendations." },
-                    { title: "Cable Installation", desc: "Professional installation of quality cables." },
-                    { title: "Socket and Switch Installation", desc: "Installation in designated locations." },
-                    { title: "Lighting Installation", desc: "Efficient design and installation." },
-                    { title: "Appliance Connection", desc: "Safe connection of appliances." },
-                    { title: "Distribution Panel Assembly", desc: "Correct assembly and wiring." },
-                    { title: "Emergency Repairs", desc: "Fast repairs available 24/7." }
+                    {
+                        title: "Electrical Installation Design",
+                        desc:
+                            "Detailed design compliant with technical standards and electrical safety requirements."
+                    },
+                    {
+                        title: "Electrical Installation Audit",
+                        desc:
+                            "Complete evaluation of existing electrical systems with improvement recommendations."
+                    },
+                    {
+                        title: "Cable Installation and Replacement",
+                        desc:
+                            "Professional installation of high-quality certified cabling."
+                    },
+                    {
+                        title: "Socket and Switch Installation",
+                        desc:
+                            "Installation of sockets and switches in designated locations."
+                    },
+                    {
+                        title: "Lighting Installation",
+                        desc:
+                            "Design and installation of efficient lighting systems."
+                    },
+                    {
+                        title: "Appliance Connection",
+                        desc:
+                            "Safe connection of electrical appliances and electronic equipment."
+                    },
+                    {
+                        title: "Distribution Panel Assembly",
+                        desc:
+                            "Assembly and wiring of electrical distribution panels."
+                    },
+                    {
+                        title: "Emergency Repairs",
+                        desc:
+                            "Fast repairs and emergency interventions available 24/7."
+                    }
                 ]
             }
         };
 
         function renderServices(services) {
-            const container = document.getElementById("services-list");
+            const container =
+                document.getElementById("services-list");
+
             container.replaceChildren();
 
             services.forEach((service) => {
@@ -109,25 +428,38 @@
         }
 
         function setLang(lang) {
-            const translation = translations[lang] || translations.ro;
+            const translation =
+                translations[lang] || translations.ro;
 
             localStorage.setItem("preferred_lang", lang);
             document.documentElement.lang = lang;
 
             document.querySelectorAll(".lang-btn").forEach((button) => {
-                button.classList.toggle("active", button.dataset.lang === lang);
+                button.classList.toggle(
+                    "active",
+                    button.dataset.lang === lang
+                );
             });
 
-            document.getElementById("page-title").textContent = translation.pageTitle;
-            document.getElementById("page-desc").textContent = translation.pageDesc;
-            document.getElementById("back-btn").textContent = translation.backButton;
-            document.getElementById("services-title").textContent = translation.servicesTitle;
+            document.getElementById("page-title").textContent =
+                translation.pageTitle;
+
+            document.getElementById("page-desc").textContent =
+                translation.pageDesc;
+
+            document.getElementById("back-btn").textContent =
+                translation.backButton;
+
+            document.getElementById("services-title").textContent =
+                translation.servicesTitle;
 
             renderServices(translation.services);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem("preferred_lang") || "ro";
+            const savedLang =
+                localStorage.getItem("preferred_lang") || "ro";
+
             setLang(savedLang);
         });
     </script>
