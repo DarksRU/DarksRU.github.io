@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sisteme Curenți Slabi | PRO_ENGINEERING</title>
+    <meta name="description" content="Proiectare, instalare și configurare profesională a sistemelor de curenți slabi: rețele de date, Wi-Fi, supraveghere video, control acces și sisteme de securitate.">
     <style>
         :root {
             --bg-color: #080c14;
@@ -35,6 +36,7 @@
             padding: 1rem 2rem;
             background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
@@ -47,6 +49,7 @@
             color: #fff;
             text-decoration: none;
             cursor: pointer;
+            transition: color 0.3s;
         }
         .logo:hover {
             color: var(--accent-color);
@@ -78,7 +81,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.5rem 4rem;
         }
         .back-btn {
             display: inline-block;
@@ -96,17 +99,25 @@
             color: #000;
         }
         .page-title {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 5vw, 2.6rem);
             margin-bottom: 1rem;
+            line-height: 1.2;
             background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .page-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            max-width: 900px;
+        }
+        .page-intro {
+            font-size: 1rem;
+            color: #d1d5db;
             margin-bottom: 3rem;
-            max-width: 800px;
+            max-width: 900px;
         }
         .section-title {
             font-size: 1.8rem;
@@ -119,7 +130,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
         }
         .service-item {
             background: var(--card-bg);
@@ -127,53 +137,24 @@
             border-radius: 12px;
             padding: 1.5rem;
             backdrop-filter: blur(12px);
-            transition: transform 0.3s, border-color 0.3s;
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         .service-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.08);
         }
         .service-item h3 {
             color: var(--accent-color);
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
+            line-height: 1.35;
         }
         .service-item p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .contact-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        .btn-contact {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 1rem;
-            transition: opacity 0.3s;
-        }
-        .btn-contact:hover {
-            opacity: 0.9;
+            line-height: 1.6;
         }
         footer {
             text-align: center;
@@ -182,169 +163,210 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
+        @media (max-width: 600px) {
+            header {
+                padding: 0.9rem 1rem;
+            }
+            .logo {
+                font-size: 1.05rem;
+            }
+            .container {
+                padding: 1.5rem 1rem 3rem;
+            }
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-
     <header>
-        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLang('ro')">RO</button>
-            <button class="lang-btn" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <a href="index.html" class="logo">PRO<span>_ENGINEERING</span></a>
+        <div class="lang-switch" aria-label="Language selection">
+            <button type="button" class="lang-btn" data-lang="ro" onclick="setLang('ro')">RO</button>
+            <button type="button" class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+            <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
     </header>
 
-    <div class="container">
+    <main class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
 
         <h1 class="page-title" id="page-title">Sisteme Curenți Slabi</h1>
-        <p class="page-desc" id="page-desc">Rețele de comunicații, supraveghere și control pentru clădiri inteligente.</p>
 
-        <!-- SERVICII FIZICE (ON-SITE) -->
-        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
-        <div class="services-list" id="onsite-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <p class="page-desc" id="page-desc">
+            Proiectare, instalare și punere în funcțiune a sistemelor de comunicații, securitate și control pentru clădiri rezidențiale și comerciale.
+        </p>
 
-        <!-- SERVICII ONLINE -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <p class="page-intro" id="page-intro">
+            Realizăm soluții complete de curenți slabi: de la infrastructura de cablare structurată până la sisteme de supraveghere, control acces și semnalizare. Fiecare proiect este adaptat cerințelor obiectului, normelor tehnice în vigoare și posibilităților de extindere ulterioară.
+        </p>
 
-        <!-- CONTACT -->
-        <div class="contact-section">
-            <h2 id="contact-title">Gata să începem?</h2>
-            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
-            <a href="https://t.me/your_telegram" class="btn-contact">Contactează-ne pe Telegram</a>
-            <a href="https://t.me/your_telegram" class="btn-contact">Telegram</a>
-        </div>
-    </div>
+        <h2 class="section-title" id="sec-services">Serviciile noastre</h2>
+        <div class="services-list" id="services-list"></div>
+    </main>
 
     <footer>
-        &copy; 2026 PRO_ENGINEERING. All rights reserved.
+        &copy; <span id="current-year"></span> PRO_ENGINEERING. All rights reserved.
     </footer>
 
     <script>
         const translations = {
             ro: {
+                htmlLang: "ro",
+                documentTitle: "Sisteme Curenți Slabi | PRO_ENGINEERING",
                 page_title: "Sisteme Curenți Slabi",
-                page_desc: "Rețele de comunicații, supraveghere și control pentru clădiri inteligente.",
+                page_desc: "Proiectare, instalare și punere în funcțiune a sistemelor de comunicații, securitate și control pentru clădiri rezidențiale și comerciale.",
+                page_intro: "Realizăm soluții complete de curenți slabi: de la infrastructura de cablare structurată până la sisteme de supraveghere, control acces și semnalizare. Fiecare proiect este adaptat cerințelor obiectului, normelor tehnice în vigoare și posibilităților de extindere ulterioară.",
                 back_btn: "← Înapoi",
-                sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
-                contact_title: "Gata să începem?",
-                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
-                onsite: [
-                    { title: "Rețele Locale / Internet", desc: "Proiectare și instalare de rețele LAN, cablu structurat și conexiuni internet." },
-                    { title: "Puncte acces Wi-Fi", desc: "Instalare și configurare de puncte de acces Wi-Fi pentru acoperire completă." },
-                    { title: "Sisteme antiefracție", desc: "Montare sisteme de alarmă și senzori de detectare pentru securitate 24/7." },
-                    { title: "Supraveghere Video", desc: "Instalare camere IP, DVR/NVR și configurare software de monitorizare." },
-                    { title: "Videointerfonie & Control acces", desc: "Sisteme videointerfonie, control acces cu cartele și biometrie." },
-                    { title: "Sisteme Audio / Multimedia", desc: "Instalare sisteme audio profesionale și echipamente multimedia." }
-                ],
-                online: [
-                    { title: "Configurare supraveghere video (P2P/Cloud)", desc: "Setare camere, inregistrare cloud si acces remote la monitorizare." },
-                    { title: "Setare routere, rețele Wi-Fi și VPN", desc: "Configurare completa a routerelor, retelelor wireless si conexiuni VPN secure." },
-                    { title: "Forwarding porturi și acces de la distanță", desc: "Setare port forwarding si configurare acces remote secure pentru sisteme." },
-                    { title: "Configurare stocare în rețea (NAS)", desc: "Instalare si configurare NAS pentru backup, stocare si partajare de date." }
+                sec_services: "Serviciile noastre",
+                services: [
+                    {
+                        title: "Cablare structurată și rețele de date",
+                        desc: "Proiectare și instalare de rețele LAN pe cablu de cupru și fibră optică, puncte de distribuție, rack-uri și infrastructură pasivă conform standardelor actuale. Asigurăm performanță stabilă și rezervă de capacitate pentru extinderi viitoare."
+                    },
+                    {
+                        title: "Infrastructură Wi-Fi profesională",
+                        desc: "Proiectare de acoperire radio, montaj și configurare de puncte de acces, controlere și sisteme de management. Soluții pentru locuințe, birouri și spații comerciale cu densitate ridicată de utilizatori."
+                    },
+                    {
+                        title: "Sisteme de supraveghere video (CCTV)",
+                        desc: "Proiectare, montaj și configurare de sisteme IP: camere, NVR, stocare locală și acces securizat. Alegem echipamentele în funcție de zona de acoperire, condițiile de iluminare și cerințele de înregistrare."
+                    },
+                    {
+                        title: "Sisteme antiefracție și semnalizare",
+                        desc: "Instalare de centrale de alarmă, senzori de mișcare, contacte magnetice, detectoare de sticlă spartă și module de transmisie. Configurare pe zone și integrare cu alte sisteme de securitate ale obiectului."
+                    },
+                    {
+                        title: "Control acces și videointerfonie",
+                        desc: "Montaj de sisteme de control acces (cartele, tag-uri, biometrie), yale electromagnetice, turnicheți și videointerfoane. Soluții pentru case, blocuri, birouri și obiective comerciale."
+                    },
+                    {
+                        title: "Sisteme audio și multimedia",
+                        desc: "Proiectare și instalare de sisteme de sonorizare, difuzare pe zone, intercomunicație și echipamente multimedia. Potrivite pentru spații comerciale, săli de conferințe și locuințe premium."
+                    }
                 ]
             },
             ru: {
+                htmlLang: "ru",
+                documentTitle: "Слаботочные системы | PRO_ENGINEERING",
                 page_title: "Слаботочные системы",
-                page_desc: "Сети связи, видеонаблюдение и управление для умных зданий.",
+                page_desc: "Проектирование, монтаж и ввод в эксплуатацию систем связи, безопасности и управления для жилых и коммерческих объектов.",
+                page_intro: "Мы выполняем комплексные решения по слаботочным системам: от структурированной кабельной инфраструктуры до систем видеонаблюдения, контроля доступа и охранной сигнализации. Каждый проект разрабатывается с учётом требований объекта, действующих норм и возможности дальнейшего расширения.",
                 back_btn: "← Назад",
-                sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
-                contact_title: "Готовы начать?",
-                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
-                onsite: [
-                    { title: "Локальные и интернет сети", desc: "Проектирование и установка сетей LAN, структурированной кабельной системы и подключения интернета." },
-                    { title: "Установка точек доступа Wi-Fi", desc: "Монтаж и настройка точек доступа Wi-Fi для полного покрытия." },
-                    { title: "Охранная сигнализация", desc: "Монтаж систем тревоги и датчиков для круглосуточной безопасности." },
-                    { title: "Видеонаблюдение", desc: "Установка IP-камер, DVR/NVR и конфигурация программного обеспечения мониторинга." },
-                    { title: "СКУД и видеодомофоны", desc: "Системы видеодомофонии, контроль доступа с картами и биометрией." },
-                    { title: "Аудио и мультимедийные системы", desc: "Установка профессиональных аудиосистем и мультимедийного оборудования." }
-                ],
-                online: [
-                    { title: "Настройка видеонаблюдения (P2P/Облако)", desc: "Настройка камер, облачное хранилище и удалённый доступ к мониторингу." },
-                    { title: "Конфигурация роутеров, Wi-Fi и VPN", desc: "Полная настройка маршрутизаторов, беспроводных сетей и безопасных VPN-соединений." },
-                    { title: "Проброс портов и удалённый доступ", desc: "Настройка проброса портов и безопасного удалённого доступа к системам." },
-                    { title: "Настройка сетевых накопителей (NAS)", desc: "Установка и конфигурация NAS для резервного копирования, хранения и обмена данными." }
+                sec_services: "Наши услуги",
+                services: [
+                    {
+                        title: "Структурированная кабельная система и сети передачи данных",
+                        desc: "Проектирование и монтаж LAN-сетей на медном кабеле и оптическом волокне, точек распределения, телекоммуникационных шкафов и пассивной инфраструктуры в соответствии с действующими стандартами. Обеспечиваем стабильную производительность и запас ёмкости для будущих расширений."
+                    },
+                    {
+                        title: "Профессиональная Wi-Fi инфраструктура",
+                        desc: "Проектирование радиопокрытия, монтаж и настройка точек доступа, контроллеров и систем управления. Решения для жилых объектов, офисов и коммерческих помещений с высокой плотностью пользователей."
+                    },
+                    {
+                        title: "Системы видеонаблюдения (CCTV)",
+                        desc: "Проектирование, монтаж и настройка IP-систем: камеры, видеорегистраторы, локальное хранение и защищённый доступ. Подбор оборудования с учётом зон наблюдения, условий освещённости и требований к записи."
+                    },
+                    {
+                        title: "Охранная сигнализация",
+                        desc: "Монтаж охранных панелей, датчиков движения, магнитоконтактных датчиков, датчиков разбития стекла и модулей передачи сигналов. Настройка по зонам и интеграция с другими системами безопасности объекта."
+                    },
+                    {
+                        title: "Контроль доступа и видеодомофония",
+                        desc: "Установка систем контроля доступа (карты, метки, биометрия), электромагнитных замков, турникетов и видеодомофонов. Решения для частных домов, многоквартирных зданий, офисов и коммерческих объектов."
+                    },
+                    {
+                        title: "Аудио- и мультимедийные системы",
+                        desc: "Проектирование и монтаж систем оповещения, зональной трансляции, интеркома и мультимедийного оборудования. Подходят для коммерческих помещений, конференц-залов и премиальных жилых объектов."
+                    }
                 ]
             },
             en: {
+                htmlLang: "en",
+                documentTitle: "Low Voltage Systems | PRO_ENGINEERING",
                 page_title: "Low Voltage Systems",
-                page_desc: "Communication networks, surveillance and control for smart buildings.",
+                page_desc: "Design, installation and commissioning of communication, security and control systems for residential and commercial buildings.",
+                page_intro: "We deliver complete low-voltage solutions — from structured cabling infrastructure to video surveillance, access control and intrusion detection systems. Every project is tailored to the site requirements, applicable technical standards and future expansion needs.",
                 back_btn: "← Back",
-                sec_onsite: "On-Site Services",
-                sec_online: "Online / Remote Services",
-                contact_title: "Ready to start?",
-                contact_desc: "Contact us for a free consultation and personalized quote.",
-                onsite: [
-                    { title: "Local & Internet Networks", desc: "Design and installation of LAN, structured cabling systems and internet connections." },
-                    { title: "Wi-Fi Access Points", desc: "Installation and configuration of Wi-Fi access points for full coverage." },
-                    { title: "Burglar Alarm Systems", desc: "Installation of alarm systems and detection sensors for 24/7 security." },
-                    { title: "Video Surveillance", desc: "Installation of IP cameras, DVR/NVR and monitoring software configuration." },
-                    { title: "Access Control & Video Intercom", desc: "Video intercom systems, access control with cards and biometric authentication." },
-                    { title: "Audio & Multimedia Systems", desc: "Installation of professional audio systems and multimedia equipment." }
-                ],
-                online: [
-                    { title: "CCTV configuration (P2P/Cloud)", desc: "Camera setup, cloud recording and remote access to surveillance." },
-                    { title: "Router, Wi-Fi & VPN setup", desc: "Complete configuration of routers, wireless networks and secure VPN connections." },
-                    { title: "Port forwarding & remote access", desc: "Port forwarding setup and secure remote access configuration for systems." },
-                    { title: "NAS storage configuration", desc: "Installation and configuration of NAS for backup, storage and data sharing." }
+                sec_services: "Our services",
+                services: [
+                    {
+                        title: "Structured Cabling & Data Networks",
+                        desc: "Design and installation of LAN networks on copper and fibre optic cable, distribution points, racks and passive infrastructure in accordance with current standards. We ensure stable performance and spare capacity for future expansion."
+                    },
+                    {
+                        title: "Professional Wi-Fi Infrastructure",
+                        desc: "Radio coverage design, installation and configuration of access points, controllers and management systems. Solutions for homes, offices and commercial spaces with high user density."
+                    },
+                    {
+                        title: "Video Surveillance Systems (CCTV)",
+                        desc: "Design, installation and configuration of IP systems: cameras, NVRs, local storage and secure access. Equipment is selected according to coverage areas, lighting conditions and recording requirements."
+                    },
+                    {
+                        title: "Intrusion Alarm Systems",
+                        desc: "Installation of alarm panels, motion sensors, magnetic contacts, glass-break detectors and transmission modules. Zone configuration and integration with other security systems on site."
+                    },
+                    {
+                        title: "Access Control & Video Intercom",
+                        desc: "Installation of access control systems (cards, tags, biometrics), electromagnetic locks, turnstiles and video intercoms. Solutions for private homes, residential buildings, offices and commercial facilities."
+                    },
+                    {
+                        title: "Audio & Multimedia Systems",
+                        desc: "Design and installation of public address, zone broadcasting, intercom and multimedia equipment. Suitable for commercial spaces, conference rooms and premium residential projects."
+                    }
                 ]
             }
         };
 
-        function renderServices(containerId, services) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                if (containerId === 'online-services') {
-                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
-                } else {
-                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
-                }
-                container.appendChild(div);
+        function renderServices(services) {
+            const container = document.getElementById("services-list");
+            container.replaceChildren();
+
+            services.forEach((service) => {
+                const article = document.createElement("article");
+                article.className = "service-item";
+
+                const title = document.createElement("h3");
+                title.textContent = service.title;
+
+                const description = document.createElement("p");
+                description.textContent = service.desc;
+
+                article.append(title, description);
+                container.appendChild(article);
             });
         }
 
         function setLang(lang) {
-            localStorage.setItem('preferred_lang', lang);
+            const selectedLanguage = translations[lang] ? lang : "ro";
+            const t = translations[selectedLanguage];
 
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const onclickAttr = btn.getAttribute('onclick');
-                if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
-                    btn.classList.add('active');
-                }
+            localStorage.setItem("preferred_lang", selectedLanguage);
+
+            document.documentElement.lang = t.htmlLang;
+            document.title = t.documentTitle;
+
+            document.getElementById("page-title").textContent = t.page_title;
+            document.getElementById("page-desc").textContent = t.page_desc;
+            document.getElementById("page-intro").textContent = t.page_intro;
+            document.getElementById("back-btn").textContent = t.back_btn;
+            document.getElementById("sec-services").textContent = t.sec_services;
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                const isActive = button.dataset.lang === selectedLanguage;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
             });
 
-            const t = translations[lang];
-            if (!t) return;
-
-            document.getElementById('page-title').textContent = t.page_title;
-            document.getElementById('page-desc').textContent = t.page_desc;
-            document.getElementById('back-btn').textContent = t.back_btn;
-            document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('contact-title').textContent = t.contact_title;
-            document.getElementById('contact-desc').textContent = t.contact_desc;
-
-            renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
+            renderServices(t.services);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
-            setLang(savedLang);
+            const savedLanguage = localStorage.getItem("preferred_lang") || "ro";
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+            setLang(savedLanguage);
         });
     </script>
 </body>
-</html>
 </html>
