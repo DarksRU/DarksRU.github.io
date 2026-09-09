@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicii Electrice | PRO_ENGINEERING</title>
+    <title>Sisteme Curenți Slabi | PRO_ENGINEERING</title>
     <style>
         :root {
             --bg-color: #080c14;
@@ -47,6 +47,9 @@
             color: #fff;
             text-decoration: none;
             cursor: pointer;
+        }
+        .logo:hover {
+            color: var(--accent-color);
         }
         .logo:hover { color: var(--accent-color); }
         .logo span { color: var(--accent-color); }
@@ -151,17 +154,20 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
+        .contact-section {
         .contact-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
+            margin-top: 3rem;
             max-width: 500px;
             margin: 3rem auto 0;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        .btn-contact {
         .social-buttons {
             display: flex;
             justify-content: center;
@@ -170,9 +176,15 @@
         }
         .social-btn {
             display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 12px 28px;
             padding: 8px 16px;
             border-radius: 8px;
             text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
             font-size: 0.85rem;
             font-weight: 600;
             color: #fff;
@@ -180,6 +192,8 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
+        .btn-contact:hover {
+            opacity: 0.9;
         .social-btn:hover {
             border-color: var(--accent-color);
             background: rgba(0, 242, 254, 0.15);
@@ -195,6 +209,7 @@
     </style>
 </head>
 <body>
+
     <header>
         <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
         <div class="lang-switch">
@@ -206,17 +221,31 @@
 
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
-        <h1 class="page-title" id="page-title">Servicii Electrice</h1>
-        <p class="page-desc" id="page-desc">Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.</p>
+
+        <h1 class="page-title" id="page-title">Sisteme Curenți Slabi</h1>
+        <p class="page-desc" id="page-desc">Rețele de comunicații, supraveghere și control pentru clădiri inteligente.</p>
+
+        <p class="page-desc" id="page-desc">Rețele de date, supraveghere video, interfoane și securitate.</p>
         
         <!-- SERVICII FIZICE (ON-SITE) -->
         <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
+        <div class="services-list" id="onsite-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
         <div class="services-list" id="onsite-services"></div>
 
         <!-- SERVICII ONLINE -->
         <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
+        <div class="services-list" id="online-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
         <div class="services-list" id="online-services"></div>
 
+        <!-- CONTACT -->
+        <div class="contact-section">
+            <h2 id="contact-title">Gata să începem?</h2>
+            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
+            <a href="https://t.me/your_telegram" class="btn-contact">Telegram</a>
         <!-- CONTACT SECTION -->
         <div class="contact-box">
             <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
@@ -234,75 +263,101 @@
     <script>
         const translations = {
             ro: {
-                page_title: "Servicii Electrice",
-                page_desc: "Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.",
+                page_title: "Sisteme Curenți Slabi",
+                page_desc: "Rețele de comunicații, supraveghere și control pentru clădiri inteligente.",
+                page_desc: "Rețele de date, supraveghere video, interfoane și securitate.",
                 back_btn: "← Înapoi",
                 sec_onsite: "Servicii On-Site (la fața locului)",
                 sec_online: "Servicii Online / Remote",
+                contact_title: "Gata să începem?",
+                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
                 sec_contact: "Contactează-ne",
                 onsite: [
-                    { title: "Proiectare Instalații Electrice", desc: "Proiectare detaliată conform normelor tehnice și siguranței electrice." },
-                    { title: "Auditul instalațiilor electrice", desc: "Evaluare completă a sistemelor electrice existente și recomandări." },
-                    { title: "Montarea și înlocuirea cablurilor", desc: "Montaj profesional de cabluri de înaltă calitate cu certificat de conformitate." },
-                    { title: "Montare prize și întrerupătoare", desc: "Instalare de prize și întrerupătoare în locații specifice." },
-                    { title: "Instalații Iluminare", desc: "Proiectare și instalare de sisteme de iluminare eficiente." },
-                    { title: "Conectare electrocasnice", desc: "Conectare sigură a aparatelor electrice și electronice." },
-                    { title: "Asamblare panou distribuție", desc: "Asamblare și cablare a panourilor de distribuție electrică." },
-                    { title: "Intervenții de avariere", desc: "Reparații rapide și interventii de urgență 24/7." }
+                    { title: "Rețele Locale / Internet", desc: "Proiectare și instalare de rețele LAN, cablu structurat și conexiuni internet." },
+                    { title: "Puncte acces Wi-Fi", desc: "Instalare și configurare de puncte de acces Wi-Fi pentru acoperire completă." },
+                    { title: "Sisteme antiefracție", desc: "Montare sisteme de alarmă și senzori de detectare pentru securitate 24/7." },
+                    { title: "Supraveghere Video", desc: "Instalare camere IP, DVR/NVR și configurare software de monitorizare." },
+                    { title: "Videointerfonie & Control acces", desc: "Sisteme videointerfonie, control acces cu cartele și biometrie." },
+                    { title: "Sisteme Audio / Multimedia", desc: "Instalare sisteme audio profesionale și echipamente multimedia." }
+                    { title: "Răsturnare rețele UTP/FTP și Rack-uri", desc: "Cablare structurată, montare patch-panel și organizare rack server." },
+                    { title: "Supraveghere Video (CCTV)", desc: "Instalare și orientare camere IP / Analogice, NVR/DVR." },
+                    { title: "Sisteme de Control Acces și Interfonie", desc: "Montaj interfoane video, cititoare de cartele și zăvoare electromagnetice." },
+                    { title: "Sisteme de Alarmă și Securitate", desc: "Instalare centrale de alarmă, senzori de mișcare și spargere geam." }
                 ],
                 online: [
-                    { title: "Audit de la distanță al schemelor", desc: "Analiză remotă a diagramelor și tablourilor electrice cu recomandări." },
-                    { title: "Consultanță în alegerea echipamentelor", desc: "Sfaturi detaliate pentru selectarea corectă a protecțiilor și automatizării." },
-                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." },
-                    { title: "Asistență online la montaj", desc: "Ghidare pas-cu-pas prin videocall în timp real pentru montaj și depanare." }
+                    { title: "Configurare supraveghere video (P2P/Cloud)", desc: "Setare camere, inregistrare cloud si acces remote la monitorizare." },
+                    { title: "Setare routere, rețele Wi-Fi și VPN", desc: "Configurare completa a routerelor, retelelor wireless si conexiuni VPN secure." },
+                    { title: "Forwarding porturi și acces de la distanță", desc: "Setare port forwarding si configurare acces remote secure pentru sisteme." },
+                    { title: "Configurare stocare în rețea (NAS)", desc: "Instalare si configurare NAS pentru backup, stocare si partajare de date." }
+                    { title: "Configurare echipamente de rețea", desc: "Setări routere, switch-uri gestionabile, VLAN-uri и Wi-Fi Mesh (MikroTik, Ubiquiti, TP-Link)." },
+                    { title: "Configurare NVR și acces la distanță", desc: "Setare stocare видео и acces de pe telefon (Hikvision, Dahua)." },
+                    { title: "Consultanță rețele și securitate", desc: "Proiectare schemă rețea și alegere echipamente optimizate." }
                 ]
             },
             ru: {
-                page_title: "Электромонтажные Услуги",
-                page_desc: "Полные решения по электрификации для жилых и коммерческих объектов.",
+                page_title: "Слаботочные системы",
+                page_desc: "Сети связи, видеонаблюдение и управление для умных зданий.",
+                page_title: "Слаботочные Сети",
+                page_desc: "Компьютерные сети, видеонаблюдение, домофония и безопасность.",
                 back_btn: "← Назад",
                 sec_onsite: "Услуги на месте (On-Site)",
                 sec_online: "Онлайн-услуги / Remote",
+                contact_title: "Готовы начать?",
+                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
                 sec_contact: "Свяжитесь с нами",
                 onsite: [
-                    { title: "Проектирование электроустановок", desc: "Детальное проектирование согласно техническим нормам и электробезопасности." },
-                    { title: "Аудит электроустановок", desc: "Полная оценка существующих электрических систем и рекомендации." },
-                    { title: "Монтаж и замена кабеля", desc: "Профессиональный монтаж высококачественного кабеля с сертификатами." },
-                    { title: "Установка розеток и выключателей", desc: "Монтаж розеток и выключателей в указанных местах." },
-                    { title: "Системы освещения", desc: "Проектирование и монтаж эффективных систем освещения." },
-                    { title: "Подключение бытовой техники", desc: "Безопасное подключение электрических и электронных приборов." },
-                    { title: "Сборка распределительных щитов", desc: "Сборка и разводка распределительных электрощитов." },
-                    { title: "Аварийные вызовы", desc: "Быстрый ремонт и аварийные выезды 24/7." }
+                    { title: "Локальные и интернет сети", desc: "Проектирование и установка сетей LAN, структурированной кабельной системы и подключения интернета." },
+                    { title: "Установка точек доступа Wi-Fi", desc: "Монтаж и настройка точек доступа Wi-Fi для полного покрытия." },
+                    { title: "Охранная сигнализация", desc: "Монтаж систем тревоги и датчиков для круглосуточной безопасности." },
+                    { title: "Видеонаблюдение", desc: "Установка IP-камер, DVR/NVR и конфигурация программного обеспечения мониторинга." },
+                    { title: "СКУД и видеодомофоны", desc: "Системы видеодомофонии, контроль доступа с картами и биометрией." },
+                    { title: "Аудио и мультимедийные системы", desc: "Установка профессиональных аудиосистем и мультимедийного оборудования." }
+                    { title: "Прокладка сетей UTP/FTP и Серверные rack-шкафы", desc: "Структурированные кабельные сети (СКC), патч-панели и сборка серверных шкафов." },
+                    { title: "Видеонаблюдение (CCTV)", desc: "Монтаж и настройка IP/Аналоговых камер, NVR/DVR регистраторов." },
+                    { title: "Контроль доступа и Домофония", desc: "Установка видеодомофонов, считывателей карт и электрозамков." },
+                    { title: "Охранные системы и Сигнализация", desc: "Установка централей, датчиков движения и разбития стекла." }
                 ],
                 online: [
-                    { title: "Удаленный аудит схем", desc: "Дистанционный анализ электрических схем и щитов с рекомендациями." },
-                    { title: "Консультации по подбору оборудования", desc: "Подробные советы по правильному выбору защиты и автоматики." },
-                    { title: "Расчет нагрузок и подбор кабелей", desc: "Точные расчеты энергопотребления и выбор правильного сечения." },
-                    { title: "Онлайн-помощь при сборке", desc: "Пошаговое руководство через видеозвонок для монтажа и устранения неисправностей." }
+                    { title: "Настройка видеонаблюдения (P2P/Облако)", desc: "Настройка камер, облачное хранилище и удалённый доступ к мониторингу." },
+                    { title: "Конфигурация роутеров, Wi-Fi и VPN", desc: "Полная настройка маршрутизаторов, беспроводных сетей и безопасных VPN-соединений." },
+                    { title: "Проброс портов и удалённый доступ", desc: "Настройка проброса портов и безопасного удалённого доступа к системам." },
+                    { title: "Настройка сетевых накопителей (NAS)", desc: "Установка и конфигурация NAS для резервного копирования, хранения и обмена данными." }
+                    { title: "Настройка сетевого оборудования", desc: "Конфигурация роутеров, управляемых коммутаторов, VLAN и Wi-Fi Mesh (MikroTik, Ubiquiti, TP-Link)." },
+                    { title: "Настройка NVR и удаленного доступа", desc: "Настройка видеорегистраторов и удаленного просмотра с телефона (Hikvision, Dahua)." },
+                    { title: "Консультация по сетям и безопасности", desc: "Проектирование топологии сети и подбор оборудования." }
                 ]
             },
             en: {
-                page_title: "Electrical Services",
-                page_desc: "Complete electrification solutions for residential and commercial projects.",
+                page_title: "Low Voltage Systems",
+                page_desc: "Communication networks, surveillance and control for smart buildings.",
+                page_title: "Low-Voltage Systems",
+                page_desc: "Data networks, video surveillance, intercoms and security systems.",
                 back_btn: "← Back",
                 sec_onsite: "On-Site Services",
                 sec_online: "Online / Remote Services",
+                contact_title: "Ready to start?",
+                contact_desc: "Contact us for a free consultation and personalized quote.",
                 sec_contact: "Contact us",
                 onsite: [
-                    { title: "Electrical Design & Engineering", desc: "Detailed design according to technical standards and electrical safety." },
-                    { title: "Electrical Installation Audit", desc: "Comprehensive evaluation of existing electrical systems and recommendations." },
-                    { title: "Cable Installation & Replacement", desc: "Professional installation of high-quality certified cabling." },
-                    { title: "Sockets & Switches Installation", desc: "Installation of sockets and switches in designated locations." },
-                    { title: "Lighting Installations", desc: "Design and installation of efficient lighting systems." },
-                    { title: "Appliance Connection", desc: "Safe connection of electrical appliances and equipment." },
-                    { title: "Distribution Panel Assembly", desc: "Assembly and wiring of electrical distribution panels." },
-                    { title: "Emergency Repairs", desc: "Fast repairs and 24/7 emergency interventions." }
+                    { title: "Local & Internet Networks", desc: "Design and installation of LAN, structured cabling systems and internet connections." },
+                    { title: "Wi-Fi Access Points", desc: "Installation and configuration of Wi-Fi access points for full coverage." },
+                    { title: "Burglar Alarm Systems", desc: "Installation of alarm systems and detection sensors for 24/7 security." },
+                    { title: "Video Surveillance", desc: "Installation of IP cameras, DVR/NVR and monitoring software configuration." },
+                    { title: "Access Control & Video Intercom", desc: "Video intercom systems, access control with cards and biometric authentication." },
+                    { title: "Audio & Multimedia Systems", desc: "Installation of professional audio systems and multimedia equipment." }
+                    { title: "UTP/FTP Cabling & Rack Cabinets", desc: "Structured cabling, patch panels, and server rack assembly." },
+                    { title: "Video Surveillance (CCTV)", desc: "Installation and positioning of IP/Analog cameras, NVR/DVR." },
+                    { title: "Access Control & Intercom Systems", desc: "Video intercoms, card readers, and electromagnetic locks installation." },
+                    { title: "Alarm & Security Systems", desc: "Alarm control units, motion and glass-break sensors." }
                 ],
                 online: [
-                    { title: "Remote Scheme Audit", desc: "Remote analysis of electrical diagrams and panels with recommendations." },
-                    { title: "Equipment Selection Consulting", desc: "Detailed guidance for selecting proper protective devices and automation." },
-                    { title: "Load Calculation & Cable Sizing", desc: "Accurate calculation of power demand and correct cable gauge selection." },
-                    { title: "Online Guidance & Video Calls", desc: "Step-by-step guidance via video call for installation and troubleshooting." }
+                    { title: "CCTV configuration (P2P/Cloud)", desc: "Camera setup, cloud recording and remote access to surveillance." },
+                    { title: "Router, Wi-Fi & VPN setup", desc: "Complete configuration of routers, wireless networks and secure VPN connections." },
+                    { title: "Port forwarding & remote access", desc: "Port forwarding setup and secure remote access configuration for systems." },
+                    { title: "NAS storage configuration", desc: "Installation and configuration of NAS for backup, storage and data sharing." }
+                    { title: "Network Hardware Configuration", desc: "Router, managed switch, VLAN and Wi-Fi Mesh setup (MikroTik, Ubiquiti, TP-Link)." },
+                    { title: "NVR Setup & Remote Access", desc: "Configuring video recording and smartphone access (Hikvision, Dahua)." },
+                    { title: "Network & Security Consulting", desc: "Network layout design and optimal equipment selection." }
                 ]
             }
         };
@@ -324,6 +379,7 @@
 
         function setLang(lang) {
             localStorage.setItem('preferred_lang', lang);
+            
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 const onclickAttr = btn.getAttribute('onclick');
@@ -331,6 +387,7 @@
                     btn.classList.add('active');
                 }
             });
+
             
             const t = translations[lang];
             if (!t) return;
@@ -340,6 +397,8 @@
             document.getElementById('back-btn').textContent = t.back_btn;
             document.getElementById('sec-onsite').textContent = t.sec_onsite;
             document.getElementById('sec-online').textContent = t.sec_online;
+            document.getElementById('contact-title').textContent = t.contact_title;
+            document.getElementById('contact-desc').textContent = t.contact_desc;
             document.getElementById('sec-contact').textContent = t.sec_contact;
 
             renderServices('onsite-services', t.onsite);
