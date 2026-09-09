@@ -204,6 +204,16 @@
         .service-card-link:hover {
             opacity: 0.9;
         }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.6rem;
+        }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -313,6 +323,19 @@
             </article>
         </div>
 
+        <!-- ONLINE SERVICES -->
+        <h2 class="section-title" id="sec-online">Servicii Online / Remote Engineering</h2>
+        <div class="services-grid" style="max-width: 420px; margin: 0 auto;">
+            <article class="service-card">
+                <span class="badge" id="badge-online">ONLINE</span>
+                <h3 id="online-title">Servicii Online</h3>
+                <p id="online-desc" style="color: var(--text-muted); flex-grow: 1; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.55;">
+                    Consultanță tehnică, configurări și suport la distanță pentru toate direcțiile noastre de activitate.
+                </p>
+                <a href="online.html" class="service-card-link" id="online-link">Citește mai mult →</a>
+            </article>
+        </div>
+
         <!-- ABOUT SECTION -->
         <h2 class="section-title" id="sec-about">De ce noi?</h2>
         <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 0.5rem;" id="about-text">
@@ -344,6 +367,7 @@
                 title: "Servicii Electrice & Inginerie în Chișinău",
                 desc: "Proiectare, instalare și automatizări pentru obiecte rezidențiale, comerciale și industriale.",
                 sec_services: "Serviciile noastre",
+                sec_online: "Servicii Online / Remote Engineering",
                 sec_about: "De ce noi?",
                 about_text: "Oferim soluții inginerești complete — de la proiectare până la punerea în funcțiune și suport post-instalare.",
                 f1_t: "Calitate & Siguranță",
@@ -352,6 +376,9 @@
                 f2_d: "De la case inteligente și clădiri comerciale până la linii de producție automatizate.",
                 f3_t: "Garanție & Suport",
                 f3_d: "Asigurăm mentenanță, intervenții și asistență tehnică după finalizarea lucrărilor.",
+                badge_online: "ONLINE",
+                online_title: "Servicii Online",
+                online_desc: "Consultanță tehnică, configurări și suport la distanță pentru toate direcțiile noastre de activitate.",
                 c1: "Instalații Electrice",
                 c1_l: [
                     "Proiectare instalații electrice",
@@ -395,6 +422,7 @@
                 title: "Электромонтаж и Инженерия в Кишинёве",
                 desc: "Проектирование, монтаж и автоматизация для жилых, коммерческих и промышленных объектов.",
                 sec_services: "Наши услуги",
+                sec_online: "Онлайн-услуги / Remote Engineering",
                 sec_about: "Почему мы?",
                 about_text: "Мы предоставляем полный спектр инженерных решений — от проектирования до ввода в эксплуатацию и сервисной поддержки.",
                 f1_t: "Качество и безопасность",
@@ -403,6 +431,9 @@
                 f2_d: "От систем «Умный дом» и коммерческих зданий до автоматизированных производственных линий.",
                 f3_t: "Гарантия и поддержка",
                 f3_d: "Обеспечиваем техническое обслуживание, выезды и поддержку после завершения работ.",
+                badge_online: "ОНЛАЙН",
+                online_title: "Онлайн-услуги",
+                online_desc: "Технические консультации, настройки и удалённая поддержка по всем направлениям нашей деятельности.",
                 c1: "Электромонтажные работы",
                 c1_l: [
                     "Проектирование электроустановок",
@@ -446,6 +477,7 @@
                 title: "Electrical & Engineering Services in Chisinau",
                 desc: "Design, installation and automation for residential, commercial and industrial projects.",
                 sec_services: "Our Services",
+                sec_online: "Online Services / Remote Engineering",
                 sec_about: "Why Choose Us?",
                 about_text: "We deliver complete engineering solutions — from design to commissioning and post-installation support.",
                 f1_t: "Quality & Safety",
@@ -454,6 +486,9 @@
                 f2_d: "From Smart Home systems and commercial buildings to fully automated production lines.",
                 f3_t: "Warranty & Support",
                 f3_d: "We provide maintenance, on-site interventions and technical support after project completion.",
+                badge_online: "ONLINE",
+                online_title: "Online Services",
+                online_desc: "Technical consulting, configuration and remote support across all our service areas.",
                 c1: "Electrical Installations",
                 c1_l: [
                     "Electrical installation design",
@@ -526,6 +561,7 @@
             setTxt('hero-title', t.title);
             setTxt('hero-desc', t.desc);
             setTxt('sec-services', t.sec_services);
+            setTxt('sec-online', t.sec_online);
             setTxt('sec-about', t.sec_about);
             setTxt('about-text', t.about_text);
             setTxt('f1-t', t.f1_t);
@@ -534,6 +570,10 @@
             setTxt('f2-d', t.f2_d);
             setTxt('f3-t', t.f3_t);
             setTxt('f3-d', t.f3_d);
+
+            setTxt('badge-online', t.badge_online);
+            setTxt('online-title', t.online_title);
+            setTxt('online-desc', t.online_desc);
 
             setTxt('c1-title', t.c1);
             updateList('c1-list', t.c1_l);
