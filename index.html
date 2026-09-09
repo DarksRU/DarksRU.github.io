@@ -100,7 +100,8 @@
         }
         .services-grid {
             display: grid;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
         .service-card {
             background: var(--card-bg);
@@ -109,6 +110,8 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
             padding: 1.5rem;
             backdrop-filter: blur(12px);
             transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -123,6 +126,7 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
         }
         .service-card ul {
             list-style: none;
+            flex-grow: 1;
         }
         .service-card ul li {
             position: relative;
@@ -137,6 +141,22 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
             position: absolute;
             left: 0;
             font-weight: bold;
+        }
+        .service-card-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .service-card-link:hover {
+            opacity: 0.9;
         }
         .about-grid {
             display: grid;
@@ -209,43 +229,22 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
             <div class="service-card">
                 <h3 id="c1-title">Instalații Electrice</h3>
                 <ul id="c1-list"></ul>
+                <a href="electrical.html" class="service-card-link" id="c1-link">Citește mai mult →</a>
             </div>
             <div class="service-card">
                 <h3 id="c2-title">Sisteme Curenți Slabi</h3>
                 <ul id="c2-list"></ul>
+                <a href="weak-current.html" class="service-card-link" id="c2-link">Citește mai mult →</a>
             </div>
             <div class="service-card">
                 <h3 id="c3-title">SmartHome</h3>
                 <ul id="c3-list"></ul>
+                <a href="smarthome.html" class="service-card-link" id="c3-link">Citește mai mult →</a>
             </div>
             <div class="service-card">
                 <h3 id="c4-title">Automatizări Industriale</h3>
                 <ul id="c4-list"></ul>
-            </div>
-        </div>
-
-        <!-- ONLINE SERVICES -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote Engineering</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <span style="background: rgba(0, 242, 254, 0.15); color: var(--accent-color); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; width: fit-content; margin-bottom: 0.8rem; display: inline-block;">ONLINE 🌐</span>
-                <h3 id="o1-title">Servicii Electrice Online</h3>
-                <ul id="o1-list"></ul>
-            </div>
-            <div class="service-card">
-                <span style="background: rgba(0, 242, 254, 0.15); color: var(--accent-color); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; width: fit-content; margin-bottom: 0.8rem; display: inline-block;">ONLINE 🌐</span>
-                <h3 id="o2-title">Curenți Slabi Online</h3>
-                <ul id="o2-list"></ul>
-            </div>
-            <div class="service-card">
-                <span style="background: rgba(0, 242, 254, 0.15); color: var(--accent-color); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; width: fit-content; margin-bottom: 0.8rem; display: inline-block;">ONLINE 🌐</span>
-                <h3 id="o3-title">SmartHome Online</h3>
-                <ul id="o3-list"></ul>
-            </div>
-            <div class="service-card">
-                <span style="background: rgba(0, 242, 254, 0.15); color: var(--accent-color); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; width: fit-content; margin-bottom: 0.8rem; display: inline-block;">ONLINE 🌐</span>
-                <h3 id="o4-title">Automatizări Online</h3>
-                <ul id="o4-list"></ul>
+                <a href="automation.html" class="service-card-link" id="c4-link">Citește mai mult →</a>
             </div>
         </div>
 
@@ -286,7 +285,6 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
                 title: "Servicii Electrice & Inginerie în Chișinău",
                 desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
                 sec_services: "Serviciile Noastre",
-                sec_online: "Servicii Online / Remote Engineering",
                 sec_about: "De Ce Noi?",
                 sec_contact: "Contactează-ne",
                 about_text: "Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune.",
@@ -334,40 +332,12 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
                     "Senzori industriali & traductori", 
                     "Automatizare linii de producție"
                 ],
-                o1: "Servicii Electrice Online", 
-                o1_l: [
-                    "Audit de la distanță al schemelor și tablourilor", 
-                    "Consultanță în alegerea echipamentelor de protecție", 
-                    "Calculul sarcinilor și selectarea cablurilor", 
-                    "Asistență online la montaj și defecțiuni"
-                ],
-                o2: "Curenți Slabi Online", 
-                o2_l: [
-                    "Configurare supraveghere video (P2P / Cloud)", 
-                    "Setare routere, rețele Wi-Fi și VPN", 
-                    "Forwarding porturi și acces de la distanță", 
-                    "Configurare stocare în rețea (NAS)"
-                ],
-                o3: "SmartHome Online", 
-                o3_l: [
-                    "Programare scenarii (Home Assistant)", 
-                    "Configurare Tuya / Smart Life / Wiren Board", 
-                    "Integrare cu Siri, Alexa și Google Home", 
-                    "Depanare și optimizare automatizări"
-                ],
-                o4: "Automatizări Online", 
-                o4_l: [
-                    "Programare PLC (Siemens, OWEN etc.)", 
-                    "Configurare panouri HMI și convertizoare", 
-                    "Depanare de la distanță via AnyDesk / VPN", 
-                    "Modificarea logicii industriale"
-                ]
+                link_more: "Citește mai mult →"
             },
             ru: {
                 title: "Электромонтаж и Инженерия в Кишиневе",
                 desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
                 sec_services: "Наши Услуги",
-                sec_online: "Удалённые ИТ-Услуги / Online Engineering",
                 sec_about: "Почему Мы?",
                 sec_contact: "Связаться с нами",
                 about_text: "Мы предоставляем полный спектр инженерных решений от проектирования до сдачи объекта под ключ.",
@@ -415,40 +385,12 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
                     "Промышленные датчики", 
                     "Автоматизация линий производства"
                 ],
-                o1: "Онлайн-Электрика", 
-                o1_l: [
-                    "Удалённый аудит схем и щитов", 
-                    "Консультация по выбору автоматики", 
-                    "Расчёт нагрузок и подбор кабеля", 
-                    "Онлайн-помощь при сборке/авариях"
-                ],
-                o2: "Онлайн-Слаботочка", 
-                o2_l: [
-                    "Настройка видеонаблюдения (P2P/Облако)", 
-                    "Конфигурация роутеров, Wi-Fi и VPN", 
-                    "Проброс портов и удалённый доступ", 
-                    "Настройка сетевых накопителей (NAS)"
-                ],
-                o3: "Онлайн-Умный Дом", 
-                o3_l: [
-                    "Программирование сценариев (Home Assistant)", 
-                    "Настройка Tuya / Smart Life / Wiren Board", 
-                    "Интеграция с Алисой, Siri, Google Home", 
-                    "Удалённая отладка автоматизации"
-                ],
-                o4: "Онлайн-Автоматизация", 
-                o4_l: [
-                    "Программирование ПЛК (Siemens, OWEN и др.)", 
-                    "Настройка HMI-панелей и частотников", 
-                    "Удаленная отладка через AnyDesk / VPN", 
-                    "Доработка промышленной логики"
-                ]
+                link_more: "Подробнее →"
             },
             en: {
                 title: "Electrical & Engineering Services in Chisinau",
                 desc: "Design, installation, and automation for residential and industrial projects.",
                 sec_services: "Our Services",
-                sec_online: "Online Services / Remote Engineering",
                 sec_about: "Why Choose Us?",
                 sec_contact: "Contact Us",
                 about_text: "We provide complete engineering solutions from design to commissioning.",
@@ -496,34 +438,7 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
                     "Industrial Sensors & Transducers", 
                     "Production Line Automation"
                 ],
-                o1: "Online Electrical", 
-                o1_l: [
-                    "Remote audit of schemes & panels", 
-                    "Consultation on protection equipment", 
-                    "Load calculation & cable selection", 
-                    "Online guidance for assembly / issues"
-                ],
-                o2: "Online Low-Voltage", 
-                o2_l: [
-                    "CCTV configuration (P2P/Cloud)", 
-                    "Router, Wi-Fi & VPN setup", 
-                    "Port forwarding & remote access", 
-                    "NAS storage configuration"
-                ],
-                o3: "Online SmartHome", 
-                o3_l: [
-                    "Automation scripts (Home Assistant)", 
-                    "Tuya / Smart Life / Wiren Board setup", 
-                    "Integration with Siri, Alexa, Google Home", 
-                    "Remote automation debugging"
-                ],
-                o4: "Online Industrial Automation", 
-                o4_l: [
-                    "PLC programming (Siemens, OWEN etc.)", 
-                    "HMI panels & VFD setup", 
-                    "Remote debugging via AnyDesk / VPN", 
-                    "Industrial logic modification"
-                ]
+                link_more: "Read more →"
             }
         };
 
@@ -539,6 +454,8 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
         }
 
         function setLang(lang) {
+            localStorage.setItem('preferred_lang', lang);
+            
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 const onclickAttr = btn.getAttribute('onclick');
@@ -558,7 +475,6 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
             setTxt('hero-title', t.title);
             setTxt('hero-desc', t.desc);
             setTxt('sec-services', t.sec_services);
-            setTxt('sec-online', t.sec_online);
             setTxt('sec-about', t.sec_about);
             setTxt('sec-contact', t.sec_contact);
             setTxt('about-text', t.about_text);
@@ -574,14 +490,14 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            gap: 1.5
             setTxt('c3-title', t.c3); updateList('c3-list', t.c3_l);
             setTxt('c4-title', t.c4); updateList('c4-list', t.c4_l);
 
-            setTxt('o1-title', t.o1); updateList('o1-list', t.o1_l);
-            setTxt('o2-title', t.o2); updateList('o2-list', t.o2_l);
-            setTxt('o3-title', t.o3); updateList('o3-list', t.o3_l);
-            setTxt('o4-title', t.o4); updateList('o4-list', t.o4_l);
+            document.querySelectorAll('.service-card-link').forEach(link => {
+                link.textContent = t.link_more;
+            });
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            setLang('ro');
+            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
+            setLang(savedLang);
         });
     </script>
 </body>
