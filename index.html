@@ -385,6 +385,7 @@
     </footer>
 
     <script>
+        <script>
         const translations = {
             ro: {
                 title: "Servicii Electrice & Inginerie în Chișinău",
@@ -448,9 +449,22 @@
             }
         };
 
+        function updateList(elementId, items) {
+            const listElement = document.getElementById(elementId);
+            if (!listElement) return;
+            listElement.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                listElement.appendChild(li);
+            });
+        }
+
         function setLang(lang) {
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             const t = translations[lang];
 
             document.getElementById('hero-title').innerText = t.title;
@@ -478,11 +492,12 @@
                 document.getElementById('o3-title').innerText = t.o3_t; document.getElementById('o3-desc').innerText = t.o3_d;
             }
         }
-        // Init
-        updateList('c1-list', translations.ro.c1_l);
-        updateList('c2-list', translations.ro.c2_l);
-        updateList('c3-list', translations.ro.c3_l);
-        updateList('c4-list', translations.ro.c4_l);
+
+        // Инициализация при загрузке страницы
+        document.addEventListener("DOMContentLoaded", () => {
+            const roBtn = document.querySelector('.lang-btn');
+            if (roBtn) setLang('ro');
+        });
     </script>
 </body>
 </html>
