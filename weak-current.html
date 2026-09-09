@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sisteme Curenți Slabi | PRO_ENGINEERING</title>
+    <title>Asamblarea Tablourilor Electrice | PRO_ENGINEERING</title>
     <style>
         :root {
             --bg-color: #080c14;
@@ -106,13 +106,6 @@
             margin-bottom: 3rem;
             max-width: 800px;
         }
-        .section-title {
-            font-size: 1.8rem;
-            margin: 2.5rem 0 1.5rem;
-            color: #fff;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
         .services-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -140,16 +133,6 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
         }
         .contact-box {
             background: var(--card-bg);
@@ -196,7 +179,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+        <a href="index.html" class="logo">PRO<span>_ENGINEERING</span></a>
         <div class="lang-switch">
             <button class="lang-btn" onclick="setLang('ro')">RO</button>
             <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -206,20 +189,14 @@
 
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
-        <h1 class="page-title" id="page-title">Sisteme Curenți Slabi</h1>
-        <p class="page-desc" id="page-desc">Rețele de date, supraveghere video, interfoane și securitate.</p>
+        <h1 class="page-title" id="page-title">Asamblarea Tablourilor Electrice</h1>
+        <p class="page-desc" id="page-desc">Proiectare, asamblare și modernizare tablouri electrice de orice complexitate.</p>
         
-        <!-- SERVICII FIZICE (ON-SITE) -->
-        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
-        <div class="services-list" id="onsite-services"></div>
-
-        <!-- SERVICII ONLINE -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services"></div>
+        <div class="services-list" id="services-container"></div>
 
         <!-- CONTACT SECTION -->
         <div class="contact-box">
-            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
+            <h2 id="sec-contact" style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Contactează-ne</h2>
             <div class="social-buttons">
                 <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
                 <a href="https://instagram.com/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
@@ -234,75 +211,49 @@
     <script>
         const translations = {
             ro: {
-                page_title: "Sisteme Curenți Slabi",
-                page_desc: "Rețele de date, supraveghere video, interfoane și securitate.",
+                page_title: "Asamblarea Tablourilor Electrice",
+                page_desc: "Proiectare, asamblare și modernizare tablouri electrice de orice complexitate.",
                 back_btn: "← Înapoi",
-                sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
                 sec_contact: "Contactează-ne",
-                onsite: [
-                    { title: "Răsturnare rețele UTP/FTP și Rack-uri", desc: "Cablare structurată, montare patch-panel și organizare rack server." },
-                    { title: "Supraveghere Video (CCTV)", desc: "Instalare și orientare camere IP / Analogice, NVR/DVR." },
-                    { title: "Sisteme de Control Acces și Interfonie", desc: "Montaj interfoane video, cititoare de cartele și zăvoare electromagnetice." },
-                    { title: "Sisteme de Alarmă și Securitate", desc: "Instalare centrale de alarmă, senzori de mișcare și spargere geam." }
-                ],
-                online: [
-                    { title: "Configurare echipamente de rețea", desc: "Setări routere, switch-uri gestionabile, VLAN-uri и Wi-Fi Mesh (MikroTik, Ubiquiti, TP-Link)." },
-                    { title: "Configurare NVR și acces la distanță", desc: "Setare stocare видео и acces de pe telefon (Hikvision, Dahua)." },
-                    { title: "Consultanță rețele și securitate", desc: "Proiectare schemă rețea și alegere echipamente optimizate." }
+                services: [
+                    { title: "Tablouri electrice de distribuție (TGD / TD)", desc: "Asamblare tablouri de distribuție pentru apartamente, case și spații comerciale conform schemelor de proiect." },
+                    { title: "Tablouri de automatizare și Smart Home", desc: "Integrăm module inteligente, relee programabile, contactoare și sisteme de gestiune de la distanță." },
+                    { title: "Sisteme de protecție (Diferențiale, SPD, Relee Tensiune)", desc: "Echipare cu protecții împotriva supratensiunilor, scurtcircuitelor și scurgerilor de curent pentru siguranță maximă." },
+                    { title: "Modernizare și reabilitare tablouri vechi", desc: "Diagnosticare, înlocuire echipamente învechite, etichetare profesională și organizare cablaj." }
                 ]
             },
             ru: {
-                page_title: "Слаботочные Сети",
-                page_desc: "Компьютерные сети, видеонаблюдение, домофония и безопасность.",
+                page_title: "Сборка Электрощитов",
+                page_desc: "Проектирование, сборка и модернизация электрощитов любой сложности.",
                 back_btn: "← Назад",
-                sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
                 sec_contact: "Свяжитесь с нами",
-                onsite: [
-                    { title: "Прокладка сетей UTP/FTP и Серверные rack-шкафы", desc: "Структурированные кабельные сети (СКC), патч-панели и сборка серверных шкафов." },
-                    { title: "Видеонаблюдение (CCTV)", desc: "Монтаж и настройка IP/Аналоговых камер, NVR/DVR регистраторов." },
-                    { title: "Контроль доступа и Домофония", desc: "Установка видеодомофонов, считывателей карт и электрозамков." },
-                    { title: "Охранные системы и Сигнализация", desc: "Установка централей, датчиков движения и разбития стекла." }
+                services: [
+                    { title: "Распределительные электрощиты (ГРЩ / ЩR)", desc: "Сборка распределительных щитов для квартир, домов и коммерческих объектов по проектным схемам." },
+                    { title: "Щиты автоматики и Умного Дома", desc: "Интеграция умных модулей, программируемых реле, контакторов и систем удаленного управления." },
+                    { title: "Системы защиты (УЗО, УЗИП, Реле напряжения)", desc: "Оснащение защитой от скачков напряжения, коротких замыканий и утечек тока для максимальной безопасности." },
+                    { title: "Модернизация и реконструкция старых щитов", desc: "Диагностика, замена устаревшего оборудования, профессиональная маркировка и кабель-менеджмент." }
                 ],
-                online: [
-                    { title: "Настройка сетевого оборудования", desc: "Конфигурация роутеров, управляемых коммутаторов, VLAN и Wi-Fi Mesh (MikroTik, Ubiquiti, TP-Link)." },
-                    { title: "Настройка NVR и удаленного доступа", desc: "Настройка видеорегистраторов и удаленного просмотра с телефона (Hikvision, Dahua)." },
-                    { title: "Консультация по сетям и безопасности", desc: "Проектирование топологии сети и подбор оборудования." }
-                ]
-            },
-            en: {
-                page_title: "Low-Voltage Systems",
-                page_desc: "Data networks, video surveillance, intercoms and security systems.",
+                en: {
+                page_title: "Electrical Panel Assembly",
+                page_desc: "Design, assembly and modernization of electrical panels of any complexity.",
                 back_btn: "← Back",
-                sec_onsite: "On-Site Services",
-                sec_online: "Online / Remote Services",
                 sec_contact: "Contact us",
-                onsite: [
-                    { title: "UTP/FTP Cabling & Rack Cabinets", desc: "Structured cabling, patch panels, and server rack assembly." },
-                    { title: "Video Surveillance (CCTV)", desc: "Installation and positioning of IP/Analog cameras, NVR/DVR." },
-                    { title: "Access Control & Intercom Systems", desc: "Video intercoms, card readers, and electromagnetic locks installation." },
-                    { title: "Alarm & Security Systems", desc: "Alarm control units, motion and glass-break sensors." }
-                ],
-                online: [
-                    { title: "Network Hardware Configuration", desc: "Router, managed switch, VLAN and Wi-Fi Mesh setup (MikroTik, Ubiquiti, TP-Link)." },
-                    { title: "NVR Setup & Remote Access", desc: "Configuring video recording and smartphone access (Hikvision, Dahua)." },
-                    { title: "Network & Security Consulting", desc: "Network layout design and optimal equipment selection." }
+                services: [
+                    { title: "Main Distribution Boards (MDB / DB)", desc: "Assembly of distribution panels for apartments, houses and commercial spaces according to project schemes." },
+                    { title: "Automation & Smart Home Panels", desc: "Integrating smart modules, programmable relays, contactors and remote management systems." },
+                    { title: "Protection Systems (RCD, SPD, Voltage Relays)", desc: "Equipped with surge protection, short-circuit and current leakage protections for maximum safety." },
+                    { title: "Modernization of Old Panels", desc: "Diagnostics, replacement of obsolete equipment, professional labeling and cable organization." }
                 ]
             }
         };
 
-        function renderServices(containerId, services) {
-            const container = document.getElementById(containerId);
+        function renderServices(services) {
+            const container = document.getElementById('services-container');
             container.innerHTML = '';
             services.forEach(service => {
                 const div = document.createElement('div');
                 div.className = 'service-item';
-                if (containerId === 'online-services') {
-                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
-                } else {
-                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
-                }
+                div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
                 container.appendChild(div);
             });
         }
@@ -323,12 +274,9 @@
             document.getElementById('page-title').textContent = t.page_title;
             document.getElementById('page-desc').textContent = t.page_desc;
             document.getElementById('back-btn').textContent = t.back_btn;
-            document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
             document.getElementById('sec-contact').textContent = t.sec_contact;
 
-            renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
+            renderServices(t.services);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
