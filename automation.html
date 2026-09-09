@@ -48,9 +48,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .logo:hover {
-            color: var(--accent-color);
-        }
+        .logo:hover { color: var(--accent-color); }
         .logo span { color: var(--accent-color); }
         .lang-switch {
             display: flex;
@@ -153,28 +151,6 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
-        .contact-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        .btn-contact {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 1rem;
-            transition: opacity 0.3s;
-        }
-        .btn-contact:hover {
-            opacity: 0.9;
-        }
         footer {
             text-align: center;
             padding: 2rem;
@@ -183,46 +159,42 @@
             font-size: 0.85rem;
         }
         .contact-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    max-width: 500px;
-    margin: 3rem auto 0;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.social-btn {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s;
-}
-
-.social-btn:hover {
-    border-color: var(--accent-color);
-    background: rgba(0, 242, 254, 0.15);
-    color: var(--accent-color);
-}
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 3rem auto 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .social-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
-
     <header>
         <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
         <div class="lang-switch">
@@ -234,30 +206,27 @@
 
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
-
         <h1 class="page-title" id="page-title">Automatizări Industriale</h1>
         <p class="page-desc" id="page-desc">Soluții complete de automatizare pentru liniile de producție și procese industriale.</p>
-
+        
         <!-- SERVICII FIZICE (ON-SITE) -->
         <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
-        <div class="services-list" id="onsite-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <div class="services-list" id="onsite-services"></div>
 
         <!-- SERVICII ONLINE -->
         <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <div class="services-list" id="online-services"></div>
 
-       <!-- CONTACT SECTION -->
-<div class="contact-box">
-    <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
-    <div class="social-buttons">
-        <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
-        <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+        <!-- CONTACT SECTION -->
+        <div class="contact-box">
+            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
+            <div class="social-buttons">
+                <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
+                <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+            </div>
+        </div>
     </div>
-</div>
+
     <footer>
         &copy; 2026 PRO_ENGINEERING. All rights reserved.
     </footer>
@@ -270,8 +239,7 @@
                 back_btn: "← Înapoi",
                 sec_onsite: "Servicii On-Site (la fața locului)",
                 sec_online: "Servicii Online / Remote",
-                contact_title: "Gata să începem?",
-                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
+                sec_contact: "Contactează-ne",
                 onsite: [
                     { title: "Asamblare tablouri automatizare (PLC)", desc: "Proiectare și asamblare tablourilor de comandă cu PLC-uri profesionale și contactori." },
                     { title: "Programare controlere industriale", desc: "Programare PLC (Siemens, OWEN, Mitsubishi, etc.) după specificațiile procesului." },
@@ -293,8 +261,7 @@
                 back_btn: "← Назад",
                 sec_onsite: "Услуги на месте (On-Site)",
                 sec_online: "Онлайн-услуги / Remote",
-                contact_title: "Готовы начать?",
-                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
+                sec_contact: "Свяжитесь с нами",
                 onsite: [
                     { title: "Сборка щитов автоматики (ПЛК)", desc: "Проектирование и сборка щитов управления с профессиональными ПЛК и магнитными пускателями." },
                     { title: "Программирование контроллеров", desc: "Программирование ПЛК (Siemens, OWEN, Mitsubishi и т.д.) по техническому заданию." },
@@ -316,8 +283,7 @@
                 back_btn: "← Back",
                 sec_onsite: "On-Site Services",
                 sec_online: "Online / Remote Services",
-                contact_title: "Ready to start?",
-                contact_desc: "Contact us for a free consultation and personalized quote.",
+                sec_contact: "Contact us",
                 onsite: [
                     { title: "PLC Automation Panel Assembly", desc: "Design and assembly of control panels with professional PLCs and contactors." },
                     { title: "Industrial Controller Programming", desc: "PLC programming (Siemens, OWEN, Mitsubishi, etc.) according to specifications." },
@@ -352,7 +318,6 @@
 
         function setLang(lang) {
             localStorage.setItem('preferred_lang', lang);
-            
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 const onclickAttr = btn.getAttribute('onclick');
@@ -360,7 +325,7 @@
                     btn.classList.add('active');
                 }
             });
-
+            
             const t = translations[lang];
             if (!t) return;
 
@@ -369,8 +334,7 @@
             document.getElementById('back-btn').textContent = t.back_btn;
             document.getElementById('sec-onsite').textContent = t.sec_onsite;
             document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('contact-title').textContent = t.contact_title;
-            document.getElementById('contact-desc').textContent = t.contact_desc;
+            document.getElementById('sec-contact').textContent = t.sec_contact;
 
             renderServices('onsite-services', t.onsite);
             renderServices('online-services', t.online);
