@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatizări Industriale | PRO_ENGINEERING</title>
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(11, 15, 25, 0.60);
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(31, 41, 61, 0.8);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .logo:hover {
+            color: var(--accent-color);
+        }
+        .logo span { color: var(--accent-color); }
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .back-btn {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .service-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .service-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .service-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .contact-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .btn-contact {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+        }
+        .btn-contact:hover {
+            opacity: 0.9;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLang('ro')">RO</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
+
+        <h1 class="page-title" id="page-title">Automatizări Industriale</h1>
+        <p class="page-desc" id="page-desc">Soluții complete de automatizare pentru liniile de producție și procese industriale.</p>
+
+        <!-- SERVICII FIZICE (ON-SITE) -->
+        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
+        <div class="services-list" id="onsite-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
+
+        <!-- SERVICII ONLINE -->
+        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
+        <div class="services-list" id="online-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
+
+        <!-- CONTACT -->
+        <div class="contact-section">
+            <h2 id="contact-title">Gata să începem?</h2>
+            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
+            <a href="https://t.me/your_telegram" class="btn-contact">Contactează-ne pe Telegram</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 PRO_ENGINEERING. All rights reserved.
+    </footer>
+
+    <script>
+        const translations = {
+            ro: {
+                page_title: "Automatizări Industriale",
+                page_desc: "Soluții complete de automatizare pentru liniile de producție și procese industriale.",
+                back_btn: "← Înapoi",
+                sec_onsite: "Servicii On-Site (la fața locului)",
+                sec_online: "Servicii Online / Remote",
+                contact_title: "Gata să începem?",
+                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
+                onsite: [
+                    { title: "Asamblare tablouri automatizare (PLC)", desc: "Proiectare și asamblare tablourilor de comandă cu PLC-uri profesionale și contactori." },
+                    { title: "Programare controlere industriale", desc: "Programare PLC (Siemens, OWEN, Mitsubishi, etc.) după specificațiile procesului." },
+                    { title: "Dulapuri de comandă și protecție", desc: "Asamblare dulapuri cu relei termici, disjunctoare, contactori și dispozitive de protecție." },
+                    { title: "Convertizoare de frecvență", desc: "Instalare și configurare inverteri pentru control viteză motoare și eficiență energetică." },
+                    { title: "Senzori industriali & traductori", desc: "Montare senzori de proximitate, traductori de temperatură, presiune și alți parametri." },
+                    { title: "Automatizare linii de producție", desc: "Integrare completă a sistemelor de automatizare pentru liniile de producție complexe." }
+                ],
+                online: [
+                    { title: "Programare PLC (Siemens, OWEN etc.)", desc: "Programare și debug online a PLC-urilor cu asistență directă prin AnyDesk/VPN." },
+                    { title: "Configurare panouri HMI și convertizoare", desc: "Setare interfeței HMI, parametrilor inverterilor și ale sistemelor de monitorizare." },
+                    { title: "Depanare de la distanță via AnyDesk / VPN", desc: "Diagnosticare și rezolvare probleme la liniile de producție în timp real de la distanță." },
+                    { title: "Modificarea logicii industriale", desc: "Ajustare algoritmi, scenarii și logica de control pentru optimizare proces și productivitate." }
+                ]
+            },
+            ru: {
+                page_title: "Пром. Автоматизация",
+                page_desc: "Полные решения для автоматизации производственных линий и промышленных процессов.",
+                back_btn: "← Назад",
+                sec_onsite: "Услуги на месте (On-Site)",
+                sec_online: "Онлайн-услуги / Remote",
+                contact_title: "Готовы начать?",
+                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
+                onsite: [
+                    { title: "Сборка щитов автоматики (ПЛК)", desc: "Проектирование и сборка щитов управления с профессиональными ПЛК и магнитными пускателями." },
+                    { title: "Программирование контроллеров", desc: "Программирование ПЛК (Siemens, OWEN, Mitsubishi и т.д.) по техническому заданию." },
+                    { title: "Шкафы управления и защиты", desc: "Сборка шкафов с тепловыми реле, автоматами, пускателями и защитными устройствами." },
+                    { title: "Частотные преобразователи", desc: "Установка и настройка частотных преобразователей для управления скоростью двигателей." },
+                    { title: "Промышленные датчики", desc: "Монтаж датчиков приближения, преобразователей температуры, давления и других параметров." },
+                    { title: "Автоматизация линий производства", desc: "Полная интеграция систем автоматизации для сложных производственных линий." }
+                ],
+                online: [
+                    { title: "Программирование ПЛК (Siemens, OWEN и др.)", desc: "Онлайн-программирование и отладка ПЛК с прямой поддержкой через AnyDesk/VPN." },
+                    { title: "Настройка HMI-панелей и частотников", desc: "Конфигурация интерфейса оператора, параметров преобразователей и систем мониторинга." },
+                    { title: "Удаленная отладка через AnyDesk / VPN", desc: "Диагностика и решение проблем производственных линий в реальном времени удалённо." },
+                    { title: "Доработка промышленной логики", desc: "Корректировка алгоритмов, сценариев и логики управления для оптимизации процесса." }
+                ]
+            },
+            en: {
+                page_title: "Industrial Automation",
+                page_desc: "Complete automation solutions for production lines and industrial processes.",
+                back_btn: "← Back",
+                sec_onsite: "On-Site Services",
+                sec_online: "Online / Remote Services",
+                contact_title: "Ready to start?",
+                contact_desc: "Contact us for a free consultation and personalized quote.",
+                onsite: [
+                    { title: "PLC Automation Panel Assembly", desc: "Design and assembly of control panels with professional PLCs and contactors." },
+                    { title: "Industrial Controller Programming", desc: "PLC programming (Siemens, OWEN, Mitsubishi, etc.) according to specifications." },
+                    { title: "Control & Protection Cabinets", desc: "Assembly of cabinets with thermal relays, circuit breakers, contactors and protection devices." },
+                    { title: "Frequency Inverters", desc: "Installation and configuration of VFDs for motor speed control and energy efficiency." },
+                    { title: "Industrial Sensors & Transducers", desc: "Installation of proximity sensors, temperature, pressure transducers and other parameters." },
+                    { title: "Production Line Automation", desc: "Complete integration of automation systems for complex production lines." }
+                ],
+                online: [
+                    { title: "PLC programming (Siemens, OWEN etc.)", desc: "Online PLC programming and debugging with direct support via AnyDesk/VPN." },
+                    { title: "HMI panels & VFD setup", desc: "Configuration of operator interface, inverter parameters and monitoring systems." },
+                    { title: "Remote debugging via AnyDesk / VPN", desc: "Diagnosis and troubleshooting of production lines in real-time from a distance." },
+                    { title: "Industrial logic modification", desc: "Adjustment of algorithms, scenarios and control logic for process optimization." }
+                ]
+            }
+        };
+
+        function renderServices(containerId, services) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            services.forEach(service => {
+                const div = document.createElement('div');
+                div.className = 'service-item';
+                if (containerId === 'online-services') {
+                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
+                } else {
+                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
+                }
+                container.appendChild(div);
+            });
+        }
+
+        function setLang(lang) {
+            localStorage.setItem('preferred_lang', lang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const t = translations[lang];
+            if (!t) return;
+
+            document.getElementById('page-title').textContent = t.page_title;
+            document.getElementById('page-desc').textContent = t.page_desc;
+            document.getElementById('back-btn').textContent = t.back_btn;
+            document.getElementById('sec-onsite').textContent = t.sec_onsite;
+            document.getElementById('sec-online').textContent = t.sec_online;
+            document.getElementById('contact-title').textContent = t.contact_title;
+            document.getElementById('contact-desc').textContent = t.contact_desc;
+
+            renderServices('onsite-services', t.onsite);
+            renderServices('online-services', t.online);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
+            setLang(savedLang);
+        });
+    </script>
+</body>
+</html>
