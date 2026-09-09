@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartHome | PRO_ENGINEERING</title>
+    <title>Sisteme Smart Home | PRO_ENGINEERING</title>
     <style>
         :root {
             --bg-color: #080c14;
@@ -48,9 +48,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .logo:hover {
-            color: var(--accent-color);
-        }
+        .logo:hover { color: var(--accent-color); }
         .logo span { color: var(--accent-color); }
         .lang-switch {
             display: flex;
@@ -153,27 +151,39 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
-        .contact-section {
+        .contact-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
-            margin-top: 3rem;
+            max-width: 500px;
+            margin: 3rem auto 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .btn-contact {
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .social-btn {
             display: inline-block;
-            background: var(--accent-color);
-            color: #000;
-            padding: 12px 28px;
+            padding: 8px 16px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 700;
-            margin-top: 1rem;
-            transition: opacity 0.3s;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
-        .btn-contact:hover {
-            opacity: 0.9;
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
         }
         footer {
             text-align: center;
@@ -185,7 +195,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
         <div class="lang-switch">
@@ -197,27 +206,24 @@
 
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
-
-        <h1 class="page-title" id="page-title">SmartHome</h1>
-        <p class="page-desc" id="page-desc">Automatizare inteligentă a locuinței pentru confort și eficiență energetică.</p>
-
+        <h1 class="page-title" id="page-title">Sisteme Smart Home</h1>
+        <p class="page-desc" id="page-desc">Automatizări inteligente pentru confort, siguranță și eficiență energetică.</p>
+        
         <!-- SERVICII FIZICE (ON-SITE) -->
         <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
-        <div class="services-list" id="onsite-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <div class="services-list" id="onsite-services"></div>
 
         <!-- SERVICII ONLINE -->
         <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <div class="services-list" id="online-services"></div>
 
-        <!-- CONTACT -->
-        <div class="contact-section">
-            <h2 id="contact-title">Gata să începem?</h2>
-            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
-            <a href="https://t.me/your_telegram" class="btn-contact">Telegram</a>
+        <!-- CONTACT SECTION -->
+        <div class="contact-box">
+            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
+            <div class="social-buttons">
+                <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
+                <a href="https://instagram.com/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+            </div>
         </div>
     </div>
 
@@ -228,69 +234,63 @@
     <script>
         const translations = {
             ro: {
-                page_title: "SmartHome",
-                page_desc: "Automatizare inteligentă a locuinței pentru confort și eficiență energetică.",
+                page_title: "Sisteme Smart Home",
+                page_desc: "Automatizări inteligente pentru confort, siguranță și eficiență energetică.",
                 back_btn: "← Înapoi",
                 sec_onsite: "Servicii On-Site (la fața locului)",
                 sec_online: "Servicii Online / Remote",
-                contact_title: "Gata să începem?",
-                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
+                sec_contact: "Contactează-ne",
                 onsite: [
-                    { title: "Elaborarea proiectului tehnic", desc: "Proiectare detaliată a sistemului SmartHome adaptat nevoilor dumneavoastră." },
-                    { title: "Stabilirea caietului de sarcini", desc: "Definire clară a funcționalităților și echipamentelor necesare pentru automatizare." },
-                    { title: "Execuția tablourilor de automatizare", desc: "Asamblare și konfigurare tablourilor de automatizare cu PLC și relee inteligente." },
-                    { title: "Implementarea sistemului SmartHome", desc: "Instalare și integrare completă a sistemului inteligent în locuință." },
-                    { title: "Mentenanță post instalare", desc: "Suport și ajustări după instalare, garantie pe echipamente și servicii." }
+                    { title: "Proiectare sisteme Smart Home", desc: "Soluții personalizate bazate pe Tuya, Zigbee, Sonoff, Home Assistant." },
+                    { title: "Instalare întrerupătoare și prize inteligente", desc: "Montaj echipamente inteligente fără modificări majore de cablaj." },
+                    { title: "Automatizare iluminat și scenarii", desc: "Creare scenarii luminoase inteligente (venire acasă, noapte, cinema)." },
+                    { title: "Sisteme senzori siguranță", desc: "Instalare senzori scurgere apă, gaz, fum și mișcare cu alerte pe telefon." },
+                    { title: "Control climatizare și încălzire", desc: "Integrare termostate inteligente pentru economie la energie." }
                 ],
                 online: [
-                    { title: "Programare scenarii (Home Assistant)", desc: "Creeare și optimizare scenarii de automatizare cu Home Assistant sau platform similare." },
-                    { title: "Configurare Tuya / Smart Life / Wiren Board", desc: "Setare și integrare dispozitivelor inteligente pe platformele populare de smart home." },
-                    { title: "Integrare cu Siri, Alexa și Google Home", desc: "Conectare sistem la asistenți vocali pentru control prin voce complet." },
-                    { title: "Depanare și optimizare automatizări", desc: "Rezolvare probleme, optimizare performanță și update regulare a sistemului." }
+                    { title: "Configurare Home Assistant", desc: "Instalare, configurare servere locale și integrare dispozitive." },
+                    { title: "Scenarii complexe și automatizări", desc: "Scrierea codului de automatizare (Node-RED, Home Assistant YAML)." },
+                    { title: "Consultanță alegere echipamente Smart", desc: "Selecție protocoale (Zigbee vs Wi-Fi) și compatibilitate dispozitive." }
                 ]
             },
             ru: {
-                page_title: "Умный Дом (SmartHome)",
-                page_desc: "Интеллектуальная автоматизация дома для комфорта и энергоэффективности.",
+                page_title: "Умный Дом (Smart Home)",
+                page_desc: "Интеллектуальная автоматизация для комфорта, безопасности и энергоэффективности.",
                 back_btn: "← Назад",
                 sec_onsite: "Услуги на месте (On-Site)",
                 sec_online: "Онлайн-услуги / Remote",
-                contact_title: "Готовы начать?",
-                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
+                sec_contact: "Свяжитесь с нами",
                 onsite: [
-                    { title: "Разработка технического проекта", desc: "Детальное проектирование системы SmartHome под ваши потребности." },
-                    { title: "Составление технического задания (ТЗ)", desc: "Четкое определение функциональности и необходимого оборудования для автоматизации." },
-                    { title: "Сборка щитов автоматики", desc: "Сборка и конфигурация щитов автоматики с ПЛК и умными реле." },
-                    { title: "Внедрение системы SmartHome", desc: "Полная установка и интеграция умной системы в дом." },
-                    { title: "Сервисное обслуживание", desc: "Поддержка и регулировка после установки, гарантия на оборудование и услуги." }
+                    { title: "Проектирование систем Умного Дома", desc: "Персональные решения на базе Tuya, Zigbee, Sonoff, Home Assistant." },
+                    { title: "Монтаж умных выключателей и розеток", desc: "Установка оборудования без сложной переделки проводки." },
+                    { title: "Автоматизация освещения и сценарии", desc: "Создание сценариев света (приход домой, ночь, кино)." },
+                    { title: "Датчики безопасности и протечки", desc: "Монтаж датчиков протечки воды, газа, дыма и движения с уведомлением на телефон." },
+                    { title: "Управление климатом и отоплением", desc: "Интеграция умных термостатов для экономии энергоресурсов." }
                 ],
                 online: [
-                    { title: "Программирование сценариев (Home Assistant)", desc: "Создание и оптимизация сценариев автоматизации через Home Assistant или подобные платформы." },
-                    { title: "Настройка Tuya / Smart Life / Wiren Board", desc: "Настройка и интеграция умных устройств на популярные платформы умного дома." },
-                    { title: "Интеграция с Алисой, Siri, Google Home", desc: "Подключение системы к голосовым помощникам для полного голосового управления." },
-                    { title: "Удалённая отладка автоматизации", desc: "Решение проблем, оптимизация производительности и регулярные обновления системы." }
+                    { title: "Настройка Home Assistant", desc: "Установка, настройка локальных серверов и интеграция устройств." },
+                    { title: "Сложные сценарии и автоматизации", desc: "Написание сценариев автоматизации (Node-RED, Home Assistant YAML)." },
+                    { title: "Консультация по подбору оборудования", desc: "Подбор протоколов (Zigbee vs Wi-Fi) и проверка совместимости." }
                 ]
             },
             en: {
-                page_title: "SmartHome",
-                page_desc: "Intelligent home automation for comfort and energy efficiency.",
+                page_title: "Smart Home Systems",
+                page_desc: "Smart automation for comfort, safety and energy efficiency.",
                 back_btn: "← Back",
                 sec_onsite: "On-Site Services",
                 sec_online: "Online / Remote Services",
-                contact_title: "Ready to start?",
-                contact_desc: "Contact us for a free consultation and personalized quote.",
+                sec_contact: "Contact us",
                 onsite: [
-                    { title: "Technical Design Development", desc: "Detailed design of SmartHome system tailored to your needs." },
-                    { title: "Terms of Reference (ToR) Setup", desc: "Clear definition of functionality and equipment needed for automation." },
-                    { title: "Automation Control Panel Assembly", desc: "Assembly and configuration of automation panels with PLC and smart relays." },
-                    { title: "SmartHome System Setup", desc: "Complete installation and integration of the smart system in your home." },
-                    { title: "Post-installation Maintenance", desc: "Support and adjustments after installation, warranty on equipment and services." }
+                    { title: "Smart Home System Design", desc: "Customized solutions based on Tuya, Zigbee, Sonoff, Home Assistant." },
+                    { title: "Smart Switches & Sockets Installation", desc: "Installing smart devices without major wiring rewrites." },
+                    { title: "Lighting Automation & Scenes", desc: "Creating smart light scenes (arriving home, night mode, cinema)." },
+                    { title: "Safety Sensors Integration", desc: "Installing water leak, gas, smoke and motion sensors with phone alerts." },
+                    { title: "Climate & Heating Control", desc: "Smart thermostat integration for energy savings." }
                 ],
                 online: [
-                    { title: "Automation scripts (Home Assistant)", desc: "Creation and optimization of automation scenarios with Home Assistant or similar platforms." },
-                    { title: "Tuya / Smart Life / Wiren Board setup", desc: "Setup and integration of smart devices on popular smart home platforms." },
-                    { title: "Integration with Siri, Alexa, Google Home", desc: "Connection to voice assistants for full voice control of your system." },
-                    { title: "Remote automation debugging", desc: "Problem solving, performance optimization and regular system updates." }
+                    { title: "Home Assistant Configuration", desc: "Installation, local server configuration and device integration." },
+                    { title: "Complex Scenarios & Automation", desc: "Writing automation scripts (Node-RED, Home Assistant YAML)." },
+                    { title: "Smart Hardware Selection Consulting", desc: "Protocol selection (Zigbee vs Wi-Fi) and compatibility checks." }
                 ]
             }
         };
@@ -312,7 +312,6 @@
 
         function setLang(lang) {
             localStorage.setItem('preferred_lang', lang);
-            
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 const onclickAttr = btn.getAttribute('onclick');
@@ -320,7 +319,7 @@
                     btn.classList.add('active');
                 }
             });
-
+            
             const t = translations[lang];
             if (!t) return;
 
@@ -329,8 +328,7 @@
             document.getElementById('back-btn').textContent = t.back_btn;
             document.getElementById('sec-onsite').textContent = t.sec_onsite;
             document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('contact-title').textContent = t.contact_title;
-            document.getElementById('contact-desc').textContent = t.contact_desc;
+            document.getElementById('sec-contact').textContent = t.sec_contact;
 
             renderServices('onsite-services', t.onsite);
             renderServices('online-services', t.online);
