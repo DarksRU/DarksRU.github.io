@@ -386,122 +386,317 @@
 
     <script>
     <script>
-        const translations = {
-            ro: {
-                title: "Servicii Electrice & Inginerie în Chișinău",
-                desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
-                sec_services: "Serviciile Noastre",
-                sec_online: "Servicii Online / Remote Engineering",
-                sec_about: "De Ce Noi?",
-                sec_contact: "Contactează-ne",
-                about_text: "Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune.",
-                f1_t: "Calitate & Siguranță", f1_d: "Respectăm toate normele și standardele tehnice în vigoare.",
-                f2_t: "Proiecte Complexe", f2_d: "De la case inteligente până la linii industriale automatizate.",
-                f3_t: "Garanție & Suport", f3_d: "Mentenanță și asistență tehnică post-instalare.",
-                contact_desc: "Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.",
-                c1: "Instalații Electrice", c1_l: ["Proiectare Instalații Electrice", "Auditul instalațiilor electrice", "Montarea și înlocuirea cablurilor", "Montare prize și întrerupătoare", "Instalații Iluminare", "Conectare electrocasnice", "Asamblare panou distribuție", "Intervenții de avariere"],
-                c2: "Sisteme Curenți Slabi", c2_l: ["Rețele Locale / Internet", "Puncte acces Wi-Fi", "Sisteme antiefracție", "Supraveghere Video", "Videointerfonie & Control acces", "Sisteme Audio / Multimedia"],
-                c3: "SmartHome", c3_l: ["Elaborarea proiectului tehnic", "Stabilirea caietului de sarcini", "Execuția tablourilor de automatizare", "Implementarea sistemului SmartHome", "Mentenanță post instalare"],
-                c4: "Automatizări Industriale", c4_l: ["Asamblare tablouri automatizare (PLC)", "Programare controlere industriale", "Dulapuri de comandă și protecție", "Convertizoare de frecvență", "Senzori industriali & traductori", "Automatizare linii de producție"],
-                o1: "Servicii Electrice Online", o1_l: ["Audit de la distanță al schemelor și tablourilor", "Consultanță în alegerea echipamentelor de protecție", "Calculul sarcinilor și selectarea cablurilor", "Asistență online la montaj și defecțiuni"],
-                o2: "Curenți Slabi Online", o2_l: ["Configurare supraveghere video (P2P / Cloud)", "Setare routere, rețele Wi-Fi și VPN", "Forwarding porturi și acces de la distanță", "Configurare stocare în rețea (NAS)"],
-                o3: "SmartHome Online", o3_l: ["Programare scenarii (Home Assistant)", "Configurare Tuya / Smart Life / Wiren Board", "Integrare cu Siri, Alexa și Google Home", "Depanare și optimizare automatizări"],
-                o4: "Automatizări Online", o4_l: ["Programare PLC (Siemens, OWEN etc.)", "Configurare panouri HMI și convertizoare", "Depanare de la distanță via AnyDesk / VPN", "Modificarea logicii industriale"]
-            },
-            ru: {
-                title: "Электромонтаж и Инженерия в Кишиневе",
-                desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
-                sec_services: "Наши Услуги",
-                sec_online: "Удалённые ИТ-Услуги / Online Engineering",
-                sec_about: "Почему Мы?",
-                sec_contact: "Связаться с нами",
-                about_text: "Мы предоставляем полный спектр инженерных решений от проектирования до сдачи объекта под ключ.",
-                f1_t: "Качество и Безопасность", f1_d: "Строго соблюдаем все действующие нормы и технические стандарты.",
-                f2_t: "Сложные Проекты", f2_d: "От систем «Умный Дом» до автоматизированных промышленных линий.",
-                f3_t: "Гарантия и Поддержка", f3_d: "Сервисное обслуживание и техническая поддержка после монтажа.",
-                contact_desc: "Готовы начать проект? Свяжитесь с нами для консультации или расчёта стоимости.",
-                c1: "Электромонтажные работы", c1_l: ["Проектирование электроустановок", "Аудит электрических сетей", "Прокладка и замена кабелей", "Установка розеток и выключателей", "Монтаж освещения", "Подключение бытовой техники", "Сборка распределительных щитов", "Оперативный выезд при авариях"],
-                c2: "Слаботочные системы", c2_l: ["Локальные и интернет сети", "Установка точек доступа Wi-Fi", "Охранная сигнализация", "Видеонаблюдение", "СКУД и видеодомофоны", "Аудио и мультимедийные системы"],
-                c3: "Умный Дом (SmartHome)", c3_l: ["Разработка технического проекта", "Составление технического задания (ТЗ)", "Сборка щитов автоматики", "Внедрение системы SmartHome", "Сервисное обслуживание"],
-                c4: "Пром. Автоматизация", c4_l: ["Сборка щитов автоматики (ПЛК)", "Программирование контроллеров", "Шкафы управления и защиты", "Частотные преобразователи", "Промышленные датчики", "Автоматизация линий производства"],
-                o1: "Онлайн-Электрика", o1_l: ["Удалённый аудит схем и щитов", "Консультация по выбору автоматики", "Расчёт нагрузок и подбор кабеля", "Онлайн-помощь при сборке/авариях"],
-                o2: "Онлайн-Слаботочка", o2_l: ["Настройка видеонаблюдения (P2P/Облако)", "Конфигурация роутеров, Wi-Fi и VPN", "Проброс портов и удалённый доступ", "Настройка сетевых накопителей (NAS)"],
-                o3: "Онлайн-Умный Дом", o3_l: ["Программирование сценариев (Home Assistant)", "Настройка Tuya / Smart Life / Wiren Board", "Интеграция с Алисой, Siri, Google Home", "Удалённая отладка автоматизации"],
-                o4: "Онлайн-Автоматизация", o4_l: ["Программирование ПЛК (Siemens, OWEN и др.)", "Настройка HMI-панелей и частотников", "Удаленная отладка через AnyDesk / VPN", "Доработка промышленной логики"]
-            },
-            en: {
-                title: "Electrical & Engineering Services in Chisinau",
-                desc: "Design, installation, and automation for residential and industrial projects.",
-                sec_services: "Our Services",
-                sec_online: "Online Services / Remote Engineering",
-                sec_about: "Why Choose Us?",
-                sec_contact: "Contact Us",
-                about_text: "We provide complete engineering solutions from design to commissioning.",
-                f1_t: "Quality & Safety", f1_d: "We strictly comply with all current technical standards and norms.",
-                f2_t: "Complex Projects", f2_d: "From Smart Home systems to fully automated industrial lines.",
-                f3_t: "Warranty & Support", f3_d: "Post-installation maintenance and dedicated technical support.",
-                contact_desc: "Ready to start your project? Contact us for a consultation or quote.",
-                c1: "Electrical Services", c1_l: ["Electrical Installation Design", "Electrical Audit", "Wiring & Cable Replacement", "Socket & Switch Installation", "Lighting Installation", "Home Appliance Connection", "Distribution Board Assembly", "Emergency Repairs"],
-                c2: "Low Voltage Systems", c2_l: ["Local & Internet Networks", "Wi-Fi Access Points", "Burglar Alarm Systems", "Video Surveillance", "Access Control & Video Intercom", "Audio & Multimedia Systems"],
-                c3: "SmartHome", c3_l: ["Technical Design Development", "Terms of Reference (ToR) Setup", "Automation Control Panel Assembly", "SmartHome System Setup", "Post-installation Maintenance"],
-                c4: "Industrial Automation", c4_l: ["PLC Automation Panel Assembly", "Industrial Controller Programming", "Control & Protection Cabinets", "Frequency Inverters", "Industrial Sensors & Transducers", "Production Line Automation"],
-                o1: "Online Electrical", o1_l: ["Remote audit of schemes & panels", "Consultation on protection equipment", "Load calculation & cable selection", "Online guidance for assembly / issues"],
-                o2: "Online Low-Voltage", o2_l: ["CCTV configuration (P2P/Cloud)", "Router, Wi-Fi & VPN setup", "Port forwarding & remote access", "NAS storage configuration"],
-                o3: "Online SmartHome", o3_l: ["Automation scripts (Home Assistant)", "Tuya / Smart Life / Wiren Board setup", "Integration with Siri, Alexa, Google Home", "Remote automation debugging"],
-                o4: "Online Industrial Automation", o4_l: ["PLC programming (Siemens, OWEN etc.)", "HMI panels & VFD setup", "Remote debugging via AnyDesk / VPN", "Industrial logic modification"]
+       <script>
+    const translations = {
+        ro: {
+            title: "Servicii Electrice & Inginerie în Chișinău",
+            desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
+            sec_services: "Serviciile Noastre",
+            sec_online: "Servicii Online / Remote Engineering",
+            sec_about: "De Ce Noi?",
+            sec_contact: "Contactează-ne",
+            about_text: "Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune.",
+            f1_t: "Calitate & Siguranță", 
+            f1_d: "Respectăm toate normele și standardele tehnice în vigoare.",
+            f2_t: "Proiecte Complexe", 
+            f2_d: "De la case inteligente până la linii industriale automatizate.",
+            f3_t: "Garanție & Suport", 
+            f3_d: "Mentenanță și asistență tehnică post-instalare.",
+            contact_desc: "Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.",
+            c1: "Instalații Electrice", 
+            c1_l: [
+                "Proiectare Instalații Electrice", 
+                "Auditul instalațiilor electrice", 
+                "Montarea și înlocuirea cablurilor", 
+                "Montare prize și întrerupătoare", 
+                "Instalații Iluminare", 
+                "Conectare electrocasnice", 
+                "Asamblare panou distribuție", 
+                "Intervenții de avariere"
+            ],
+            c2: "Sisteme Curenți Slabi", 
+            c2_l: [
+                "Rețele Locale / Internet", 
+                "Puncte acces Wi-Fi", 
+                "Sisteme antiefracție", 
+                "Supraveghere Video", 
+                "Videointerfonie & Control acces", 
+                "Sisteme Audio / Multimedia"
+            ],
+            c3: "SmartHome", 
+            c3_l: [
+                "Elaborarea proiectului tehnic", 
+                "Stabilirea caietului de sarcini", 
+                "Execuția tablourilor de automatizare", 
+                "Implementarea sistemului SmartHome", 
+                "Mentenanță post instalare"
+            ],
+            c4: "Automatizări Industriale", 
+            c4_l: [
+                "Asamblare tablouri automatizare (PLC)", 
+                "Programare controlere industriale", 
+                "Dulapuri de comandă și protecție", 
+                "Convertizoare de frecvență", 
+                "Senzori industriali & traductori", 
+                "Automatizare linii de producție"
+            ],
+            o1: "Servicii Electrice Online", 
+            o1_l: [
+                "Audit de la distanță al schemelor și tablourilor", 
+                "Consultanță în alegerea echipamentelor de protecție", 
+                "Calculul sarcinilor și selectarea cablurilor", 
+                "Asistență online la montaj și defecțiuni"
+            ],
+            o2: "Curenți Slabi Online", 
+            o2_l: [
+                "Configurare supraveghere video (P2P / Cloud)", 
+                "Setare routere, rețele Wi-Fi și VPN", 
+                "Forwarding porturi și acces de la distanță", 
+                "Configurare stocare în rețea (NAS)"
+            ],
+            o3: "SmartHome Online", 
+            o3_l: [
+                "Programare scenarii (Home Assistant)", 
+                "Configurare Tuya / Smart Life / Wiren Board", 
+                "Integrare cu Siri, Alexa și Google Home", 
+                "Depanare și optimizare automatizări"
+            ],
+            o4: "Automatizări Online", 
+            o4_l: [
+                "Programare PLC (Siemens, OWEN etc.)", 
+                "Configurare panouri HMI și convertizoare", 
+                "Depanare de la distanță via AnyDesk / VPN", 
+                "Modificarea logicii industriale"
+            ]
+        },
+        ru: {
+            title: "Электромонтаж и Инженерия в Кишиневе",
+            desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
+            sec_services: "Наши Услуги",
+            sec_online: "Удалённые ИТ-Услуги / Online Engineering",
+            sec_about: "Почему Мы?",
+            sec_contact: "Связаться с нами",
+            about_text: "Мы предоставляем полный спектр инженерных решений от проектирования до сдачи объекта под ключ.",
+            f1_t: "Качество и Безопасность", 
+            f1_d: "Строго соблюдаем все действующие нормы и технические стандарты.",
+            f2_t: "Сложные Проекты", 
+            f2_d: "От систем «Умный Дом» до автоматизированных промышленных линий.",
+            f3_t: "Гарантия и Поддержка", 
+            f3_d: "Сервисное обслуживание и техническая поддержка после монтажа.",
+            contact_desc: "Готовы начать проект? Свяжитесь с нами для консультации или расчёта стоимости.",
+            c1: "Электромонтажные работы", 
+            c1_l: [
+                "Проектирование электроустановок", 
+                "Аудит электрических сетей", 
+                "Прокладка и замена кабелей", 
+                "Установка розеток и выключателей", 
+                "Монтаж освещения", 
+                "Подключение бытовой техники", 
+                "Сборка распределительных щитов", 
+                "Оперативный выезд при авариях"
+            ],
+            c2: "Слаботочные системы", 
+            c2_l: [
+                "Локальные и интернет сети", 
+                "Установка точек доступа Wi-Fi", 
+                "Охранная сигнализация", 
+                "Видеонаблюдение", 
+                "СКУД и видеодомофоны", 
+                "Аудио и мультимедийные системы"
+            ],
+            c3: "Умный Дом (SmartHome)", 
+            c3_l: [
+                "Разработка технического проекта", 
+                "Составление технического задания (ТЗ)", 
+                "Сборка щитов автоматики", 
+                "Внедрение системы SmartHome", 
+                "Сервисное обслуживание"
+            ],
+            c4: "Пром. Автоматизация", 
+            c4_l: [
+                "Сборка щитов автоматики (ПЛК)", 
+                "Программирование контроллеров", 
+                "Шкафы управления и защиты", 
+                "Частотные преобразователи", 
+                "Промышленные датчики", 
+                "Автоматизация линий производства"
+            ],
+            o1: "Онлайн-Электрика", 
+            o1_l: [
+                "Удалённый аудит схем и щитов", 
+                "Консультация по выбору автоматики", 
+                "Расчёт нагрузок и подбор кабеля", 
+                "Онлайн-помощь при сборке/авариях"
+            ],
+            o2: "Онлайн-Слаботочка", 
+            o2_l: [
+                "Настройка видеонаблюдения (P2P/Облако)", 
+                "Конфигурация роутеров, Wi-Fi и VPN", 
+                "Проброс портов и удалённый доступ", 
+                "Настройка сетевых накопителей (NAS)"
+            ],
+            o3: "Онлайн-Умный Дом", 
+            o3_l: [
+                "Программирование сценариев (Home Assistant)", 
+                "Настройка Tuya / Smart Life / Wiren Board", 
+                "Интеграция с Алисой, Siri, Google Home", 
+                "Удалённая отладка автоматизации"
+            ],
+            o4: "Онлайн-Автоматизация", 
+            o4_l: [
+                "Программирование ПЛК (Siemens, OWEN и др.)", 
+                "Настройка HMI-панелей и частотников", 
+                "Удаленная отладка через AnyDesk / VPN", 
+                "Доработка промышленной логики"
+            ]
+        },
+        en: {
+            title: "Electrical & Engineering Services in Chisinau",
+            desc: "Design, installation, and automation for residential and industrial projects.",
+            sec_services: "Our Services",
+            sec_online: "Online Services / Remote Engineering",
+            sec_about: "Why Choose Us?",
+            sec_contact: "Contact Us",
+            about_text: "We provide complete engineering solutions from design to commissioning.",
+            f1_t: "Quality & Safety", 
+            f1_d: "We strictly comply with all current technical standards and norms.",
+            f2_t: "Complex Projects", 
+            f2_d: "From Smart Home systems to fully automated industrial lines.",
+            f3_t: "Warranty & Support", 
+            f3_d: "Post-installation maintenance and dedicated technical support.",
+            contact_desc: "Ready to start your project? Contact us for a consultation or quote.",
+            c1: "Electrical Services", 
+            c1_l: [
+                "Electrical Installation Design", 
+                "Electrical Audit", 
+                "Wiring & Cable Replacement", 
+                "Socket & Switch Installation", 
+                "Lighting Installation", 
+                "Home Appliance Connection", 
+                "Distribution Board Assembly", 
+                "Emergency Repairs"
+            ],
+            c2: "Low Voltage Systems", 
+            c2_l: [
+                "Local & Internet Networks", 
+                "Wi-Fi Access Points", 
+                "Burglar Alarm Systems", 
+                "Video Surveillance", 
+                "Access Control & Video Intercom", 
+                "Audio & Multimedia Systems"
+            ],
+            c3: "SmartHome", 
+            c3_l: [
+                "Technical Design Development", 
+                "Terms of Reference (ToR) Setup", 
+                "Automation Control Panel Assembly", 
+                "SmartHome System Setup", 
+                "Post-installation Maintenance"
+            ],
+            c4: "Industrial Automation", 
+            c4_l: [
+                "PLC Automation Panel Assembly", 
+                "Industrial Controller Programming", 
+                "Control & Protection Cabinets", 
+                "Frequency Inverters", 
+                "Industrial Sensors & Transducers", 
+                "Production Line Automation"
+            ],
+            o1: "Online Electrical", 
+            o1_l: [
+                "Remote audit of schemes & panels", 
+                "Consultation on protection equipment", 
+                "Load calculation & cable selection", 
+                "Online guidance for assembly / issues"
+            ],
+            o2: "Online Low-Voltage", 
+            o2_l: [
+                "CCTV configuration (P2P/Cloud)", 
+                "Router, Wi-Fi & VPN setup", 
+                "Port forwarding & remote access", 
+                "NAS storage configuration"
+            ],
+            o3: "Online SmartHome", 
+            o3_l: [
+                "Automation scripts (Home Assistant)", 
+                "Tuya / Smart Life / Wiren Board setup", 
+                "Integration with Siri, Alexa, Google Home", 
+                "Remote automation debugging"
+            ],
+            o4: "Online Industrial Automation", 
+            o4_l: [
+                "PLC programming (Siemens, OWEN etc.)", 
+                "HMI panels & VFD setup", 
+                "Remote debugging via AnyDesk / VPN", 
+                "Industrial logic modification"
+            ]
+        }
+    };
+
+    function updateList(elementId, items) {
+        const listElement = document.getElementById(elementId);
+        if (!listElement) return;
+        listElement.innerHTML = '';
+        items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            listElement.appendChild(li);
+        });
+    }
+
+    function setLang(lang) {
+        // Обновляем состояние кнопок переключения
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
+                btn.classList.add('active');
             }
+        });
+
+        const t = translations[lang];
+        if (!t) return;
+
+        // Вспомогательная функция безопасного присвоения текста
+        const setTxt = (id, val) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = val;
         };
 
-        function updateList(elementId, items) {
-            const listElement = document.getElementById(elementId);
-            if (!listElement) return;
-            listElement.innerHTML = '';
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                listElement.appendChild(li);
-            });
-        }
+        // Заголовки и тексты секций
+        setTxt('hero-title', t.title);
+        setTxt('hero-desc', t.desc);
+        setTxt('sec-services', t.sec_services);
+        setTxt('sec-online', t.sec_online);
+        setTxt('sec-about', t.sec_about);
+        setTxt('sec-contact', t.sec_contact);
+        setTxt('about-text', t.about_text);
 
-        function setLang(lang) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            if (event && event.target) {
-                event.target.classList.add('active');
-            }
-            const t = translations[lang];
+        // Преимущества
+        setTxt('f1-t', t.f1_t); setTxt('f1-d', t.f1_d);
+        setTxt('f2-t', t.f2_t); setTxt('f2-d', t.f2_d);
+        setTxt('f3-t', t.f3_t); setTxt('f3-d', t.f3_d);
 
-            document.getElementById('hero-title').innerText = t.title;
-            document.getElementById('hero-desc').innerText = t.desc;
-            document.getElementById('sec-services').innerText = t.sec_services;
-            if (document.getElementById('sec-online')) document.getElementById('sec-online').innerText = t.sec_online;
-            document.getElementById('sec-about').innerText = t.sec_about;
-            document.getElementById('sec-contact').innerText = t.sec_contact;
-            document.getElementById('about-text').innerText = t.about_text;
+        // Контакты
+        setTxt('contact-desc', t.contact_desc);
 
-            document.getElementById('f1-t').innerText = t.f1_t; document.getElementById('f1-d').innerText = t.f1_d;
-            document.getElementById('f2-t').innerText = t.f2_t; document.getElementById('f2-d').innerText = t.f2_d;
-            document.getElementById('f3-t').innerText = t.f3_t; document.getElementById('f3-d').innerText = t.f3_d;
+        // Основные карточки
+        setTxt('c1-title', t.c1); updateList('c1-list', t.c1_l);
+        setTxt('c2-title', t.c2); updateList('c2-list', t.c2_l);
+        setTxt('c3-title', t.c3); updateList('c3-list', t.c3_l);
+        setTxt('c4-title', t.c4); updateList('c4-list', t.c4_l);
 
-            document.getElementById('contact-desc').innerText = t.contact_desc;
+        // Онлайн карточки
+        setTxt('o1-title', t.o1); updateList('o1-list', t.o1_l);
+        setTxt('o2-title', t.o2); updateList('o2-list', t.o2_l);
+        setTxt('o3-title', t.o3); updateList('o3-list', t.o3_l);
+        setTxt('o4-title', t.o4); updateList('o4-list', t.o4_l);
+    }
 
-            document.getElementById('c1-title').innerText = t.c1; updateList('c1-list', t.c1_l);
-            document.getElementById('c2-title').innerText = t.c2; updateList('c2-list', t.c2_l);
-            document.getElementById('c3-title').innerText = t.c3; updateList('c3-list', t.c3_l);
-            document.getElementById('c4-title').innerText = t.c4; updateList('c4-list', t.c4_l);
-
-            if (document.getElementById('o1-title')) {
-                document.getElementById('o1-title').innerText = t.o1; updateList('o1-list', t.o1_l);
-                document.getElementById('o2-title').innerText = t.o2; updateList('o2-list', t.o2_l);
-                document.getElementById('o3-title').innerText = t.o3; updateList('o3-list', t.o3_l);
-                document.getElementById('o4-title').innerText = t.o4; updateList('o4-list', t.o4_l);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            setLang('ro');
-        });
-    </script>
-
+    document.addEventListener("DOMContentLoaded", () => {
+        setLang('ro');
+    });
+</script>
         // Init
         updateList('c1-list', translations.ro.c1_l);
         updateList('c2-list', translations.ro.c2_l);
