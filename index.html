@@ -158,6 +158,16 @@
         .service-card-link:hover {
             opacity: 0.9;
         }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -248,6 +258,17 @@
             </div>
         </div>
 
+        <!-- ONLINE SERVICES -->
+        <h2 class="section-title" id="sec-online">Servicii Online / Remote Engineering</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="badge" id="badge-online">ONLINE</span>
+                <h3 id="online-title">Servicii Online</h3>
+                <p id="online-desc" style="color: var(--text-muted); flex-grow: 1;">Consultanță și suport tehnic la distanță pentru toate serviciile noastre.</p>
+                <a href="online.html" class="service-card-link" id="online-link">Citește mai mult →</a>
+            </div>
+        </div>
+
         <!-- ABOUT SECTION -->
         <h2 class="section-title" id="sec-about">De Ce Noi?</h2>
         <p style="text-align: center; color: var(--text-muted);" id="about-text">Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune.</p>
@@ -285,6 +306,7 @@
                 title: "Servicii Electrice & Inginerie în Chișinău",
                 desc: "Proiectare, instalare și automatizări pentru proiecte rezidențiale și industriale.",
                 sec_services: "Serviciile Noastre",
+                sec_online: "Servicii Online / Remote Engineering",
                 sec_about: "De Ce Noi?",
                 sec_contact: "Contactează-ne",
                 about_text: "Oferim soluții inginerești complete de la proiectare până la punerea în funcțiune.",
@@ -295,6 +317,9 @@
                 f3_t: "Garanție & Suport", 
                 f3_d: "Mentenanță și asistență tehnică post-instalare.",
                 contact_desc: "Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.",
+                badge_online: "ONLINE",
+                online_title: "Servicii Online",
+                online_desc: "Consultanță și suport tehnic la distanță pentru toate serviciile noastre.",
                 c1: "Instalații Electrice", 
                 c1_l: [
                     "Proiectare Instalații Electrice", 
@@ -338,6 +363,7 @@
                 title: "Электромонтаж и Инженерия в Кишиневе",
                 desc: "Проектирование, монтаж и автоматизация для жилых и промышленных объектов.",
                 sec_services: "Наши Услуги",
+                sec_online: "Онлайн-услуги / Remote Engineering",
                 sec_about: "Почему Мы?",
                 sec_contact: "Связаться с нами",
                 about_text: "Мы предоставляем полный спектр инженерных решений от проектирования до сдачи объекта под ключ.",
@@ -348,6 +374,9 @@
                 f3_t: "Гарантия и Поддержка", 
                 f3_d: "Сервисное обслуживание и техническая поддержка после монтажа.",
                 contact_desc: "Готовы начать проект? Свяжитесь с нами для консультации или расчёта стоимости.",
+                badge_online: "ОНЛАЙН",
+                online_title: "Онлайн-услуги",
+                online_desc: "Консультации и техническая поддержка на расстоянии для всех наших услуг.",
                 c1: "Электромонтажные работы", 
                 c1_l: [
                     "Проектирование электроустановок", 
@@ -391,6 +420,7 @@
                 title: "Electrical & Engineering Services in Chisinau",
                 desc: "Design, installation, and automation for residential and industrial projects.",
                 sec_services: "Our Services",
+                sec_online: "Online Services / Remote Engineering",
                 sec_about: "Why Choose Us?",
                 sec_contact: "Contact Us",
                 about_text: "We provide complete engineering solutions from design to commissioning.",
@@ -401,6 +431,9 @@
                 f3_t: "Warranty & Support", 
                 f3_d: "Post-installation maintenance and dedicated technical support.",
                 contact_desc: "Ready to start your project? Contact us for a consultation or quote.",
+                badge_online: "ONLINE",
+                online_title: "Online Services",
+                online_desc: "Remote consultation and technical support for all our services.",
                 c1: "Electrical Services", 
                 c1_l: [
                     "Electrical Installation Design", 
@@ -475,6 +508,7 @@
             setTxt('hero-title', t.title);
             setTxt('hero-desc', t.desc);
             setTxt('sec-services', t.sec_services);
+            setTxt('sec-online', t.sec_online);
             setTxt('sec-about', t.sec_about);
             setTxt('sec-contact', t.sec_contact);
             setTxt('about-text', t.about_text);
@@ -484,6 +518,10 @@
             setTxt('f3-t', t.f3_t); setTxt('f3-d', t.f3_d);
 
             setTxt('contact-desc', t.contact_desc);
+
+            setTxt('badge-online', t.badge_online);
+            setTxt('online-title', t.online_title);
+            setTxt('online-desc', t.online_desc);
 
             setTxt('c1-title', t.c1); updateList('c1-list', t.c1_l);
             setTxt('c2-title', t.c2); updateList('c2-list', t.c2_l);
