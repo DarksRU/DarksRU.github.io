@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sisteme Smart Home | PRO_ENGINEERING</title>
+
+    <meta
+        name="description"
+        content="Proiectare, instalare și configurare profesională a sistemelor Smart Home pentru locuințe și spații comerciale."
+    >
+
     <style>
         :root {
             --bg-color: #080c14;
@@ -13,21 +20,29 @@
             --text-muted: #9ca3af;
             --border-color: rgba(31, 41, 61, 0.8);
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: "Segoe UI", system-ui, sans-serif;
         }
+
         body {
             background-color: var(--bg-color);
-            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
+            background-image:
+                linear-gradient(
+                    rgba(8, 12, 20, 0.82),
+                    rgba(8, 12, 20, 0.82)
+                ),
+                url("bg.jpg");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--text-color);
             line-height: 1.6;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -35,308 +50,506 @@
             padding: 1rem 2rem;
             background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
         .logo {
+            color: #ffffff;
             font-size: 1.3rem;
             font-weight: 800;
             letter-spacing: 1px;
-            color: #fff;
             text-decoration: none;
             cursor: pointer;
+            transition: color 0.3s;
         }
-        .logo:hover { color: var(--accent-color); }
-        .logo span { color: var(--accent-color); }
+
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
         .lang-switch {
             display: flex;
             gap: 5px;
-            background: rgba(255, 255, 255, 0.05);
             padding: 4px;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
+            border-radius: 8px;
         }
+
         .lang-btn {
+            padding: 5px 10px;
             background: transparent;
             border: none;
-            color: var(--text-muted);
-            padding: 5px 10px;
             border-radius: 5px;
+            color: var(--text-muted);
             cursor: pointer;
-            font-weight: 600;
             font-size: 0.85rem;
+            font-weight: 600;
             transition: all 0.3s;
         }
-        .lang-btn.active, .lang-btn:hover {
+
+        .lang-btn.active,
+        .lang-btn:hover {
             background: var(--accent-color);
-            color: #000;
+            color: #000000;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.5rem 4rem;
         }
+
         .back-btn {
             display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--accent-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
             margin-bottom: 2rem;
+            padding: 10px 20px;
+            background: rgba(0, 242, 254, 0.1);
             border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
             transition: all 0.3s;
         }
+
         .back-btn:hover {
             background: var(--accent-color);
-            color: #000;
+            color: #000000;
         }
+
         .page-title {
-            font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.2;
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                var(--accent-color) 100%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .page-desc {
-            font-size: 1.1rem;
+            max-width: 900px;
+            margin-bottom: 1.25rem;
             color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .page-intro {
+            max-width: 900px;
             margin-bottom: 3rem;
-            max-width: 800px;
+            color: #d1d5db;
+            font-size: 1rem;
         }
+
         .section-title {
-            font-size: 1.8rem;
             margin: 2.5rem 0 1.5rem;
-            color: #fff;
-            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            color: #ffffff;
+            font-size: 1.8rem;
         }
+
         .services-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
         }
+
         .service-item {
+            padding: 1.5rem;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 1.5rem;
             backdrop-filter: blur(12px);
-            transition: transform 0.3s, border-color 0.3s;
+            -webkit-backdrop-filter: blur(12px);
+            transition:
+                transform 0.3s,
+                border-color 0.3s,
+                box-shadow 0.3s;
         }
+
         .service-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.08);
         }
+
         .service-item h3 {
-            color: var(--accent-color);
             margin-bottom: 0.8rem;
+            color: var(--accent-color);
             font-size: 1.2rem;
+            line-height: 1.35;
         }
+
         .service-item p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .contact-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            max-width: 500px;
-            margin: 3rem auto 0;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        .social-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-        .social-btn:hover {
-            border-color: var(--accent-color);
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-        }
+
         footer {
-            text-align: center;
             padding: 2rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 0.9rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.05rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLang('ro')">RO</button>
-            <button class="lang-btn" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <a href="index.html" class="logo">
+            PRO<span>_ENGINEERING</span>
+        </a>
+
+        <div class="lang-switch" aria-label="Language selection">
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="ro"
+                onclick="setLang('ro')"
+            >
+                RO
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="ru"
+                onclick="setLang('ru')"
+            >
+                RU
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-lang="en"
+                onclick="setLang('en')"
+            >
+                EN
+            </button>
         </div>
     </header>
 
-    <div class="container">
-        <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
-        <h1 class="page-title" id="page-title">Sisteme Smart Home</h1>
-        <p class="page-desc" id="page-desc">Automatizări inteligente pentru confort, siguranță și eficiență energetică.</p>
-        
-        <!-- SERVICII FIZICE (ON-SITE) -->
-        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
-        <div class="services-list" id="onsite-services"></div>
+    <main class="container">
+        <a href="index.html" class="back-btn" id="back-btn">
+            ← Înapoi
+        </a>
 
-        <!-- SERVICII ONLINE -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services"></div>
+        <h1 class="page-title" id="page-title">
+            Sisteme Smart Home
+        </h1>
 
-        <!-- CONTACT SECTION -->
-        <div class="contact-box">
-            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
-            <div class="social-buttons">
-                <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
-                <a href="https://instagram.com/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
-            </div>
-        </div>
-    </div>
+        <p class="page-desc" id="page-desc">
+            Proiectare, instalare și configurare profesională a sistemelor
+            inteligente pentru locuințe și spații comerciale.
+        </p>
+
+        <p class="page-intro" id="page-intro">
+            Implementăm soluții fiabile pentru controlul iluminatului,
+            climatizării, consumului de energie și sistemelor de siguranță.
+            Fiecare sistem este proiectat în funcție de infrastructura
+            obiectului, cerințele clientului și posibilitățile de extindere.
+        </p>
+
+        <h2 class="section-title" id="services-title">
+            Soluțiile noastre
+        </h2>
+
+        <div class="services-list" id="services-list"></div>
+    </main>
 
     <footer>
-        &copy; 2026 PRO_ENGINEERING. All rights reserved.
+        &copy; <span id="current-year"></span>
+        PRO_ENGINEERING. All rights reserved.
     </footer>
 
     <script>
         const translations = {
             ro: {
-                page_title: "Sisteme Smart Home",
-                page_desc: "Automatizări inteligente pentru confort, siguranță și eficiență energetică.",
-                back_btn: "← Înapoi",
-                sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
-                sec_contact: "Contactează-ne",
-                onsite: [
-                    { title: "Proiectare sisteme Smart Home", desc: "Soluții personalizate bazate pe Tuya, Zigbee, Sonoff, Home Assistant." },
-                    { title: "Instalare întrerupătoare și prize inteligente", desc: "Montaj echipamente inteligente fără modificări majore de cablaj." },
-                    { title: "Automatizare iluminat și scenarii", desc: "Creare scenarii luminoase inteligente (venire acasă, noapte, cinema)." },
-                    { title: "Sisteme senzori siguranță", desc: "Instalare senzori scurgere apă, gaz, fum și mișcare cu alerte pe telefon." },
-                    { title: "Control climatizare și încălzire", desc: "Integrare termostate inteligente pentru economie la energie." }
-                ],
-                online: [
-                    { title: "Configurare Home Assistant", desc: "Instalare, configurare servere locale și integrare dispozitive." },
-                    { title: "Scenarii complexe și automatizări", desc: "Scrierea codului de automatizare (Node-RED, Home Assistant YAML)." },
-                    { title: "Consultanță alegere echipamente Smart", desc: "Selecție protocoale (Zigbee vs Wi-Fi) și compatibilitate dispozitive." }
+                htmlLang: "ro",
+                documentTitle: "Sisteme Smart Home | PRO_ENGINEERING",
+                metaDescription:
+                    "Proiectare, instalare și configurare profesională a sistemelor Smart Home pentru locuințe și spații comerciale.",
+                pageTitle: "Sisteme Smart Home",
+                pageDesc:
+                    "Proiectare, instalare și configurare profesională a sistemelor inteligente pentru locuințe și spații comerciale.",
+                pageIntro:
+                    "Implementăm soluții fiabile pentru controlul iluminatului, climatizării, consumului de energie și sistemelor de siguranță. Fiecare sistem este proiectat în funcție de infrastructura obiectului, cerințele clientului și posibilitățile de extindere.",
+                backButton: "← Înapoi",
+                servicesTitle: "Soluțiile noastre",
+                services: [
+                    {
+                        title: "Proiectarea sistemelor Smart Home",
+                        description:
+                            "Elaborăm arhitectura tehnică a sistemului, selectăm echipamentele și protocoalele de comunicație potrivite, inclusiv Zigbee, Wi-Fi și soluții locale bazate pe Home Assistant."
+                    },
+                    {
+                        title: "Instalarea întrerupătoarelor și prizelor inteligente",
+                        description:
+                            "Montăm și configurăm întrerupătoare, relee, prize și module inteligente, ținând cont de schema electrică existentă, puterea consumatorilor și cerințele de siguranță."
+                    },
+                    {
+                        title: "Automatizarea iluminatului",
+                        description:
+                            "Configurăm controlul manual și automat al iluminatului în funcție de prezență, nivelul de lumină, oră și scenarii definite de utilizator."
+                    },
+                    {
+                        title: "Scenarii inteligente de funcționare",
+                        description:
+                            "Implementăm scenarii precum Plecare, Acasă, Noapte, Vacanță și Cinema, pentru controlul coordonat al iluminatului, climatizării și echipamentelor electrice."
+                    },
+                    {
+                        title: "Sisteme de monitorizare și siguranță",
+                        description:
+                            "Integrăm senzori de fum, gaz, scurgeri de apă, temperatură, umiditate, deschidere și mișcare, cu notificări și acțiuni automate în situații critice."
+                    },
+                    {
+                        title: "Controlul încălzirii și climatizării",
+                        description:
+                            "Instalăm termostate, senzori și actuatoare inteligente pentru controlul individual al temperaturii și utilizarea eficientă a energiei."
+                    },
+                    {
+                        title: "Monitorizarea consumului de energie",
+                        description:
+                            "Implementăm măsurarea consumului pe circuite și consumatori, afișarea parametrilor electrici și identificarea surselor de consum nejustificat."
+                    },
+                    {
+                        title: "Integrarea echipamentelor într-un sistem unic",
+                        description:
+                            "Unificăm dispozitive compatibile de la diferiți producători într-o singură interfață de control, cu acces local și posibilitate de extindere ulterioară."
+                    }
                 ]
             },
+
             ru: {
-                page_title: "Умный Дом (Smart Home)",
-                page_desc: "Интеллектуальная автоматизация для комфорта, безопасности и энергоэффективности.",
-                back_btn: "← Назад",
-                sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
-                sec_contact: "Свяжитесь с нами",
-                onsite: [
-                    { title: "Проектирование систем Умного Дома", desc: "Персональные решения на базе Tuya, Zigbee, Sonoff, Home Assistant." },
-                    { title: "Монтаж умных выключателей и розеток", desc: "Установка оборудования без сложной переделки проводки." },
-                    { title: "Автоматизация освещения и сценарии", desc: "Создание сценариев света (приход домой, ночь, кино)." },
-                    { title: "Датчики безопасности и протечки", desc: "Монтаж датчиков протечки воды, газа, дыма и движения с уведомлением на телефон." },
-                    { title: "Управление климатом и отоплением", desc: "Интеграция умных термостатов для экономии энергоресурсов." }
-                ],
-                online: [
-                    { title: "Настройка Home Assistant", desc: "Установка, настройка локальных серверов и интеграция устройств." },
-                    { title: "Сложные сценарии и автоматизации", desc: "Написание сценариев автоматизации (Node-RED, Home Assistant YAML)." },
-                    { title: "Консультация по подбору оборудования", desc: "Подбор протоколов (Zigbee vs Wi-Fi) и проверка совместимости." }
+                htmlLang: "ru",
+                documentTitle: "Системы умного дома | PRO_ENGINEERING",
+                metaDescription:
+                    "Профессиональное проектирование, монтаж и настройка систем умного дома для жилых и коммерческих объектов.",
+                pageTitle: "Системы умного дома",
+                pageDesc:
+                    "Профессиональное проектирование, монтаж и настройка интеллектуальных систем для жилых и коммерческих объектов.",
+                pageIntro:
+                    "Мы внедряем надежные решения для управления освещением, климатом, энергопотреблением и системами безопасности. Каждый проект разрабатывается с учетом инженерной инфраструктуры объекта, требований заказчика и возможности дальнейшего расширения.",
+                backButton: "← Назад",
+                servicesTitle: "Наши решения",
+                services: [
+                    {
+                        title: "Проектирование систем умного дома",
+                        description:
+                            "Разрабатываем техническую архитектуру системы, подбираем оборудование и подходящие протоколы связи, включая Zigbee, Wi-Fi и локальные решения на базе Home Assistant."
+                    },
+                    {
+                        title: "Монтаж умных выключателей и розеток",
+                        description:
+                            "Устанавливаем и настраиваем выключатели, реле, розетки и управляющие модули с учетом существующей электропроводки, мощности подключаемого оборудования и требований безопасности."
+                    },
+                    {
+                        title: "Автоматизация освещения",
+                        description:
+                            "Настраиваем ручное и автоматическое управление светом по датчикам присутствия, уровню освещенности, времени и заданным пользовательским сценариям."
+                    },
+                    {
+                        title: "Интеллектуальные сценарии управления",
+                        description:
+                            "Реализуем сценарии «Уход», «Дома», «Ночь», «Отпуск» и «Кино» для согласованного управления освещением, климатом и электрическим оборудованием."
+                    },
+                    {
+                        title: "Системы мониторинга и безопасности",
+                        description:
+                            "Интегрируем датчики дыма, газа, протечки воды, температуры, влажности, открытия и движения с уведомлениями и автоматическими действиями при аварийных ситуациях."
+                    },
+                    {
+                        title: "Управление отоплением и климатом",
+                        description:
+                            "Устанавливаем интеллектуальные термостаты, датчики и исполнительные устройства для индивидуального регулирования температуры и эффективного использования энергоресурсов."
+                    },
+                    {
+                        title: "Мониторинг энергопотребления",
+                        description:
+                            "Организуем учет потребления по отдельным линиям и устройствам, отображение электрических параметров и выявление источников избыточного расхода энергии."
+                    },
+                    {
+                        title: "Объединение оборудования в единую систему",
+                        description:
+                            "Интегрируем совместимые устройства различных производителей в единый интерфейс управления с локальным доступом и возможностью дальнейшего расширения."
+                    }
                 ]
             },
+
             en: {
-                page_title: "Smart Home Systems",
-                page_desc: "Smart automation for comfort, safety and energy efficiency.",
-                back_btn: "← Back",
-                sec_onsite: "On-Site Services",
-                sec_online: "Online / Remote Services",
-                sec_contact: "Contact us",
-                onsite: [
-                    { title: "Smart Home System Design", desc: "Customized solutions based on Tuya, Zigbee, Sonoff, Home Assistant." },
-                    { title: "Smart Switches & Sockets Installation", desc: "Installing smart devices without major wiring rewrites." },
-                    { title: "Lighting Automation & Scenes", desc: "Creating smart light scenes (arriving home, night mode, cinema)." },
-                    { title: "Safety Sensors Integration", desc: "Installing water leak, gas, smoke and motion sensors with phone alerts." },
-                    { title: "Climate & Heating Control", desc: "Smart thermostat integration for energy savings." }
-                ],
-                online: [
-                    { title: "Home Assistant Configuration", desc: "Installation, local server configuration and device integration." },
-                    { title: "Complex Scenarios & Automation", desc: "Writing automation scripts (Node-RED, Home Assistant YAML)." },
-                    { title: "Smart Hardware Selection Consulting", desc: "Protocol selection (Zigbee vs Wi-Fi) and compatibility checks." }
+                htmlLang: "en",
+                documentTitle: "Smart Home Systems | PRO_ENGINEERING",
+                metaDescription:
+                    "Professional Smart Home design, installation and configuration for residential and commercial properties.",
+                pageTitle: "Smart Home Systems",
+                pageDesc:
+                    "Professional design, installation and configuration of intelligent systems for residential and commercial properties.",
+                pageIntro:
+                    "We implement reliable solutions for lighting, climate, energy consumption and safety control. Each system is designed according to the property's engineering infrastructure, the customer's requirements and future expansion needs.",
+                backButton: "← Back",
+                servicesTitle: "Our solutions",
+                services: [
+                    {
+                        title: "Smart Home System Design",
+                        description:
+                            "We develop the technical system architecture and select suitable equipment and communication protocols, including Zigbee, Wi-Fi and local Home Assistant solutions."
+                    },
+                    {
+                        title: "Smart Switch and Socket Installation",
+                        description:
+                            "We install and configure smart switches, relays, sockets and control modules based on the existing electrical system, connected load and applicable safety requirements."
+                    },
+                    {
+                        title: "Lighting Automation",
+                        description:
+                            "We configure manual and automatic lighting control based on occupancy, ambient light levels, schedules and customized operating scenarios."
+                    },
+                    {
+                        title: "Intelligent Control Scenarios",
+                        description:
+                            "We implement Away, Home, Night, Vacation and Cinema scenarios for coordinated control of lighting, climate systems and electrical equipment."
+                    },
+                    {
+                        title: "Monitoring and Safety Systems",
+                        description:
+                            "We integrate smoke, gas, water leak, temperature, humidity, opening and motion sensors with notifications and automated emergency responses."
+                    },
+                    {
+                        title: "Heating and Climate Control",
+                        description:
+                            "We install smart thermostats, sensors and actuators for individual temperature control and more efficient energy use."
+                    },
+                    {
+                        title: "Energy Consumption Monitoring",
+                        description:
+                            "We implement consumption monitoring for individual circuits and devices, display key electrical parameters and identify sources of excessive energy use."
+                    },
+                    {
+                        title: "Unified Equipment Integration",
+                        description:
+                            "We combine compatible devices from different manufacturers into a single control interface with local access and future expansion capabilities."
+                    }
                 ]
             }
         };
 
-        function renderServices(containerId, services) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                if (containerId === 'online-services') {
-                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
-                } else {
-                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
-                }
-                container.appendChild(div);
+        function renderServices(services) {
+            const container = document.getElementById("services-list");
+            container.replaceChildren();
+
+            services.forEach((service) => {
+                const article = document.createElement("article");
+                const title = document.createElement("h3");
+                const description = document.createElement("p");
+
+                article.className = "service-item";
+                title.textContent = service.title;
+                description.textContent = service.description;
+
+                article.append(title, description);
+                container.appendChild(article);
             });
         }
 
         function setLang(lang) {
-            localStorage.setItem('preferred_lang', lang);
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const onclickAttr = btn.getAttribute('onclick');
-                if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            const t = translations[lang];
-            if (!t) return;
+            const selectedLanguage = translations[lang]
+                ? lang
+                : "ro";
 
-            document.getElementById('page-title').textContent = t.page_title;
-            document.getElementById('page-desc').textContent = t.page_desc;
-            document.getElementById('back-btn').textContent = t.back_btn;
-            document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('sec-contact').textContent = t.sec_contact;
+            const translation = translations[selectedLanguage];
 
-            renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
+            localStorage.setItem(
+                "preferred_lang",
+                selectedLanguage
+            );
+
+            document.documentElement.lang = translation.htmlLang;
+            document.title = translation.documentTitle;
+
+            const metaDescription = document.querySelector(
+                'meta[name="description"]'
+            );
+
+            if (metaDescription) {
+                metaDescription.setAttribute(
+                    "content",
+                    translation.metaDescription
+                );
+            }
+
+            document.getElementById("page-title").textContent =
+                translation.pageTitle;
+
+            document.getElementById("page-desc").textContent =
+                translation.pageDesc;
+
+            document.getElementById("page-intro").textContent =
+                translation.pageIntro;
+
+            document.getElementById("back-btn").textContent =
+                translation.backButton;
+
+            document.getElementById("services-title").textContent =
+                translation.servicesTitle;
+
+            document
+                .querySelectorAll(".lang-btn")
+                .forEach((button) => {
+                    const isActive =
+                        button.dataset.lang === selectedLanguage;
+
+                    button.classList.toggle("active", isActive);
+                    button.setAttribute(
+                        "aria-pressed",
+                        String(isActive)
+                    );
+                });
+
+            renderServices(translation.services);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
-            setLang(savedLang);
+            const savedLanguage =
+                localStorage.getItem("preferred_lang") || "ro";
+
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+
+            setLang(savedLanguage);
         });
     </script>
 </body>
