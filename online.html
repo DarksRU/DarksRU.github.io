@@ -4,191 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicii Online | PRO_ENGINEERING</title>
+
     <style>
         :root {
             --bg-color: #080c14;
-            --card-bg: rgba(11, 15, 25, 0.60);
+            --card-bg: rgba(11, 15, 25, 0.7);
             --accent-color: #00f2fe;
             --text-color: #f3f4f6;
             --text-muted: #9ca3af;
-            --border-color: rgba(31, 41, 61, 0.8);
+            --border-color: rgba(31, 41, 61, 0.85);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: "Segoe UI", system-ui, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(8, 12, 20, 0.88), rgba(8, 12, 20, 0.92)),
+                url("bg.jpg") center / cover fixed,
+                var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
         }
 
         .logo {
+            color: #fff;
             font-size: 1.3rem;
             font-weight: 800;
             letter-spacing: 1px;
-            color: #fff;
             text-decoration: none;
-            cursor: pointer;
-        }
-
-        .logo:hover {
-            color: var(--accent-color);
         }
 
         .logo span {
             color: var(--accent-color);
         }
 
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
         .lang-switch {
             display: flex;
             gap: 5px;
-            background: rgba(255, 255, 255, 0.05);
             padding: 4px;
-            border-radius: 8px;
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
             padding: 5px 10px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: transparent;
+            border: 0;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
+            transition: 0.25s ease;
         }
 
-        .lang-btn.active,
-        .lang-btn:hover {
-            background: var(--accent-color);
+        .lang-btn:hover,
+        .lang-btn.active {
             color: #000;
+            background: var(--accent-color);
         }
 
         .container {
-            max-width: 1200px;
+            width: min(1200px, calc(100% - 3rem));
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 0 3rem;
         }
 
         .back-btn {
             display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--accent-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
             margin-bottom: 2rem;
+            padding: 10px 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            background: rgba(0, 242, 254, 0.1);
             border: 1px solid var(--accent-color);
-            transition: all 0.3s;
+            border-radius: 8px;
+            transition: 0.25s ease;
         }
 
         .back-btn:hover {
-            background: var(--accent-color);
             color: #000;
+            background: var(--accent-color);
         }
 
         .page-title {
-            font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.15;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .page-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
             max-width: 850px;
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
         .section-title {
-            font-size: 1.8rem;
             margin: 2.5rem 0 1.5rem;
-            color: #fff;
-            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
         .service-item {
+            padding: 1.5rem;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 1.5rem;
             backdrop-filter: blur(12px);
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
             border-color: var(--accent-color);
+            transform: translateY(-5px);
         }
 
         .service-item h3 {
-            color: var(--accent-color);
             margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-size: 1.15rem;
+            line-height: 1.35;
         }
 
         .service-item p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
         }
 
         footer {
-            text-align: center;
             padding: 2rem;
-            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 0.85rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem;
+            }
+
+            .container {
+                width: min(100% - 2rem, 1200px);
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .lang-btn {
+                padding: 5px 8px;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+        <a href="index.html" class="logo">PRO<span>_ENGINEERING</span></a>
 
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLang('ro')">RO</button>
-            <button class="lang-btn" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <div class="lang-switch" aria-label="Language selector">
+            <button class="lang-btn" type="button" data-lang="ro">RO</button>
+            <button class="lang-btn" type="button" data-lang="ru">RU</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
         </div>
     </header>
 
-    <div class="container">
+    <main class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
 
         <h1 class="page-title" id="page-title">Servicii Online de Inginerie</h1>
@@ -198,18 +219,26 @@
             sisteme de curenți slabi, automatizări și soluții Smart Home.
         </p>
 
-        <h2 class="section-title" id="sec-electrical">Inginerie electrică</h2>
-        <div class="services-grid" id="electrical-services"></div>
+        <section>
+            <h2 class="section-title" id="sec-electrical">Inginerie electrică</h2>
+            <div class="services-grid" id="electrical-services"></div>
+        </section>
 
-        <h2 class="section-title" id="sec-weakcurrent">Sisteme de curenți slabi</h2>
-        <div class="services-grid" id="weakcurrent-services"></div>
+        <section>
+            <h2 class="section-title" id="sec-weakcurrent">Sisteme de curenți slabi</h2>
+            <div class="services-grid" id="weakcurrent-services"></div>
+        </section>
 
-        <h2 class="section-title" id="sec-smarthome">Smart Home și automatizări rezidențiale</h2>
-        <div class="services-grid" id="smarthome-services"></div>
+        <section>
+            <h2 class="section-title" id="sec-smarthome">Smart Home și automatizări rezidențiale</h2>
+            <div class="services-grid" id="smarthome-services"></div>
+        </section>
 
-        <h2 class="section-title" id="sec-automation">Automatizări industriale</h2>
-        <div class="services-grid" id="automation-services"></div>
-    </div>
+        <section>
+            <h2 class="section-title" id="sec-automation">Automatizări industriale</h2>
+            <div class="services-grid" id="automation-services"></div>
+        </section>
+    </main>
 
     <footer>
         &copy; 2026 PRO_ENGINEERING. All rights reserved.
@@ -222,7 +251,6 @@
                 page_desc:
                     "Consultanță tehnică, calcule, configurare și suport de specialitate pentru proiecte electrice, sisteme de curenți slabi, automatizări și soluții Smart Home.",
                 back_btn: "← Înapoi",
-
                 sec_electrical: "Inginerie electrică",
                 sec_weakcurrent: "Sisteme de curenți slabi",
                 sec_smarthome: "Smart Home și automatizări rezidențiale",
@@ -231,112 +259,92 @@
                 electrical: [
                     {
                         title: "Analiza schemelor electrice și a soluțiilor tehnice",
-                        desc:
-                            "Verificăm scheme electrice, structura tablourilor, circuitele de protecție și distribuția consumatorilor, oferind recomandări pentru siguranță, funcționare stabilă și conformitate tehnică."
+                        desc: "Verificăm scheme electrice, structura tablourilor, circuitele de protecție și distribuția consumatorilor, oferind recomandări pentru siguranță, funcționare stabilă și conformitate tehnică."
                     },
                     {
                         title: "Calculul sarcinilor și dimensionarea cablurilor",
-                        desc:
-                            "Realizăm calcule pentru puterea instalată, curentul de sarcină, selectarea secțiunii cablurilor, protecțiilor automate și organizarea corectă a grupurilor electrice."
+                        desc: "Realizăm calcule pentru puterea instalată, curentul de sarcină, selectarea secțiunii cablurilor, protecțiilor automate și organizarea corectă a grupurilor electrice."
                     },
                     {
                         title: "Selectarea echipamentelor electrice",
-                        desc:
-                            "Oferim suport în alegerea automatelor, protecțiilor diferențiale, releelor de tensiune, contactorilor, surselor de alimentare și componentelor necesare pentru tablouri electrice."
+                        desc: "Oferim suport în alegerea automatelor, protecțiilor diferențiale, releelor de tensiune, contactorilor, surselor de alimentare și componentelor pentru tablouri electrice."
                     },
                     {
                         title: "Suport tehnic pentru montaj și depanare",
-                        desc:
-                            "Asigurăm ghidare tehnică pentru identificarea erorilor de conectare, alegerea soluțiilor corecte și verificarea etapelor importante în timpul lucrărilor electrice."
+                        desc: "Asigurăm ghidare tehnică pentru identificarea erorilor de conectare, alegerea soluțiilor corecte și verificarea etapelor importante în timpul lucrărilor electrice."
                     }
                 ],
 
                 weakcurrent: [
                     {
                         title: "Configurarea sistemelor de supraveghere video",
-                        desc:
-                            "Oferim suport pentru configurarea camerelor IP, NVR/DVR, accesului securizat, arhivării video, notificărilor și monitorizării de la distanță."
+                        desc: "Oferim suport pentru configurarea camerelor IP, NVR/DVR, accesului securizat, arhivării video, notificărilor și monitorizării de la distanță."
                     },
                     {
                         title: "Configurarea rețelelor, routerelor și VPN",
-                        desc:
-                            "Setăm infrastructura de rețea pentru locuințe și spații comerciale: routere, Wi-Fi, VLAN, VPN, acces securizat și comunicare stabilă între echipamente."
+                        desc: "Setăm infrastructura de rețea pentru locuințe și spații comerciale: routere, Wi-Fi, VLAN, VPN, acces securizat și comunicare stabilă între echipamente."
                     },
                     {
-                        title: "Soluții pentru acces controlat și interfonie",
-                        desc:
-                            "Consultăm și configurăm sisteme de control acces, interfoane IP, cititoare, module de comandă și scenarii de integrare cu alte sisteme tehnice."
+                        title: "Soluții pentru control acces și interfonie",
+                        desc: "Consultăm și configurăm sisteme de control acces, interfoane IP, cititoare, module de comandă și scenarii de integrare cu alte sisteme tehnice."
                     },
                     {
                         title: "Configurare stocare de rețea și backup",
-                        desc:
-                            "Oferim suport pentru NAS, arhivare video, backup local, acces securizat la fișiere și organizarea unei infrastructuri stabile de stocare."
+                        desc: "Oferim suport pentru NAS, arhivare video, backup local, acces securizat la fișiere și organizarea unei infrastructuri stabile de stocare."
                     }
                 ],
 
-               smarthome: [
-    {
-        title: "Proiectare sisteme de automatizare pentru clădiri",
-        desc:
-            "Dezvoltăm arhitectura de automatizare pentru case, apartamente, birouri și spații comerciale: iluminat, climatizare, securitate, acționări electrice, sisteme inginerești și control centralizat."
-    },
-    {
-        title: "Integrare Wiren Board și controlere profesionale",
-        desc:
-            "Configurăm sisteme bazate pe Wiren Board, controlere industriale și module I/O, cu conectarea senzorilor, releelor, contoarelor, actuatoarelor și echipamentelor tehnice."
-    },
-    {
-        title: "Automatizare KNX pentru obiective rezidențiale și comerciale",
-        desc:
-            "Configurăm sisteme KNX: structura liniilor, adresare de grup, logică de control pentru iluminat, climatizare, jaluzele, scenarii, senzori și panouri de comandă."
-    },
-    {
-        title: "Control profesional al iluminatului DALI și DALI-2",
-        desc:
-            "Configurăm sisteme de iluminat DALI/DALI-2: adresarea dispozitivelor, grupuri de corpuri de iluminat, scene luminoase, dimming, Tunable White și integrare cu KNX, Wiren Board sau BMS."
-    },
-    {
-        title: "Integrare Modbus, BACnet și MQTT",
-        desc:
-            "Conectăm sisteme inginerești prin protocoale industriale Modbus RTU/TCP, BACnet/IP și MQTT pentru schimb de date între ventilație, încălzire, climatizare, contoare electrice și controlere."
-    },
-    {
-        title: "Automatizare climatizare, ventilație și încălzire",
-        desc:
-            "Configurăm controlul încălzirii prin pardoseală, radiatoarelor, echipamentelor de cazan, ventilației, aerului condiționat și recuperării de căldură, pe baza senzorilor de temperatură, umiditate, CO₂ și programelor de funcționare."
-    },
-    {
-        title: "Scenarii de securitate și monitorizare",
-        desc:
-            "Integrăm senzori de securitate, protecție la scurgeri de apă, detectoare de fum, control acces, supraveghere video și notificări pentru protecția obiectivului și monitorizare la distanță."
-    },
-    {
-        title: "BMS, SCADA și monitorizare centralizată",
-        desc:
-            "Creăm soluții pentru vizualizarea și monitorizarea sistemelor inginerești: scheme sinoptice, stări echipamente, evenimente de alarmă, jurnale, grafice de parametri și control unificat al obiectivului."
-    }
-]
+                smarthome: [
+                    {
+                        title: "Proiectare sisteme de automatizare pentru clădiri",
+                        desc: "Dezvoltăm arhitectura de automatizare pentru case, apartamente, birouri și spații comerciale: iluminat, climatizare, securitate, acționări electrice, sisteme inginerești și control centralizat."
+                    },
+                    {
+                        title: "Integrare Wiren Board și controlere profesionale",
+                        desc: "Configurăm sisteme bazate pe Wiren Board, controlere industriale și module I/O, cu conectarea senzorilor, releelor, contoarelor, actuatoarelor și echipamentelor tehnice."
+                    },
+                    {
+                        title: "Automatizare KNX pentru obiective rezidențiale și comerciale",
+                        desc: "Configurăm sisteme KNX: structura liniilor, adresare de grup, logică de control pentru iluminat, climatizare, jaluzele, scenarii, senzori și panouri de comandă."
+                    },
+                    {
+                        title: "Control profesional al iluminatului DALI și DALI-2",
+                        desc: "Configurăm sisteme de iluminat DALI/DALI-2: adresarea dispozitivelor, grupuri de corpuri de iluminat, scene luminoase, dimming, Tunable White și integrare cu KNX, Wiren Board sau BMS."
+                    },
+                    {
+                        title: "Integrare Modbus, BACnet și MQTT",
+                        desc: "Conectăm sisteme inginerești prin protocoale Modbus RTU/TCP, BACnet/IP și MQTT pentru schimb de date între ventilație, încălzire, climatizare, contoare electrice și controlere."
+                    },
+                    {
+                        title: "Automatizare climatizare, ventilație și încălzire",
+                        desc: "Configurăm controlul încălzirii prin pardoseală, radiatoarelor, echipamentelor de cazan, ventilației, aerului condiționat și recuperării de căldură, pe baza senzorilor și programelor de funcționare."
+                    },
+                    {
+                        title: "Scenarii de securitate și monitorizare",
+                        desc: "Integrăm senzori de securitate, protecție la scurgeri de apă, detectoare de fum, control acces, supraveghere video și notificări pentru protecția obiectivului."
+                    },
+                    {
+                        title: "BMS, SCADA și monitorizare centralizată",
+                        desc: "Creăm soluții pentru vizualizarea și monitorizarea sistemelor inginerești: scheme sinoptice, stări echipamente, alarme, jurnale, grafice de parametri și control unificat."
+                    }
+                ],
 
                 automation: [
                     {
                         title: "Programare și optimizare logică PLC",
-                        desc:
-                            "Dezvoltăm și ajustăm logica de control pentru echipamente industriale, procese tehnologice și linii de producție, cu accent pe stabilitate, siguranță și eficiență."
+                        desc: "Dezvoltăm și ajustăm logica de control pentru echipamente industriale, procese tehnologice și linii de producție, cu accent pe stabilitate, siguranță și eficiență."
                     },
                     {
                         title: "Configurare HMI și interfețe operator",
-                        desc:
-                            "Realizăm ecrane operator pentru monitorizarea parametrilor, controlul echipamentelor, afișarea alarmelor, stărilor de funcționare și scenariilor tehnologice."
+                        desc: "Realizăm ecrane operator pentru monitorizarea parametrilor, controlul echipamentelor, afișarea alarmelor, stărilor de funcționare și scenariilor tehnologice."
                     },
                     {
                         title: "Parametrizare convertizoare de frecvență",
-                        desc:
-                            "Configurăm convertizoare de frecvență pentru controlul motoarelor, reglarea vitezei, protecția echipamentelor și adaptarea funcționării la procesul tehnologic."
+                        desc: "Configurăm convertizoare de frecvență pentru controlul motoarelor, reglarea vitezei, protecția echipamentelor și adaptarea funcționării la procesul tehnologic."
                     },
                     {
                         title: "Diagnosticarea sistemelor de automatizare",
-                        desc:
-                            "Analizăm erori în logica de control, comunicații industriale, senzori, actuatoare, convertizoare și echipamente de comandă pentru restabilirea funcționării corecte."
+                        desc: "Analizăm erori în logica de control, comunicații industriale, senzori, actuatoare, convertizoare și echipamente de comandă pentru restabilirea funcționării corecte."
                     }
                 ]
             },
@@ -346,7 +354,6 @@
                 page_desc:
                     "Профессиональные консультации, расчеты, настройка и техническое сопровождение электрических проектов, слаботочных систем, автоматизации и решений Smart Home.",
                 back_btn: "← Назад",
-
                 sec_electrical: "Электротехнический инжиниринг",
                 sec_weakcurrent: "Слаботочные системы",
                 sec_smarthome: "Smart Home и автоматизация зданий",
@@ -355,112 +362,92 @@
                 electrical: [
                     {
                         title: "Анализ электрических схем и технических решений",
-                        desc:
-                            "Проверяем электрические схемы, структуру щитов, защитные цепи и распределение нагрузок. Даём рекомендации по безопасности, надежности работы и технической корректности решений."
+                        desc: "Проверяем электрические схемы, структуру щитов, защитные цепи и распределение нагрузок. Даём рекомендации по безопасности, надежности работы и технической корректности решений."
                     },
                     {
                         title: "Расчет нагрузок и подбор кабельных линий",
-                        desc:
-                            "Выполняем расчеты установленной мощности, рабочих токов, сечения кабелей, автоматических выключателей, защитных устройств и правильного распределения электрических групп."
+                        desc: "Выполняем расчеты установленной мощности, рабочих токов, сечения кабелей, автоматических выключателей, защитных устройств и правильного распределения электрических групп."
                     },
                     {
                         title: "Подбор электротехнического оборудования",
-                        desc:
-                            "Помогаем подобрать автоматы, УЗО, дифференциальные автоматы, реле напряжения, контакторы, блоки питания и компоненты для распределительных щитов."
+                        desc: "Помогаем подобрать автоматы, УЗО, дифференциальные автоматы, реле напряжения, контакторы, блоки питания и компоненты для распределительных щитов."
                     },
                     {
                         title: "Техническое сопровождение монтажа и диагностики",
-                        desc:
-                            "Консультируем по подключению, поиску ошибок, выбору правильных решений и проверке ключевых этапов при выполнении электромонтажных работ."
+                        desc: "Консультируем по подключению, поиску ошибок, выбору правильных решений и проверке ключевых этапов при выполнении электромонтажных работ."
                     }
                 ],
 
                 weakcurrent: [
                     {
                         title: "Настройка систем видеонаблюдения",
-                        desc:
-                            "Помогаем настроить IP-камеры, NVR/DVR, защищенный доступ, видеоархив, уведомления и удаленный контроль системы наблюдения."
+                        desc: "Помогаем настроить IP-камеры, NVR/DVR, защищенный доступ, видеоархив, уведомления и удаленный контроль системы наблюдения."
                     },
                     {
                         title: "Настройка сетей, роутеров и VPN",
-                        desc:
-                            "Конфигурируем сетевую инфраструктуру для домов и коммерческих объектов: роутеры, Wi-Fi, VLAN, VPN, безопасный доступ и стабильную связь между устройствами."
+                        desc: "Конфигурируем сетевую инфраструктуру для домов и коммерческих объектов: роутеры, Wi-Fi, VLAN, VPN, безопасный доступ и стабильную связь между устройствами."
                     },
                     {
                         title: "Решения для контроля доступа и домофонии",
-                        desc:
-                            "Консультируем и настраиваем системы контроля доступа, IP-домофоны, считыватели, модули управления и сценарии интеграции с другими техническими системами."
+                        desc: "Консультируем и настраиваем системы контроля доступа, IP-домофоны, считыватели, модули управления и сценарии интеграции с другими техническими системами."
                     },
                     {
                         title: "Настройка сетевого хранения и резервного копирования",
-                        desc:
-                            "Оказываем поддержку по NAS, видеоархиву, локальному резервному копированию, защищенному доступу к файлам и организации надежной системы хранения данных."
+                        desc: "Оказываем поддержку по NAS, видеоархиву, локальному резервному копированию, защищенному доступу к файлам и организации надежной системы хранения данных."
                     }
                 ],
 
-               smarthome: [
-    {
-        title: "Проектирование систем автоматизации зданий",
-        desc:
-            "Разрабатываем архитектуру автоматизации для частных домов, квартир, офисов и коммерческих объектов: освещение, климат, безопасность, электроприводы, инженерные системы и централизованное управление."
-    },
-    {
-        title: "Интеграция Wiren Board и профессиональных контроллеров",
-        desc:
-            "Настраиваем системы на базе Wiren Board, промышленных контроллеров и модулей ввода-вывода с подключением датчиков, реле, счетчиков, исполнительных механизмов и инженерного оборудования."
-    },
-    {
-        title: "KNX-автоматизация для жилых и коммерческих объектов",
-        desc:
-            "Выполняем настройку KNX-систем: структура линий, групповая адресация, логика управления освещением, климатом, жалюзи, сценариями, датчиками и панелями управления."
-    },
-    {
-        title: "DALI и DALI-2 управление освещением",
-        desc:
-            "Конфигурируем профессиональные системы освещения DALI/DALI-2: адресация устройств, группы светильников, световые сцены, диммирование, Tunable White и интеграция с KNX, Wiren Board или BMS."
-    },
-    {
-        title: "Интеграция Modbus, BACnet и MQTT",
-        desc:
-            "Объединяем инженерные системы через промышленные протоколы Modbus RTU/TCP, BACnet/IP и MQTT для обмена данными между вентиляцией, отоплением, кондиционированием, электросчетчиками и контроллерами."
-    },
-    {
-        title: "Автоматизация климата, вентиляции и отопления",
-        desc:
-            "Настраиваем управление теплым полом, радиаторами, котельным оборудованием, вентиляцией, кондиционированием и рекуперацией с учетом датчиков температуры, влажности, CO₂ и расписаний работы."
-    },
-    {
-        title: "Сценарии безопасности и диспетчеризация",
-        desc:
-            "Интегрируем охранные датчики, протечки, дымовые извещатели, контроль доступа, видеонаблюдение и уведомления, формируя надежные сценарии защиты объекта и удаленного мониторинга."
-    },
-    {
-        title: "BMS, SCADA и централизованный мониторинг",
-        desc:
-            "Создаем решения для визуализации и диспетчеризации инженерных систем: мнемосхемы, статусы оборудования, аварийные события, журналы, графики параметров и контроль работы объекта в единой системе."
-    }
-]
+                smarthome: [
+                    {
+                        title: "Проектирование систем автоматизации зданий",
+                        desc: "Разрабатываем архитектуру автоматизации для частных домов, квартир, офисов и коммерческих объектов: освещение, климат, безопасность, электроприводы, инженерные системы и централизованное управление."
+                    },
+                    {
+                        title: "Интеграция Wiren Board и профессиональных контроллеров",
+                        desc: "Настраиваем системы на базе Wiren Board, промышленных контроллеров и модулей ввода-вывода с подключением датчиков, реле, счетчиков, исполнительных механизмов и инженерного оборудования."
+                    },
+                    {
+                        title: "KNX-автоматизация для жилых и коммерческих объектов",
+                        desc: "Выполняем настройку KNX-систем: структура линий, групповая адресация, логика управления освещением, климатом, жалюзи, сценариями, датчиками и панелями управления."
+                    },
+                    {
+                        title: "DALI и DALI-2 управление освещением",
+                        desc: "Конфигурируем системы освещения DALI/DALI-2: адресация устройств, группы светильников, световые сцены, диммирование, Tunable White и интеграция с KNX, Wiren Board или BMS."
+                    },
+                    {
+                        title: "Интеграция Modbus, BACnet и MQTT",
+                        desc: "Объединяем инженерные системы через Modbus RTU/TCP, BACnet/IP и MQTT для обмена данными между вентиляцией, отоплением, кондиционированием, электросчетчиками и контроллерами."
+                    },
+                    {
+                        title: "Автоматизация климата, вентиляции и отопления",
+                        desc: "Настраиваем управление теплым полом, радиаторами, котельным оборудованием, вентиляцией, кондиционированием и рекуперацией с учетом датчиков и расписаний работы."
+                    },
+                    {
+                        title: "Сценарии безопасности и диспетчеризация",
+                        desc: "Интегрируем охранные датчики, протечки, дымовые извещатели, контроль доступа, видеонаблюдение и уведомления для защиты объекта и удаленного мониторинга."
+                    },
+                    {
+                        title: "BMS, SCADA и централизованный мониторинг",
+                        desc: "Создаем решения для визуализации и диспетчеризации инженерных систем: мнемосхемы, статусы оборудования, аварийные события, журналы, графики параметров и единый контроль объекта."
+                    }
+                ],
 
                 automation: [
                     {
                         title: "Программирование и оптимизация логики ПЛК",
-                        desc:
-                            "Разрабатываем и корректируем управляющую логику для промышленного оборудования, технологических процессов и производственных линий с акцентом на стабильность, безопасность и эффективность."
+                        desc: "Разрабатываем и корректируем управляющую логику для промышленного оборудования, технологических процессов и производственных линий с акцентом на стабильность, безопасность и эффективность."
                     },
                     {
                         title: "Настройка HMI и операторских интерфейсов",
-                        desc:
-                            "Создаем операторские экраны для контроля параметров, управления оборудованием, отображения аварий, рабочих состояний и технологических сценариев."
+                        desc: "Создаем операторские экраны для контроля параметров, управления оборудованием, отображения аварий, рабочих состояний и технологических сценариев."
                     },
                     {
                         title: "Параметрирование частотных преобразователей",
-                        desc:
-                            "Настраиваем частотные преобразователи для управления электродвигателями, регулирования скорости, защиты оборудования и адаптации работы под технологический процесс."
+                        desc: "Настраиваем частотные преобразователи для управления электродвигателями, регулирования скорости, защиты оборудования и адаптации работы под технологический процесс."
                     },
                     {
                         title: "Диагностика систем автоматизации",
-                        desc:
-                            "Анализируем ошибки в логике управления, промышленных коммуникациях, датчиках, исполнительных механизмах, преобразователях и оборудовании управления для восстановления корректной работы."
+                        desc: "Анализируем ошибки в логике управления, промышленных коммуникациях, датчиках, исполнительных механизмах, преобразователях и оборудовании управления."
                     }
                 ]
             },
@@ -470,7 +457,6 @@
                 page_desc:
                     "Professional consultation, calculations, configuration and technical support for electrical projects, low-voltage systems, automation and Smart Home solutions.",
                 back_btn: "← Back",
-
                 sec_electrical: "Electrical Engineering",
                 sec_weakcurrent: "Low-Voltage Systems",
                 sec_smarthome: "Smart Home and Building Automation",
@@ -479,123 +465,100 @@
                 electrical: [
                     {
                         title: "Electrical Diagram and Technical Solution Review",
-                        desc:
-                            "We review electrical diagrams, distribution board structure, protection circuits and load distribution, providing recommendations for safety, reliability and technical correctness."
+                        desc: "We review electrical diagrams, distribution board structure, protection circuits and load distribution, providing recommendations for safety, reliability and technical correctness."
                     },
                     {
                         title: "Load Calculation and Cable Selection",
-                        desc:
-                            "We calculate installed power, operating currents, cable cross-sections, circuit breakers, protection devices and proper organization of electrical groups."
+                        desc: "We calculate installed power, operating currents, cable cross-sections, circuit breakers, protection devices and proper organization of electrical groups."
                     },
                     {
                         title: "Electrical Equipment Selection",
-                        desc:
-                            "We support the selection of circuit breakers, RCDs, RCBOs, voltage relays, contactors, power supplies and components for electrical distribution boards."
+                        desc: "We support the selection of circuit breakers, RCDs, RCBOs, voltage relays, contactors, power supplies and components for electrical distribution boards."
                     },
                     {
                         title: "Technical Support for Installation and Diagnostics",
-                        desc:
-                            "We provide technical guidance for connection issues, troubleshooting, correct solution selection and verification of key stages during electrical installation work."
+                        desc: "We provide technical guidance for connection issues, troubleshooting, correct solution selection and verification of key stages during electrical installation work."
                     }
                 ],
 
                 weakcurrent: [
                     {
                         title: "CCTV System Configuration",
-                        desc:
-                            "We support the configuration of IP cameras, NVR/DVR systems, secure access, video archiving, notifications and remote monitoring."
+                        desc: "We support the configuration of IP cameras, NVR/DVR systems, secure access, video archiving, notifications and remote monitoring."
                     },
                     {
                         title: "Network, Router and VPN Configuration",
-                        desc:
-                            "We configure network infrastructure for homes and commercial facilities, including routers, Wi-Fi, VLAN, VPN, secure access and stable communication between devices."
+                        desc: "We configure network infrastructure for homes and commercial facilities, including routers, Wi-Fi, VLAN, VPN, secure access and stable communication between devices."
                     },
                     {
                         title: "Access Control and Intercom Solutions",
-                        desc:
-                            "We consult and configure access control systems, IP intercoms, readers, control modules and integration scenarios with other technical systems."
+                        desc: "We consult and configure access control systems, IP intercoms, readers, control modules and integration scenarios with other technical systems."
                     },
                     {
                         title: "Network Storage and Backup Configuration",
-                        desc:
-                            "We provide support for NAS, video archives, local backup, secure file access and reliable data storage infrastructure."
+                        desc: "We provide support for NAS, video archives, local backup, secure file access and reliable data storage infrastructure."
                     }
                 ],
 
                 smarthome: [
-    {
-        title: "Building Automation System Design",
-        desc: "We develop automation architecture for private houses, apartments, offices and commercial facilities, covering lighting, climate control, security, electric drives, engineering systems and centralized control."
-    },
-    {
-        title: "Wiren Board and Professional Controller Integration",
-        desc: "We configure systems based on Wiren Board, industrial controllers and I/O modules, connecting sensors, relays, meters, actuators and technical equipment."
-    },
-    {
-        title: "KNX Automation for Residential and Commercial Facilities",
-        desc: "We configure KNX systems, including line structure, group addressing, control logic for lighting, climate, blinds, scenes, sensors and control panels."
-    },
-    {
-        title: "Professional DALI and DALI-2 Lighting Control",
-        desc: "We configure DALI/DALI-2 lighting systems, including device addressing, luminaire groups, lighting scenes, dimming, Tunable White and integration with KNX, Wiren Board or BMS."
-    },
-    {
-        title: "Modbus, BACnet and MQTT Integration",
-        desc: "We connect engineering systems through industrial protocols such as Modbus RTU/TCP, BACnet/IP and MQTT for data exchange between ventilation, heating, air conditioning, power meters and controllers."
-    },
-    {
-        title: "Climate, Ventilation and Heating Automation",
-        desc: "We configure control for underfloor heating, radiators, boiler equipment, ventilation, air conditioning and heat recovery systems based on temperature, humidity, CO₂ sensors and operating schedules."
-    },
-    {
-        title: "Security Scenarios and Monitoring",
-        desc: "We integrate security sensors, water leak protection, smoke detectors, access control, video surveillance and notifications to provide reliable facility protection and remote monitoring."
-    },
-    {
-        title: "BMS, SCADA and Centralized Monitoring",
-        desc: "We create visualization and monitoring solutions for engineering systems, including synoptic diagrams, equipment statuses, alarm events, logs, parameter trends and unified facility control."
-    },
-    {
-        title: "Voice Control and Mobile App Integration",
-        desc: "We configure control through mobile applications and voice assistants, allowing users to manage comfort, lighting and automation in a simple and secure way."
-    },
-    {
-        title: "KNX and DALI Configuration for Modern Buildings",
-        desc: "We provide support for KNX device addressing, line configuration, DALI/DALI-2 lighting scenes and system integration into residential or commercial projects."
-    }
-],
+                    {
+                        title: "Building Automation System Design",
+                        desc: "We develop automation architecture for private houses, apartments, offices and commercial facilities, covering lighting, climate control, security, electric drives, engineering systems and centralized control."
+                    },
+                    {
+                        title: "Wiren Board and Professional Controller Integration",
+                        desc: "We configure systems based on Wiren Board, industrial controllers and I/O modules, connecting sensors, relays, meters, actuators and technical equipment."
+                    },
+                    {
+                        title: "KNX Automation for Residential and Commercial Facilities",
+                        desc: "We configure KNX systems, including line structure, group addressing, control logic for lighting, climate, blinds, scenes, sensors and control panels."
+                    },
+                    {
+                        title: "Professional DALI and DALI-2 Lighting Control",
+                        desc: "We configure DALI/DALI-2 lighting systems, including device addressing, luminaire groups, lighting scenes, dimming, Tunable White and integration with KNX, Wiren Board or BMS."
+                    },
+                    {
+                        title: "Modbus, BACnet and MQTT Integration",
+                        desc: "We connect engineering systems through Modbus RTU/TCP, BACnet/IP and MQTT for data exchange between ventilation, heating, air conditioning, power meters and controllers."
+                    },
+                    {
+                        title: "Climate, Ventilation and Heating Automation",
+                        desc: "We configure control for underfloor heating, radiators, boiler equipment, ventilation, air conditioning and heat recovery systems based on sensors and operating schedules."
+                    },
+                    {
+                        title: "Security Scenarios and Monitoring",
+                        desc: "We integrate security sensors, water leak protection, smoke detectors, access control, video surveillance and notifications to provide reliable facility protection and remote monitoring."
+                    },
+                    {
+                        title: "BMS, SCADA and Centralized Monitoring",
+                        desc: "We create visualization and monitoring solutions for engineering systems, including synoptic diagrams, equipment statuses, alarm events, logs, parameter trends and unified facility control."
+                    },
                     {
                         title: "Voice Control and Mobile App Integration",
-                        desc:
-                            "We configure control through mobile applications and voice assistants, allowing users to manage comfort, lighting and automation in a simple and secure way."
+                        desc: "We configure control through mobile applications and voice assistants, allowing users to manage comfort, lighting and automation in a simple and secure way."
                     },
                     {
                         title: "KNX and DALI Configuration for Modern Buildings",
-                        desc:
-                            "We provide support for KNX device addressing, line configuration, DALI/DALI-2 lighting scenes and system integration into residential or commercial projects."
+                        desc: "We provide support for KNX device addressing, line configuration, DALI/DALI-2 lighting scenes and system integration into residential or commercial projects."
                     }
                 ],
 
                 automation: [
                     {
                         title: "PLC Logic Programming and Optimization",
-                        desc:
-                            "We develop and adjust control logic for industrial equipment, technological processes and production lines with a focus on stability, safety and efficiency."
+                        desc: "We develop and adjust control logic for industrial equipment, technological processes and production lines with a focus on stability, safety and efficiency."
                     },
                     {
                         title: "HMI and Operator Interface Configuration",
-                        desc:
-                            "We create operator screens for parameter monitoring, equipment control, alarm display, operating states and technological scenarios."
+                        desc: "We create operator screens for parameter monitoring, equipment control, alarm display, operating states and technological scenarios."
                     },
                     {
                         title: "Frequency Drive Parameterization",
-                        desc:
-                            "We configure frequency drives for motor control, speed regulation, equipment protection and adaptation of operation to the technological process."
+                        desc: "We configure frequency drives for motor control, speed regulation, equipment protection and adaptation of operation to the technological process."
                     },
                     {
                         title: "Automation System Diagnostics",
-                        desc:
-                            "We analyze errors in control logic, industrial communications, sensors, actuators, drives and control equipment to restore correct system operation."
+                        desc: "We analyze errors in control logic, industrial communications, sensors, actuators, drives and control equipment to restore correct system operation."
                     }
                 ]
             }
@@ -603,33 +566,35 @@
 
         function renderServices(containerId, services) {
             const container = document.getElementById(containerId);
-            container.innerHTML = "";
 
-            services.forEach(service => {
-                const div = document.createElement("div");
-                div.className = "service-item";
-                div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
-                container.appendChild(div);
+            if (!container || !Array.isArray(services)) {
+                return;
+            }
+
+            container.replaceChildren();
+
+            services.forEach(({ title, desc }) => {
+                const card = document.createElement("article");
+                const heading = document.createElement("h3");
+                const description = document.createElement("p");
+
+                card.className = "service-item";
+                heading.textContent = title;
+                description.textContent = desc;
+
+                card.append(heading, description);
+                container.appendChild(card);
             });
         }
 
         function setLang(lang) {
-            localStorage.setItem("preferred_lang", lang);
-
-            document.querySelectorAll(".lang-btn").forEach(btn => {
-                btn.classList.remove("active");
-
-                const onclickAttr = btn.getAttribute("onclick");
-
-                if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
-                    btn.classList.add("active");
-                }
-            });
-
             const t = translations[lang];
 
-            if (!t) return;
+            if (!t) {
+                return;
+            }
 
+            localStorage.setItem("preferred_lang", lang);
             document.documentElement.lang = lang;
 
             document.getElementById("page-title").textContent = t.page_title;
@@ -645,12 +610,22 @@
             renderServices("weakcurrent-services", t.weakcurrent);
             renderServices("smarthome-services", t.smarthome);
             renderServices("automation-services", t.automation);
+
+            document.querySelectorAll(".lang-btn").forEach((button) => {
+                button.classList.toggle("active", button.dataset.lang === lang);
+            });
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem("preferred_lang") || "ro";
-            setLang(savedLang);
+        document.querySelectorAll(".lang-btn").forEach((button) => {
+            button.addEventListener("click", () => {
+                setLang(button.dataset.lang);
+            });
         });
+
+        const savedLang = localStorage.getItem("preferred_lang");
+        const initialLang = translations[savedLang] ? savedLang : "ro";
+
+        setLang(initialLang);
     </script>
 </body>
 </html>
