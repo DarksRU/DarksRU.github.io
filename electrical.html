@@ -1,9 +1,228 @@
-<!-- CONTACT SECTION -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicii Electrice | PRO_ENGINEERING</title>
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(11, 15, 25, 0.60);
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(31, 41, 61, 0.8);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .logo:hover { color: var(--accent-color); }
+        .logo span { color: var(--accent-color); }
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .back-btn {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .service-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .service-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .service-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .contact-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 3rem auto 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .social-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLang('ro')">RO</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
+        <h1 class="page-title" id="page-title">Servicii Electrice</h1>
+        <p class="page-desc" id="page-desc">Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.</p>
+        
+        <!-- SERVICII FIZICE (ON-SITE) -->
+        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
+        <div class="services-list" id="onsite-services"></div>
+
+        <!-- SERVICII ONLINE -->
+        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
+        <div class="services-list" id="online-services"></div>
+
+        <!-- CONTACT SECTION -->
         <div class="contact-box">
             <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
             <div class="social-buttons">
                 <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
-                <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+                <a href="https://instagram.com/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
             </div>
         </div>
     </div>
@@ -34,7 +253,8 @@
                 online: [
                     { title: "Audit de la distanță al schemelor", desc: "Analiză remotă a diagramelor și tablourilor electrice cu recomandări." },
                     { title: "Consultanță în alegerea echipamentelor", desc: "Sfaturi detaliate pentru selectarea corectă a protecțiilor și automatizării." },
-                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." }
+                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." },
+                    { title: "Asistență online la montaj", desc: "Ghidare pas-cu-pas prin videocall în timp real pentru montaj și depanare." }
                 ]
             },
             ru: {
@@ -57,7 +277,8 @@
                 online: [
                     { title: "Удаленный аудит схем", desc: "Дистанционный анализ электрических схем и щитов с рекомендациями." },
                     { title: "Консультации по подбору оборудования", desc: "Подробные советы по правильному выбору защиты и автоматики." },
-                    { title: "Расчет нагрузок и подбор кабелей", desc: "Точные расчеты энергопотребления и выбор правильного сечения." }
+                    { title: "Расчет нагрузок и подбор кабелей", desc: "Точные расчеты энергопотребления и выбор правильного сечения." },
+                    { title: "Онлайн-помощь при сборке", desc: "Пошаговое руководство через видеозвонок для монтажа и устранения неисправностей." }
                 ]
             },
             en: {
@@ -80,7 +301,8 @@
                 online: [
                     { title: "Remote Scheme Audit", desc: "Remote analysis of electrical diagrams and panels with recommendations." },
                     { title: "Equipment Selection Consulting", desc: "Detailed guidance for selecting proper protective devices and automation." },
-                    { title: "Load Calculation & Cable Sizing", desc: "Accurate calculation of power demand and correct cable gauge selection." }
+                    { title: "Load Calculation & Cable Sizing", desc: "Accurate calculation of power demand and correct cable gauge selection." },
+                    { title: "Online Guidance & Video Calls", desc: "Step-by-step guidance via video call for installation and troubleshooting." }
                 ]
             }
         };
