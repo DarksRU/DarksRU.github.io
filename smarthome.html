@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHome | PRO_ENGINEERING</title>
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(11, 15, 25, 0.60);
+            --accent-color: #00f2fe;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(31, 41, 61, 0.8);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .logo:hover {
+            color: var(--accent-color);
+        }
+        .logo span { color: var(--accent-color); }
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .back-btn {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .service-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .service-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .service-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .contact-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .btn-contact {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+        }
+        .btn-contact:hover {
+            opacity: 0.9;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLang('ro')">RO</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
+
+        <h1 class="page-title" id="page-title">SmartHome</h1>
+        <p class="page-desc" id="page-desc">Automatizare inteligentă a locuinței pentru confort și eficiență energetică.</p>
+
+        <!-- SERVICII FIZICE (ON-SITE) -->
+        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
+        <div class="services-list" id="onsite-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
+
+        <!-- SERVICII ONLINE -->
+        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
+        <div class="services-list" id="online-services">
+            <!-- Va fi completat cu JavaScript -->
+        </div>
+
+        <!-- CONTACT -->
+        <div class="contact-section">
+            <h2 id="contact-title">Gata să începem?</h2>
+            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
+            <a href="https://t.me/your_telegram" class="btn-contact">Contactează-ne pe Telegram</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 PRO_ENGINEERING. All rights reserved.
+    </footer>
+
+    <script>
+        const translations = {
+            ro: {
+                page_title: "SmartHome",
+                page_desc: "Automatizare inteligentă a locuinței pentru confort și eficiență energetică.",
+                back_btn: "← Înapoi",
+                sec_onsite: "Servicii On-Site (la fața locului)",
+                sec_online: "Servicii Online / Remote",
+                contact_title: "Gata să începem?",
+                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
+                onsite: [
+                    { title: "Elaborarea proiectului tehnic", desc: "Proiectare detaliată a sistemului SmartHome adaptat nevoilor dumneavoastră." },
+                    { title: "Stabilirea caietului de sarcini", desc: "Definire clară a funcționalităților și echipamentelor necesare pentru automatizare." },
+                    { title: "Execuția tablourilor de automatizare", desc: "Asamblare și konfigurare tablourilor de automatizare cu PLC și relee inteligente." },
+                    { title: "Implementarea sistemului SmartHome", desc: "Instalare și integrare completă a sistemului inteligent în locuință." },
+                    { title: "Mentenanță post instalare", desc: "Suport și ajustări după instalare, garantie pe echipamente și servicii." }
+                ],
+                online: [
+                    { title: "Programare scenarii (Home Assistant)", desc: "Creeare și optimizare scenarii de automatizare cu Home Assistant sau platform similare." },
+                    { title: "Configurare Tuya / Smart Life / Wiren Board", desc: "Setare și integrare dispozitivelor inteligente pe platformele populare de smart home." },
+                    { title: "Integrare cu Siri, Alexa și Google Home", desc: "Conectare sistem la asistenți vocali pentru control prin voce complet." },
+                    { title: "Depanare și optimizare automatizări", desc: "Rezolvare probleme, optimizare performanță și update regulare a sistemului." }
+                ]
+            },
+            ru: {
+                page_title: "Умный Дом (SmartHome)",
+                page_desc: "Интеллектуальная автоматизация дома для комфорта и энергоэффективности.",
+                back_btn: "← Назад",
+                sec_onsite: "Услуги на месте (On-Site)",
+                sec_online: "Онлайн-услуги / Remote",
+                contact_title: "Готовы начать?",
+                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
+                onsite: [
+                    { title: "Разработка технического проекта", desc: "Детальное проектирование системы SmartHome под ваши потребности." },
+                    { title: "Составление технического задания (ТЗ)", desc: "Четкое определение функциональности и необходимого оборудования для автоматизации." },
+                    { title: "Сборка щитов автоматики", desc: "Сборка и конфигурация щитов автоматики с ПЛК и умными реле." },
+                    { title: "Внедрение системы SmartHome", desc: "Полная установка и интеграция умной системы в дом." },
+                    { title: "Сервисное обслуживание", desc: "Поддержка и регулировка после установки, гарантия на оборудование и услуги." }
+                ],
+                online: [
+                    { title: "Программирование сценариев (Home Assistant)", desc: "Создание и оптимизация сценариев автоматизации через Home Assistant или подобные платформы." },
+                    { title: "Настройка Tuya / Smart Life / Wiren Board", desc: "Настройка и интеграция умных устройств на популярные платформы умного дома." },
+                    { title: "Интеграция с Алисой, Siri, Google Home", desc: "Подключение системы к голосовым помощникам для полного голосового управления." },
+                    { title: "Удалённая отладка автоматизации", desc: "Решение проблем, оптимизация производительности и регулярные обновления системы." }
+                ]
+            },
+            en: {
+                page_title: "SmartHome",
+                page_desc: "Intelligent home automation for comfort and energy efficiency.",
+                back_btn: "← Back",
+                sec_onsite: "On-Site Services",
+                sec_online: "Online / Remote Services",
+                contact_title: "Ready to start?",
+                contact_desc: "Contact us for a free consultation and personalized quote.",
+                onsite: [
+                    { title: "Technical Design Development", desc: "Detailed design of SmartHome system tailored to your needs." },
+                    { title: "Terms of Reference (ToR) Setup", desc: "Clear definition of functionality and equipment needed for automation." },
+                    { title: "Automation Control Panel Assembly", desc: "Assembly and configuration of automation panels with PLC and smart relays." },
+                    { title: "SmartHome System Setup", desc: "Complete installation and integration of the smart system in your home." },
+                    { title: "Post-installation Maintenance", desc: "Support and adjustments after installation, warranty on equipment and services." }
+                ],
+                online: [
+                    { title: "Automation scripts (Home Assistant)", desc: "Creation and optimization of automation scenarios with Home Assistant or similar platforms." },
+                    { title: "Tuya / Smart Life / Wiren Board setup", desc: "Setup and integration of smart devices on popular smart home platforms." },
+                    { title: "Integration with Siri, Alexa, Google Home", desc: "Connection to voice assistants for full voice control of your system." },
+                    { title: "Remote automation debugging", desc: "Problem solving, performance optimization and regular system updates." }
+                ]
+            }
+        };
+
+        function renderServices(containerId, services) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            services.forEach(service => {
+                const div = document.createElement('div');
+                div.className = 'service-item';
+                if (containerId === 'online-services') {
+                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
+                } else {
+                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
+                }
+                container.appendChild(div);
+            });
+        }
+
+        function setLang(lang) {
+            localStorage.setItem('preferred_lang', lang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const t = translations[lang];
+            if (!t) return;
+
+            document.getElementById('page-title').textContent = t.page_title;
+            document.getElementById('page-desc').textContent = t.page_desc;
+            document.getElementById('back-btn').textContent = t.back_btn;
+            document.getElementById('sec-onsite').textContent = t.sec_onsite;
+            document.getElementById('sec-online').textContent = t.sec_online;
+            document.getElementById('contact-title').textContent = t.contact_title;
+            document.getElementById('contact-desc').textContent = t.contact_desc;
+
+            renderServices('onsite-services', t.onsite);
+            renderServices('online-services', t.online);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
+            setLang(savedLang);
+        });
+    </script>
+</body>
+</html>
