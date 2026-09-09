@@ -13,12 +13,14 @@
             --text-muted: #9ca3af;
             --border-color: rgba(31, 41, 61, 0.8);
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', system-ui, sans-serif;
         }
+
         body {
             background-color: var(--bg-color);
             background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
@@ -28,6 +30,7 @@
             color: var(--text-color);
             line-height: 1.6;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -40,6 +43,7 @@
             top: 0;
             z-index: 100;
         }
+
         .logo {
             font-size: 1.3rem;
             font-weight: 800;
@@ -48,8 +52,15 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .logo:hover { color: var(--accent-color); }
-        .logo span { color: var(--accent-color); }
+
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
         .lang-switch {
             display: flex;
             gap: 5px;
@@ -58,6 +69,7 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
+
         .lang-btn {
             background: transparent;
             border: none;
@@ -69,15 +81,19 @@
             font-size: 0.85rem;
             transition: all 0.3s;
         }
-        .lang-btn.active, .lang-btn:hover {
+
+        .lang-btn.active,
+        .lang-btn:hover {
             background: var(--accent-color);
             color: #000;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
+
         .back-btn {
             display: inline-block;
             background: rgba(0, 242, 254, 0.1);
@@ -89,10 +105,12 @@
             border: 1px solid var(--accent-color);
             transition: all 0.3s;
         }
+
         .back-btn:hover {
             background: var(--accent-color);
             color: #000;
         }
+
         .page-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -100,12 +118,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .page-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 3rem;
             max-width: 800px;
         }
+
         .section-title {
             font-size: 1.8rem;
             margin: 2.5rem 0 1.5rem;
@@ -113,12 +133,14 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
         }
+
         .services-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
+
         .service-item {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -127,30 +149,24 @@
             backdrop-filter: blur(12px);
             transition: transform 0.3s, border-color 0.3s;
         }
+
         .service-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
         }
+
         .service-item h3 {
             color: var(--accent-color);
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
         }
+
         .service-item p {
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -158,45 +174,13 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
-        .contact-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            max-width: 500px;
-            margin: 3rem auto 0;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        .social-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-        .social-btn:hover {
-            border-color: var(--accent-color);
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-        }
     </style>
 </head>
+
 <body>
     <header>
         <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+
         <div class="lang-switch">
             <button class="lang-btn" onclick="setLang('ro')">RO</button>
             <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -206,25 +190,16 @@
 
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
+
         <h1 class="page-title" id="page-title">Automatizări Industriale</h1>
-        <p class="page-desc" id="page-desc">Soluții complete de automatizare pentru liniile de producție și procese industriale.</p>
-        
-        <!-- SERVICII FIZICE (ON-SITE) -->
-        <h2 class="section-title" id="sec-onsite">Servicii On-Site (la fața locului)</h2>
+
+        <p class="page-desc" id="page-desc">
+            Soluții complete de automatizare pentru liniile de producție și procese industriale.
+        </p>
+
+        <h2 class="section-title" id="sec-onsite">Servicii de automatizare industrială</h2>
+
         <div class="services-list" id="onsite-services"></div>
-
-        <!-- SERVICII ONLINE -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services"></div>
-
-        <!-- CONTACT SECTION -->
-        <div class="contact-box">
-            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
-            <div class="social-buttons">
-                <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
-                <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
-            </div>
-        </div>
     </div>
 
     <footer>
@@ -234,114 +209,212 @@
     <script>
         const translations = {
             ro: {
-                page_title: "Automatizări Industriale",
-                page_desc: "Soluții complete de automatizare pentru liniile de producție și procese industriale.",
+                page_title: "Automatizări Industriale Profesionale",
+                page_desc:
+                    "Dezvoltăm, montăm și punem în funcțiune sisteme de automatizare pentru echipamente industriale, linii de producție și procese tehnologice, cu accent pe fiabilitate, siguranță și control eficient al procesului.",
                 back_btn: "← Înapoi",
-                sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
-                sec_contact: "Contactează-ne",
+                sec_onsite: "Servicii de automatizare industrială",
                 onsite: [
-                    { title: "Asamblare tablouri automatizare (PLC)", desc: "Proiectare și asamblare tablourilor de comandă cu PLC-uri profesionale și contactori." },
-                    { title: "Programare controlere industriale", desc: "Programare PLC (Siemens, OWEN, Mitsubishi, etc.) după specificațiile procesului." },
-                    { title: "Dulapuri de comandă și protecție", desc: "Asamblare dulapuri cu relei termici, disjunctoare, contactori și dispozitive de protecție." },
-                    { title: "Convertizoare de frecvență", desc: "Instalare și configurare inverteri pentru control viteză motoare și eficiență energetică." },
-                    { title: "Senzori industriali & traductori", desc: "Montare senzori de proximitate, traductori de temperatură, presiune și alți parametri." },
-                    { title: "Automatizare linii de producție", desc: "Integrare completă a sistemelor de automatizare pentru liniile de producție complexe." }
-                ],
-                online: [
-                    { title: "Programare PLC (Siemens, OWEN etc.)", desc: "Programare și debug online a PLC-urilor cu asistență directă prin AnyDesk/VPN." },
-                    { title: "Configurare panouri HMI și convertizoare", desc: "Setare interfeței HMI, parametrilor inverterilor și ale sistemelor de monitorizare." },
-                    { title: "Depanare de la distanță via AnyDesk / VPN", desc: "Diagnosticare și rezolvare probleme la liniile de producție în timp real de la distanță." },
-                    { title: "Modificarea logicii industriale", desc: "Ajustare algoritmi, scenarii și logica de control pentru optimizare proces și productivitate." }
+                    {
+                        title: "Proiectare sisteme de automatizare industrială",
+                        desc:
+                            "Elaborăm soluții tehnice pentru automatizarea proceselor industriale: structura sistemului de comandă, logica de funcționare, circuitele de protecție, interconectarea echipamentelor și integrarea elementelor de control."
+                    },
+                    {
+                        title: "Asamblare tablouri de automatizare și comandă",
+                        desc:
+                            "Realizăm tablouri de automatizare pentru echipamente și linii tehnologice, cu integrarea PLC-urilor, contactorilor, releelor, protecțiilor, surselor de alimentare, bornelor și elementelor de semnalizare."
+                    },
+                    {
+                        title: "Programare și configurare controlere PLC",
+                        desc:
+                            "Programăm controlere industriale pentru procese de producție, echipamente tehnologice și sisteme de comandă, adaptând logica de funcționare la cerințele reale ale utilajului și ale procesului."
+                    },
+                    {
+                        title: "Integrare panouri operator HMI",
+                        desc:
+                            "Configurăm interfețe HMI pentru monitorizarea și controlul proceselor: afișarea parametrilor, comenzi operator, alarme, stări de funcționare și scenarii tehnologice personalizate."
+                    },
+                    {
+                        title: "Instalare și configurare convertizoare de frecvență",
+                        desc:
+                            "Montăm și parametrizăm convertizoare de frecvență pentru controlul motoarelor electrice, reglarea turației, protecția echipamentelor și optimizarea consumului de energie."
+                    },
+                    {
+                        title: "Montaj senzori industriali și echipamente de măsură",
+                        desc:
+                            "Instalăm senzori de proximitate, temperatură, presiune, nivel, debit și alte dispozitive de măsurare, asigurând conectarea corectă, calibrarea și transmiterea stabilă a semnalelor către sistemul de comandă."
+                    },
+                    {
+                        title: "Automatizarea liniilor de producție",
+                        desc:
+                            "Integrăm sisteme de comandă pentru linii de producție, transportoare, stații tehnologice și echipamente industriale, asigurând sincronizarea proceselor, siguranța funcționării și creșterea productivității."
+                    },
+                    {
+                        title: "Modernizare și optimizare sisteme existente",
+                        desc:
+                            "Actualizăm sisteme de automatizare învechite, înlocuim componente uzate, optimizăm logica de control și adaptăm echipamentele existente la cerințe noi de producție, siguranță și eficiență."
+                    },
+                    {
+                        title: "Diagnosticare și depanare sisteme industriale",
+                        desc:
+                            "Identificăm defecțiuni în circuitele de comandă, PLC-uri, senzori, actuatoare, convertizoare și tablouri electrice, eliminând cauzele opririlor neplanificate și restabilind funcționarea sigură a procesului."
+                    }
                 ]
             },
+
             ru: {
-                page_title: "Пром. Автоматизация",
-                page_desc: "Полные решения для автоматизации производственных линий и промышленных процессов.",
+                page_title: "Профессиональная промышленная автоматизация",
+                page_desc:
+                    "Разрабатываем, монтируем и вводим в эксплуатацию системы автоматизации для промышленного оборудования, производственных линий и технологических процессов с акцентом на надежность, безопасность и эффективное управление.",
                 back_btn: "← Назад",
-                sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
-                sec_contact: "Свяжитесь с нами",
+                sec_onsite: "Услуги промышленной автоматизации",
                 onsite: [
-                    { title: "Сборка щитов автоматики (ПЛК)", desc: "Проектирование и сборка щитов управления с профессиональными ПЛК и магнитными пускателями." },
-                    { title: "Программирование контроллеров", desc: "Программирование ПЛК (Siemens, OWEN, Mitsubishi и т.д.) по техническому заданию." },
-                    { title: "Шкафы управления и защиты", desc: "Сборка шкафов с тепловыми реле, автоматами, пускателями и защитными устройствами." },
-                    { title: "Частотные преобразователи", desc: "Установка и настройка частотных преобразователей для управления скоростью двигателей." },
-                    { title: "Промышленные датчики", desc: "Монтаж датчиков приближения, преобразователей температуры, давления и других параметров." },
-                    { title: "Автоматизация линий производства", desc: "Полная интеграция систем автоматизации для сложных производственных линий." }
-                ],
-                online: [
-                    { title: "Программирование ПЛК (Siemens, OWEN и др.)", desc: "Онлайн-программирование и отладка ПЛК с прямой поддержкой через AnyDesk/VPN." },
-                    { title: "Настройка HMI-панелей и частотников", desc: "Конфигурация интерфейса оператора, параметров преобразователей и систем мониторинга." },
-                    { title: "Удаленная отладка через AnyDesk / VPN", desc: "Диагностика и решение проблем производственных линий в реальном времени удалённо." },
-                    { title: "Доработка промышленной логики", desc: "Корректировка алгоритмов, сценариев и логики управления для оптимизации процесса." }
+                    {
+                        title: "Проектирование систем промышленной автоматизации",
+                        desc:
+                            "Разрабатываем технические решения для автоматизации производственных процессов: структуру системы управления, алгоритмы работы оборудования, цепи защиты, схемы коммутации и интеграцию исполнительных механизмов."
+                    },
+                    {
+                        title: "Сборка щитов автоматики и управления",
+                        desc:
+                            "Выполняем сборку шкафов и щитов управления для оборудования и технологических линий с установкой ПЛК, контакторов, реле, блоков питания, клеммных групп, защитной аппаратуры и элементов индикации."
+                    },
+                    {
+                        title: "Программирование и настройка контроллеров ПЛК",
+                        desc:
+                            "Программируем промышленные контроллеры для управления производственными процессами, технологическим оборудованием и исполнительными механизмами с учетом логики работы конкретного объекта."
+                    },
+                    {
+                        title: "Интеграция операторских панелей HMI",
+                        desc:
+                            "Настраиваем HMI-панели для контроля и управления оборудованием: отображение параметров, команды оператора, аварийные сообщения, статусы работы и технологические сценарии."
+                    },
+                    {
+                        title: "Установка и настройка частотных преобразователей",
+                        desc:
+                            "Монтируем и параметрируем частотные преобразователи для управления электродвигателями, регулирования скорости, защиты оборудования и повышения энергоэффективности производственного процесса."
+                    },
+                    {
+                        title: "Монтаж промышленных датчиков и измерительных устройств",
+                        desc:
+                            "Устанавливаем датчики положения, температуры, давления, уровня, расхода и другие измерительные устройства с корректным подключением, калибровкой и стабильной передачей сигналов в систему управления."
+                    },
+                    {
+                        title: "Автоматизация производственных линий",
+                        desc:
+                            "Интегрируем системы управления для производственных линий, конвейеров, технологических станций и промышленного оборудования, обеспечивая синхронизацию процессов, безопасность работы и повышение производительности."
+                    },
+                    {
+                        title: "Модернизация и оптимизация действующих систем",
+                        desc:
+                            "Обновляем устаревшие системы автоматизации, заменяем изношенные компоненты, оптимизируем алгоритмы управления и адаптируем оборудование под новые требования производства, безопасности и эффективности."
+                    },
+                    {
+                        title: "Диагностика и устранение неисправностей автоматики",
+                        desc:
+                            "Определяем причины сбоев в цепях управления, ПЛК, датчиках, исполнительных механизмах, частотных преобразователях и электрических шкафах, устраняем неисправности и восстанавливаем стабильную работу оборудования."
+                    }
                 ]
             },
+
             en: {
-                page_title: "Industrial Automation",
-                page_desc: "Complete automation solutions for production lines and industrial processes.",
+                page_title: "Professional Industrial Automation",
+                page_desc:
+                    "We design, install and commission automation systems for industrial equipment, production lines and technological processes, focusing on reliability, safety and efficient process control.",
                 back_btn: "← Back",
-                sec_onsite: "On-Site Services",
-                sec_online: "Online / Remote Services",
-                sec_contact: "Contact us",
+                sec_onsite: "Industrial Automation Services",
                 onsite: [
-                    { title: "PLC Automation Panel Assembly", desc: "Design and assembly of control panels with professional PLCs and contactors." },
-                    { title: "Industrial Controller Programming", desc: "PLC programming (Siemens, OWEN, Mitsubishi, etc.) according to specifications." },
-                    { title: "Control & Protection Cabinets", desc: "Assembly of cabinets with thermal relays, circuit breakers, contactors and protection devices." },
-                    { title: "Frequency Inverters", desc: "Installation and configuration of VFDs for motor speed control and energy efficiency." },
-                    { title: "Industrial Sensors & Transducers", desc: "Installation of proximity sensors, temperature, pressure transducers and other parameters." },
-                    { title: "Production Line Automation", desc: "Complete integration of automation systems for complex production lines." }
-                ],
-                online: [
-                    { title: "PLC programming (Siemens, OWEN etc.)", desc: "Online PLC programming and debugging with direct support via AnyDesk/VPN." },
-                    { title: "HMI panels & VFD setup", desc: "Configuration of operator interface, inverter parameters and monitoring systems." },
-                    { title: "Remote debugging via AnyDesk / VPN", desc: "Diagnosis and troubleshooting of production lines in real-time from a distance." },
-                    { title: "Industrial logic modification", desc: "Adjustment of algorithms, scenarios and control logic for process optimization." }
+                    {
+                        title: "Industrial Automation System Design",
+                        desc:
+                            "Development of technical solutions for automated production processes, including control system structure, equipment operating logic, protection circuits, switching schemes and integration of actuators."
+                    },
+                    {
+                        title: "Automation and Control Panel Assembly",
+                        desc:
+                            "Assembly of control cabinets and automation panels for equipment and technological lines with PLCs, contactors, relays, power supplies, terminal blocks, protection devices and indication elements."
+                    },
+                    {
+                        title: "PLC Programming and Configuration",
+                        desc:
+                            "Programming of industrial controllers for production processes, technological equipment and actuator control, with operating logic adapted to the specific requirements of each facility."
+                    },
+                    {
+                        title: "HMI Operator Panel Integration",
+                        desc:
+                            "Configuration of HMI panels for equipment monitoring and control, including parameter display, operator commands, alarm messages, operating statuses and customized technological scenarios."
+                    },
+                    {
+                        title: "Frequency Drive Installation and Setup",
+                        desc:
+                            "Installation and parameterization of variable frequency drives for electric motor control, speed regulation, equipment protection and improved energy efficiency of the production process."
+                    },
+                    {
+                        title: "Industrial Sensor and Measurement Device Installation",
+                        desc:
+                            "Installation of position, temperature, pressure, level, flow and other measuring devices with correct connection, calibration and stable signal transmission to the control system."
+                    },
+                    {
+                        title: "Production Line Automation",
+                        desc:
+                            "Integration of control systems for production lines, conveyors, technological stations and industrial equipment, ensuring process synchronization, safe operation and increased productivity."
+                    },
+                    {
+                        title: "Modernization and Optimization of Existing Systems",
+                        desc:
+                            "Upgrade of outdated automation systems, replacement of worn components, optimization of control algorithms and adaptation of equipment to new production, safety and efficiency requirements."
+                    },
+                    {
+                        title: "Diagnostics and Troubleshooting of Automation Systems",
+                        desc:
+                            "Identification of faults in control circuits, PLCs, sensors, actuators, frequency drives and electrical cabinets, followed by troubleshooting and restoration of stable equipment operation."
+                    }
                 ]
             }
         };
 
         function renderServices(containerId, services) {
             const container = document.getElementById(containerId);
-            container.innerHTML = '';
+            container.innerHTML = "";
+
             services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                if (containerId === 'online-services') {
-                    div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
-                } else {
-                    div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
-                }
+                const div = document.createElement("div");
+                div.className = "service-item";
+                div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
                 container.appendChild(div);
             });
         }
 
         function setLang(lang) {
-            localStorage.setItem('preferred_lang', lang);
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const onclickAttr = btn.getAttribute('onclick');
+            localStorage.setItem("preferred_lang", lang);
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.classList.remove("active");
+
+                const onclickAttr = btn.getAttribute("onclick");
+
                 if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
-                    btn.classList.add('active');
+                    btn.classList.add("active");
                 }
             });
-            
+
             const t = translations[lang];
+
             if (!t) return;
 
-            document.getElementById('page-title').textContent = t.page_title;
-            document.getElementById('page-desc').textContent = t.page_desc;
-            document.getElementById('back-btn').textContent = t.back_btn;
-            document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('sec-contact').textContent = t.sec_contact;
+            document.documentElement.lang = lang;
 
-            renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
+            document.getElementById("page-title").textContent = t.page_title;
+            document.getElementById("page-desc").textContent = t.page_desc;
+            document.getElementById("back-btn").textContent = t.back_btn;
+            document.getElementById("sec-onsite").textContent = t.sec_onsite;
+
+            renderServices("onsite-services", t.onsite);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
+            const savedLang = localStorage.getItem("preferred_lang") || "ro";
             setLang(savedLang);
         });
     </script>
