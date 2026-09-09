@@ -227,6 +227,51 @@
         .social-btn.tg { background: #229ED9; }
         .social-btn.wa { background: #25D366; }
         .social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .online-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .online-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .online-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+        }
+        .online-card h3 {
+            color: var(--accent-color);
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+        }
+        .online-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .badge-online {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+        @media (max-width: 900px) {
+            .online-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
