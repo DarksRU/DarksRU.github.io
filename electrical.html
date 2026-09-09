@@ -206,21 +206,6 @@
         <div class="services-list" id="onsite-services">
             <!-- Va fi completat cu JavaScript -->
         </div>
-
-        <!-- SERVICII ONLINE -->
-        <h2 class="section-title" id="sec-online">Servicii Online / Remote</h2>
-        <div class="services-list" id="online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
-
-       <!-- CONTACT SECTION -->
-        <div class="contact-box">
-            <h2 class="section-title" id="sec-contact" style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Contactează-ne</h2>
-            <div class="social-buttons">
-                <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
-                <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
-            </div>
-        </div>
     </div>
 
     <footer>
@@ -234,8 +219,6 @@
                 page_desc: "Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.",
                 back_btn: "← Înapoi",
                 sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
-                sec_contact: "Contactează-ne",
                 onsite: [
                     { title: "Proiectare Instalații Electrice", desc: "Proiectare detaliată conform normelor tehnice și siguranței electrice." },
                     { title: "Auditul instalațiilor electrice", desc: "Evaluare completă a sistemelor electrice existente și recomandări." },
@@ -246,19 +229,12 @@
                     { title: "Asamblare panou distribuție", desc: "Asamblare și cablare a panourilor de distribuție electrică." },
                     { title: "Intervenții de avariere", desc: "Reparații rapide și interventii de urgență 24/7." }
                 ],
-                online: [
-                    { title: "Audit de la distanță al schemelor", desc: "Analiză remotă a diagramelor și tablourilor electrice cu recomandări." },
-                    { title: "Consultanță în alegerea echipamentelor", desc: "Sfaturi detaliate pentru selectarea corectă a protecțiilor și automatizării." },
-                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." }
-                ]
             },
             ru: {
                 page_title: "Электромонтажные Услуги",
                 page_desc: "Полные решения по электрификации для жилых и коммерческих объектов.",
                 back_btn: "← Назад",
                 sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
-                sec_contact: "Свяжитесь с нами",
                 onsite: [
                     { title: "Проектирование электроустановок", desc: "Детальное проектирование согласно техническим нормам и электробезопасности." },
                     { title: "Аудит электроустановок", desc: "Полная оценка существующих электрических систем и рекомендации." },
@@ -269,19 +245,12 @@
                     { title: "Сборка распределительных щитов", desc: "Сборка и разводка распределительных электрощитов." },
                     { title: "Аварийные вызовы", desc: "Быстрый ремонт и аварийные выезды 24/7." }
                 ],
-                online: [
-                    { title: "Удаленный аудит схем", desc: "Дистанционный анализ электрических схем и щитов с рекомендациями." },
-                    { title: "Консультации по подбору оборудования", desc: "Подробные советы по правильному выбору защиты и автоматики." },
-                    { title: "Расчет нагрузок и подбор кабелей", desc: "Точные расчеты энергопотребления и выбор правильного сечения." }
-                ]
             },
             en: {
                 page_title: "Electrical Services",
                 page_desc: "Complete electrification solutions for residential and commercial projects.",
                 back_btn: "← Back",
                 sec_onsite: "On-Site Services",
-                sec_online: "Online / Remote Services",
-                sec_contact: "Contact us",
                 onsite: [
                     { title: "Electrical Design & Engineering", desc: "Detailed design according to technical standards and electrical safety." },
                     { title: "Electrical Installation Audit", desc: "Comprehensive evaluation of existing electrical systems and recommendations." },
@@ -292,11 +261,6 @@
                     { title: "Distribution Panel Assembly", desc: "Assembly and wiring of electrical distribution panels." },
                     { title: "Emergency Repairs", desc: "Fast repairs and 24/7 emergency interventions." }
                 ],
-                online: [
-                    { title: "Remote Scheme Audit", desc: "Remote analysis of electrical diagrams and panels with recommendations." },
-                    { title: "Equipment Selection Consulting", desc: "Detailed guidance for selecting proper protective devices and automation." },
-                    { title: "Load Calculation & Cable Sizing", desc: "Accurate calculation of power demand and correct cable gauge selection." }
-                ]
             }
         };
 
@@ -332,11 +296,8 @@
             document.getElementById('page-desc').textContent = t.page_desc;
             document.getElementById('back-btn').textContent = t.back_btn;
             document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('sec-contact').textContent = t.sec_contact;
-
+            
             renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -358,9 +319,6 @@
                 page_desc: "Soluții complete de electrificare pentru proiecte rezidențiale și comerciale.",
                 back_btn: "← Înapoi",
                 sec_onsite: "Servicii On-Site (la fața locului)",
-                sec_online: "Servicii Online / Remote",
-                contact_title: "Gata să începem?",
-                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
                 onsite: [
                     { title: "Proiectare Instalații Electrice", desc: "Proiectare detaliată conform normelor tehnice și siguranței electrice." },
                     { title: "Auditul instalațiilor electrice", desc: "Evaluare completă a sistemelor electrice existente și recomandări." },
@@ -371,19 +329,12 @@
                     { title: "Asamblare panou distribuție", desc: "Asamblare și cablare a panourilor de distribuție electrică." },
                     { title: "Intervenții de avariere", desc: "Reparații rapide și interventii de urgență 24/7." }
                 ],
-                online: [
-                    { title: "Audit de la distanță al schemelor", desc: "Analiză remotă a diagramelor și tablourilor electrice cu recomandări." },
-                    { title: "Consultanță în alegerea echipamentelor", desc: "Sfaturi detaliate pentru selectarea corectă a protecțiilor și automatizării." },
-                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." },
-                    { title: "Asistență online la montaj", desc: "Ghidare pas-cu-pas prin videocall în timp real pentru montaj și depanare." }
-                ]
             },
             ru: {
                 page_title: "Электромонтажные работы",
                 page_desc: "Полный спектр услуг электрификации для жилых и коммерческих объектов.",
                 back_btn: "← Назад",
                 sec_onsite: "Услуги на месте (On-Site)",
-                sec_online: "Онлайн-услуги / Remote",
                 contact_title: "Готовы начать?",
                 contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
                 onsite: [
@@ -463,12 +414,9 @@
             document.getElementById('page-desc').textContent = t.page_desc;
             document.getElementById('back-btn').textContent = t.back_btn;
             document.getElementById('sec-onsite').textContent = t.sec_onsite;
-            document.getElementById('sec-online').textContent = t.sec_online;
-            document.getElementById('contact-title').textContent = t.contact_title;
             document.getElementById('contact-desc').textContent = t.contact_desc;
 
             renderServices('onsite-services', t.onsite);
-            renderServices('online-services', t.online);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
