@@ -214,6 +214,31 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
+        .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 242, 254, 0.15);
+    color: var(--accent-color);
+}
     </style>
 </head>
 <body>
@@ -290,13 +315,10 @@
 
         <!-- CONTACT SECTION -->
         <h2 class="section-title" id="sec-contact">Contactează-ne</h2>
-        <div class="contact-box">
-            <p id="contact-desc" style="color: var(--text-muted);">Ești gata să începi proiectul? Contactează-ne pentru o consultație sau o ofertă de preț.</p>
-            <a href="https://t.me/SmartEnergy_md" class="btn-contact">Telegram</a>
-            <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="btn">
-    Написать в Telegram
-</a>
-        </div>
+       <div class="social-buttons">
+    <a href="https://t.me/SmartEnergy_md" target="_blank" rel="noopener noreferrer" class="social-btn">Telegram</a>
+    <a href="https://instagram.com/ТВОЙ_ЛОГИН" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+</div>
 
     </div>
 
