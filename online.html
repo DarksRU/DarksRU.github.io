@@ -13,12 +13,14 @@
             --text-muted: #9ca3af;
             --border-color: rgba(31, 41, 61, 0.8);
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', system-ui, sans-serif;
         }
+
         body {
             background-color: var(--bg-color);
             background-image: linear-gradient(rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.82)), url('bg.jpg');
@@ -28,6 +30,7 @@
             color: var(--text-color);
             line-height: 1.6;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -40,6 +43,7 @@
             top: 0;
             z-index: 100;
         }
+
         .logo {
             font-size: 1.3rem;
             font-weight: 800;
@@ -48,10 +52,15 @@
             text-decoration: none;
             cursor: pointer;
         }
+
         .logo:hover {
             color: var(--accent-color);
         }
-        .logo span { color: var(--accent-color); }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
         .lang-switch {
             display: flex;
             gap: 5px;
@@ -60,6 +69,7 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
+
         .lang-btn {
             background: transparent;
             border: none;
@@ -71,15 +81,19 @@
             font-size: 0.85rem;
             transition: all 0.3s;
         }
-        .lang-btn.active, .lang-btn:hover {
+
+        .lang-btn.active,
+        .lang-btn:hover {
             background: var(--accent-color);
             color: #000;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
+
         .back-btn {
             display: inline-block;
             background: rgba(0, 242, 254, 0.1);
@@ -91,10 +105,12 @@
             border: 1px solid var(--accent-color);
             transition: all 0.3s;
         }
+
         .back-btn:hover {
             background: var(--accent-color);
             color: #000;
         }
+
         .page-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -102,12 +118,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .page-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 3rem;
-            max-width: 800px;
+            max-width: 850px;
         }
+
         .section-title {
             font-size: 1.8rem;
             margin: 2.5rem 0 1.5rem;
@@ -115,12 +133,14 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
         }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
+
         .service-item {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -129,52 +149,24 @@
             backdrop-filter: blur(12px);
             transition: transform 0.3s, border-color 0.3s;
         }
+
         .service-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
         }
+
         .service-item h3 {
             color: var(--accent-color);
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
         }
+
         .service-item p {
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .contact-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        .btn-contact {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 1rem;
-            transition: opacity 0.3s;
-        }
-        .btn-contact:hover {
-            opacity: 0.9;
-        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -184,10 +176,11 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
         <a href="index.html" class="logo">PRO<span>_ENERGY</span></a>
+
         <div class="lang-switch">
             <button class="lang-btn" onclick="setLang('ro')">RO</button>
             <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -198,39 +191,24 @@
     <div class="container">
         <a href="index.html" class="back-btn" id="back-btn">← Înapoi</a>
 
-        <h1 class="page-title" id="page-title">Servicii Online / Remote Engineering</h1>
-        <p class="page-desc" id="page-desc">Consultanță și suport tehnic online pentru toate tipurile de proiecte.</p>
+        <h1 class="page-title" id="page-title">Servicii Online de Inginerie</h1>
 
-        <!-- SERVICII ELECTRICE ONLINE -->
-        <h2 class="section-title" id="sec-electrical-online">Servicii Electrice Online</h2>
-        <div class="services-grid" id="electrical-online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <p class="page-desc" id="page-desc">
+            Consultanță tehnică, calcule, configurare și suport de specialitate pentru proiecte electrice,
+            sisteme de curenți slabi, automatizări și soluții Smart Home.
+        </p>
 
-        <!-- SERVICII SLABOTOCHKA ONLINE -->
-        <h2 class="section-title" id="sec-weakcurrent-online">Servicii Curenți Slabi Online</h2>
-        <div class="services-grid" id="weakcurrent-online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <h2 class="section-title" id="sec-electrical">Inginerie electrică</h2>
+        <div class="services-grid" id="electrical-services"></div>
 
-        <!-- SERVICII SMARTHOME ONLINE -->
-        <h2 class="section-title" id="sec-smarthome-online">Servicii SmartHome Online</h2>
-        <div class="services-grid" id="smarthome-online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <h2 class="section-title" id="sec-weakcurrent">Sisteme de curenți slabi</h2>
+        <div class="services-grid" id="weakcurrent-services"></div>
 
-        <!-- SERVICII AUTOMATION ONLINE -->
-        <h2 class="section-title" id="sec-automation-online">Servicii Automatizare Online</h2>
-        <div class="services-grid" id="automation-online-services">
-            <!-- Va fi completat cu JavaScript -->
-        </div>
+        <h2 class="section-title" id="sec-smarthome">Smart Home și automatizări rezidențiale</h2>
+        <div class="services-grid" id="smarthome-services"></div>
 
-        <!-- CONTACT -->
-        <div class="contact-section">
-            <h2 id="contact-title">Gata să începem?</h2>
-            <p id="contact-desc" style="color: var(--text-muted); margin-top: 1rem;">Contactează-ne pentru o consultație gratuită și o ofertă personalizată.</p>
-            <a href="https://t.me/your_telegram" class="btn-contact">Telegram</a>
-        </div>
+        <h2 class="section-title" id="sec-automation">Automatizări industriale</h2>
+        <div class="services-grid" id="automation-services"></div>
     </div>
 
     <footer>
@@ -240,162 +218,366 @@
     <script>
         const translations = {
             ro: {
-                page_title: "Servicii Online / Remote Engineering",
-                page_desc: "Consultanță și suport tehnic online pentru toate tipurile de proiecte.",
+                page_title: "Servicii Online de Inginerie",
+                page_desc:
+                    "Consultanță tehnică, calcule, configurare și suport de specialitate pentru proiecte electrice, sisteme de curenți slabi, automatizări și soluții Smart Home.",
                 back_btn: "← Înapoi",
-                sec_electrical_online: "Servicii Electrice Online",
-                sec_weakcurrent_online: "Servicii Curenți Slabi Online",
-                sec_smarthome_online: "Servicii SmartHome Online",
-                sec_automation_online: "Servicii Automatizare Online",
-                contact_title: "Gata să începem?",
-                contact_desc: "Contactează-ne pentru o consultație gratuită și o ofertă personalizată.",
-                electrical_online: [
-                    { title: "Audit de la distanță al schemelor", desc: "Analiză remotă a diagramelor și tablourilor electrice cu recomandări." },
-                    { title: "Consultanță în alegerea echipamentelor", desc: "Sfaturi detaliate pentru selectarea corectă a protecțiilor și automatizării." },
-                    { title: "Calculul sarcinilor și selectarea cablurilor", desc: "Calcule precise ale nevoilor energetice și alegerea secțiunilor corecte." },
-                    { title: "Asistență online la montaj", desc: "Ghidare pas-cu-pas prin videocall în timp real pentru montaj și depanare." }
+
+                sec_electrical: "Inginerie electrică",
+                sec_weakcurrent: "Sisteme de curenți slabi",
+                sec_smarthome: "Smart Home și automatizări rezidențiale",
+                sec_automation: "Automatizări industriale",
+
+                electrical: [
+                    {
+                        title: "Analiza schemelor electrice și a soluțiilor tehnice",
+                        desc:
+                            "Verificăm scheme electrice, structura tablourilor, circuitele de protecție și distribuția consumatorilor, oferind recomandări pentru siguranță, funcționare stabilă și conformitate tehnică."
+                    },
+                    {
+                        title: "Calculul sarcinilor și dimensionarea cablurilor",
+                        desc:
+                            "Realizăm calcule pentru puterea instalată, curentul de sarcină, selectarea secțiunii cablurilor, protecțiilor automate și organizarea corectă a grupurilor electrice."
+                    },
+                    {
+                        title: "Selectarea echipamentelor electrice",
+                        desc:
+                            "Oferim suport în alegerea automatelor, protecțiilor diferențiale, releelor de tensiune, contactorilor, surselor de alimentare și componentelor necesare pentru tablouri electrice."
+                    },
+                    {
+                        title: "Suport tehnic pentru montaj și depanare",
+                        desc:
+                            "Asigurăm ghidare tehnică pentru identificarea erorilor de conectare, alegerea soluțiilor corecte și verificarea etapelor importante în timpul lucrărilor electrice."
+                    }
                 ],
-                weakcurrent_online: [
-                    { title: "Configurare supraveghere video (P2P/Cloud)", desc: "Setare camere, inregistrare cloud si acces remote la monitorizare." },
-                    { title: "Setare routere, rețele Wi-Fi și VPN", desc: "Configurare completa a routerelor, retelelor wireless si conexiuni VPN secure." },
-                    { title: "Forwarding porturi și acces de la distanță", desc: "Setare port forwarding si configurare acces remote secure pentru sisteme." },
-                    { title: "Configurare stocare în rețea (NAS)", desc: "Instalare si configurare NAS pentru backup, stocare si partajare de date." }
+
+                weakcurrent: [
+                    {
+                        title: "Configurarea sistemelor de supraveghere video",
+                        desc:
+                            "Oferim suport pentru configurarea camerelor IP, NVR/DVR, accesului securizat, arhivării video, notificărilor și monitorizării de la distanță."
+                    },
+                    {
+                        title: "Configurarea rețelelor, routerelor și VPN",
+                        desc:
+                            "Setăm infrastructura de rețea pentru locuințe și spații comerciale: routere, Wi-Fi, VLAN, VPN, acces securizat și comunicare stabilă între echipamente."
+                    },
+                    {
+                        title: "Soluții pentru acces controlat și interfonie",
+                        desc:
+                            "Consultăm și configurăm sisteme de control acces, interfoane IP, cititoare, module de comandă și scenarii de integrare cu alte sisteme tehnice."
+                    },
+                    {
+                        title: "Configurare stocare de rețea și backup",
+                        desc:
+                            "Oferim suport pentru NAS, arhivare video, backup local, acces securizat la fișiere și organizarea unei infrastructuri stabile de stocare."
+                    }
                 ],
-                smarthome_online: [
-                    { title: "Programare scenarii (Home Assistant)", desc: "Creeare și optimizare scenarii de automatizare cu Home Assistant sau platform similare." },
-                    { title: "Configurare Tuya / Smart Life / Wiren Board", desc: "Setare și integrare dispozitivelor inteligente pe platformele populare de smart home." },
-                    { title: "Integrare cu Siri, Alexa și Google Home", desc: "Conectare sistem la asistenți vocali pentru control prin voce complet." },
-                    { title: "Depanare și optimizare automatizări", desc: "Rezolvare probleme, optimizare performanță și update regulare a sistemului." },
-                    { title: "Proiectare și configurare KNX", desc: "Configurarea liniilor, adresarea dispozitivelor și debug remote pentru sisteme KNX prin ETS." },
-                    { title: "Configurare iluminat DALI / DALI-2", desc: "Adresarea balasturilor, crearea gateway-urilor DALI-KNX / Home Assistant, setare scene și Tunable White." }
+
+                smarthome: [
+                    {
+                        title: "Configurarea scenariilor Smart Home",
+                        desc:
+                            "Dezvoltăm scenarii de automatizare pentru iluminat, climatizare, securitate, senzori, prize inteligente și echipamente conectate într-un sistem unitar."
+                    },
+                    {
+                        title: "Integrarea platformelor Home Assistant, Tuya și Smart Life",
+                        desc:
+                            "Configurăm dispozitive inteligente, gateway-uri, senzori, relee, module Wi-Fi/Zigbee și integrarea acestora în platforme de control centralizat."
+                    },
+                    {
+                        title: "Integrarea controlului vocal și a aplicațiilor mobile",
+                        desc:
+                            "Configurăm controlul prin aplicații mobile și asistenți vocali, astfel încât utilizatorul să poată gestiona confortul, iluminatul și automatizările într-un mod simplu și sigur."
+                    },
+                    {
+                        title: "Configurare KNX și DALI pentru clădiri moderne",
+                        desc:
+                            "Oferim suport pentru adresarea dispozitivelor KNX, configurarea liniilor, scenelor de iluminat DALI/DALI-2 și integrarea sistemelor în proiecte rezidențiale sau comerciale."
+                    }
                 ],
-                automation_online: [
-                    { title: "Programare PLC (Siemens, OWEN etc.)", desc: "Programare și debug online a PLC-urilor cu asistență directă prin AnyDesk/VPN." },
-                    { title: "Configurare panouri HMI și convertizoare", desc: "Setare interfeței HMI, parametrilor inverterilor și ale sistemelor de monitorizare." },
-                    { title: "Depanare de la distanță via AnyDesk / VPN", desc: "Diagnosticare și rezolvare probleme la liniile de producție în timp real de la distanță." },
-                    { title: "Modificarea logicii industriale", desc: "Ajustare algoritmi, scenarii și logica de control pentru optimizare proces și productivitate." }
+
+                automation: [
+                    {
+                        title: "Programare și optimizare logică PLC",
+                        desc:
+                            "Dezvoltăm și ajustăm logica de control pentru echipamente industriale, procese tehnologice și linii de producție, cu accent pe stabilitate, siguranță și eficiență."
+                    },
+                    {
+                        title: "Configurare HMI și interfețe operator",
+                        desc:
+                            "Realizăm ecrane operator pentru monitorizarea parametrilor, controlul echipamentelor, afișarea alarmelor, stărilor de funcționare și scenariilor tehnologice."
+                    },
+                    {
+                        title: "Parametrizare convertizoare de frecvență",
+                        desc:
+                            "Configurăm convertizoare de frecvență pentru controlul motoarelor, reglarea vitezei, protecția echipamentelor și adaptarea funcționării la procesul tehnologic."
+                    },
+                    {
+                        title: "Diagnosticarea sistemelor de automatizare",
+                        desc:
+                            "Analizăm erori în logica de control, comunicații industriale, senzori, actuatoare, convertizoare și echipamente de comandă pentru restabilirea funcționării corecte."
+                    }
                 ]
             },
+
             ru: {
-                page_title: "Онлайн-услуги / Remote Engineering",
-                page_desc: "Консультации и техническая поддержка онлайн для всех типов проектов.",
+                page_title: "Онлайн-инжиниринг и техническая поддержка",
+                page_desc:
+                    "Профессиональные консультации, расчеты, настройка и техническое сопровождение электрических проектов, слаботочных систем, автоматизации и решений Smart Home.",
                 back_btn: "← Назад",
-                sec_electrical_online: "Онлайн-услуги по электрике",
-                sec_weakcurrent_online: "Онлайн-услуги слаботочных систем",
-                sec_smarthome_online: "Онлайн-услуги умного дома",
-                sec_automation_online: "Онлайн-услуги автоматизации",
-                contact_title: "Готовы начать?",
-                contact_desc: "Свяжитесь с нами для бесплатной консультации и индивидуального расчета.",
-                electrical_online: [
-                    { title: "Удалённый аудит схем и щитов", desc: "Анализ диаграмм и панелей на расстоянии с рекомендациями." },
-                    { title: "Консультация по выбору автоматики", desc: "Подробные советы по выбору правильных защитных устройств." },
-                    { title: "Расчёт нагрузок и подбор кабеля", desc: "Точные расчеты энергопотребления и выбор правильного сечения." },
-                    { title: "Онлайн-помощь при сборке/авариях", desc: "Пошаговое руководство через видеозвонок для монтажа и устранения неисправностей." }
+
+                sec_electrical: "Электротехнический инжиниринг",
+                sec_weakcurrent: "Слаботочные системы",
+                sec_smarthome: "Smart Home и автоматизация зданий",
+                sec_automation: "Промышленная автоматизация",
+
+                electrical: [
+                    {
+                        title: "Анализ электрических схем и технических решений",
+                        desc:
+                            "Проверяем электрические схемы, структуру щитов, защитные цепи и распределение нагрузок. Даём рекомендации по безопасности, надежности работы и технической корректности решений."
+                    },
+                    {
+                        title: "Расчет нагрузок и подбор кабельных линий",
+                        desc:
+                            "Выполняем расчеты установленной мощности, рабочих токов, сечения кабелей, автоматических выключателей, защитных устройств и правильного распределения электрических групп."
+                    },
+                    {
+                        title: "Подбор электротехнического оборудования",
+                        desc:
+                            "Помогаем подобрать автоматы, УЗО, дифференциальные автоматы, реле напряжения, контакторы, блоки питания и компоненты для распределительных щитов."
+                    },
+                    {
+                        title: "Техническое сопровождение монтажа и диагностики",
+                        desc:
+                            "Консультируем по подключению, поиску ошибок, выбору правильных решений и проверке ключевых этапов при выполнении электромонтажных работ."
+                    }
                 ],
-                weakcurrent_online: [
-                    { title: "Настройка видеонаблюдения (P2P/Облако)", desc: "Настройка камер, облачное хранилище и удалённый доступ к мониторингу." },
-                    { title: "Конфигурация роутеров, Wi-Fi и VPN", desc: "Полная настройка маршрутизаторов, беспроводных сетей и безопасных VPN-соединений." },
-                    { title: "Проброс портов и удалённый доступ", desc: "Настройка проброса портов и безопасного удалённого доступа к системам." },
-                    { title: "Настройка сетевых накопителей (NAS)", desc: "Установка и конфигурация NAS для резервного копирования, хранения и обмена данными." }
+
+                weakcurrent: [
+                    {
+                        title: "Настройка систем видеонаблюдения",
+                        desc:
+                            "Помогаем настроить IP-камеры, NVR/DVR, защищенный доступ, видеоархив, уведомления и удаленный контроль системы наблюдения."
+                    },
+                    {
+                        title: "Настройка сетей, роутеров и VPN",
+                        desc:
+                            "Конфигурируем сетевую инфраструктуру для домов и коммерческих объектов: роутеры, Wi-Fi, VLAN, VPN, безопасный доступ и стабильную связь между устройствами."
+                    },
+                    {
+                        title: "Решения для контроля доступа и домофонии",
+                        desc:
+                            "Консультируем и настраиваем системы контроля доступа, IP-домофоны, считыватели, модули управления и сценарии интеграции с другими техническими системами."
+                    },
+                    {
+                        title: "Настройка сетевого хранения и резервного копирования",
+                        desc:
+                            "Оказываем поддержку по NAS, видеоархиву, локальному резервному копированию, защищенному доступу к файлам и организации надежной системы хранения данных."
+                    }
                 ],
-                smarthome_online: [
-                    { title: "Программирование сценариев (Home Assistant)", desc: "Создание и оптимизация сценариев автоматизации через Home Assistant или подобные платформы." },
-                    { title: "Настройка Tuya / Smart Life / Wiren Board", desc: "Настройка и интеграция умных устройств на популярные платформы умного дома." },
-                    { title: "Интеграция с Алисой, Siri, Google Home", desc: "Подключение системы к голосовым помощникам для полного голосового управления." },
-                    { title: "Удалённая отладка автоматизации", desc: "Решение проблем, оптимизация производительности и регулярные обновления системы." },
-                    { title: "Проектирование и настройка KNX", desc: "Конфигурация линий, адресация устройств и удалённый дебаг систем KNX через ETS." },
-                    { title: "Настройка освещения DALI / DALI-2", desc: "Адресация балластов, создание шлюзов DALI-KNX / Home Assistant, настройка сцен и Tunable White." }
-                    
+
+                smarthome: [
+                    {
+                        title: "Настройка сценариев Smart Home",
+                        desc:
+                            "Разрабатываем сценарии автоматизации для освещения, климата, безопасности, датчиков, умных розеток и подключенного оборудования в единой системе управления."
+                    },
+                    {
+                        title: "Интеграция Home Assistant, Tuya и Smart Life",
+                        desc:
+                            "Настраиваем умные устройства, шлюзы, датчики, реле, Wi-Fi/Zigbee-модули и объединяем их в централизованную систему управления."
+                    },
+                    {
+                        title: "Голосовое управление и мобильные приложения",
+                        desc:
+                            "Настраиваем управление через мобильные приложения и голосовых ассистентов, чтобы пользователь мог удобно и безопасно управлять освещением, комфортом и автоматизацией."
+                    },
+                    {
+                        title: "Настройка KNX и DALI для современных зданий",
+                        desc:
+                            "Оказываем поддержку по адресации KNX-устройств, конфигурации линий, настройке световых сцен DALI/DALI-2 и интеграции систем в жилые и коммерческие проекты."
+                    }
                 ],
-                automation_online: [
-                    { title: "Программирование ПЛК (Siemens, OWEN и др.)", desc: "Онлайн-программирование и отладка ПЛК с прямой поддержкой через AnyDesk/VPN." },
-                    { title: "Настройка HMI-панелей и частотников", desc: "Конфигурация интерфейса оператора, параметров преобразователей и систем мониторинга." },
-                    { title: "Удаленная отладка через AnyDesk / VPN", desc: "Диагностика и решение проблем производственных линий в реальном времени удалённо." },
-                    { title: "Доработка промышленной логики", desc: "Корректировка алгоритмов, сценариев и логики управления для оптимизации процесса." }
+
+                automation: [
+                    {
+                        title: "Программирование и оптимизация логики ПЛК",
+                        desc:
+                            "Разрабатываем и корректируем управляющую логику для промышленного оборудования, технологических процессов и производственных линий с акцентом на стабильность, безопасность и эффективность."
+                    },
+                    {
+                        title: "Настройка HMI и операторских интерфейсов",
+                        desc:
+                            "Создаем операторские экраны для контроля параметров, управления оборудованием, отображения аварий, рабочих состояний и технологических сценариев."
+                    },
+                    {
+                        title: "Параметрирование частотных преобразователей",
+                        desc:
+                            "Настраиваем частотные преобразователи для управления электродвигателями, регулирования скорости, защиты оборудования и адаптации работы под технологический процесс."
+                    },
+                    {
+                        title: "Диагностика систем автоматизации",
+                        desc:
+                            "Анализируем ошибки в логике управления, промышленных коммуникациях, датчиках, исполнительных механизмах, преобразователях и оборудовании управления для восстановления корректной работы."
+                    }
                 ]
             },
+
             en: {
-                page_title: "Online Services / Remote Engineering",
-                page_desc: "Online consultation and technical support for all types of projects.",
+                page_title: "Online Engineering and Technical Support",
+                page_desc:
+                    "Professional consultation, calculations, configuration and technical support for electrical projects, low-voltage systems, automation and Smart Home solutions.",
                 back_btn: "← Back",
-                sec_electrical_online: "Online Electrical Services",
-                sec_weakcurrent_online: "Online Low-Voltage Services",
-                sec_smarthome_online: "Online SmartHome Services",
-                sec_automation_online: "Online Automation Services",
-                contact_title: "Ready to start?",
-                contact_desc: "Contact us for a free consultation and personalized quote.",
-                electrical_online: [
-                    { title: "Remote audit of schemes & panels", desc: "Remote analysis of electrical diagrams and panels with recommendations." },
-                    { title: "Consultation on protection equipment", desc: "Detailed advice on selecting proper protection devices and automation." },
-                    { title: "Load calculation & cable selection", desc: "Precise energy consumption calculations and correct cable sizing." },
-                    { title: "Online guidance for assembly / issues", desc: "Step-by-step guidance via video call for installation and troubleshooting." }
+
+                sec_electrical: "Electrical Engineering",
+                sec_weakcurrent: "Low-Voltage Systems",
+                sec_smarthome: "Smart Home and Building Automation",
+                sec_automation: "Industrial Automation",
+
+                electrical: [
+                    {
+                        title: "Electrical Diagram and Technical Solution Review",
+                        desc:
+                            "We review electrical diagrams, distribution board structure, protection circuits and load distribution, providing recommendations for safety, reliability and technical correctness."
+                    },
+                    {
+                        title: "Load Calculation and Cable Selection",
+                        desc:
+                            "We calculate installed power, operating currents, cable cross-sections, circuit breakers, protection devices and proper organization of electrical groups."
+                    },
+                    {
+                        title: "Electrical Equipment Selection",
+                        desc:
+                            "We support the selection of circuit breakers, RCDs, RCBOs, voltage relays, contactors, power supplies and components for electrical distribution boards."
+                    },
+                    {
+                        title: "Technical Support for Installation and Diagnostics",
+                        desc:
+                            "We provide technical guidance for connection issues, troubleshooting, correct solution selection and verification of key stages during electrical installation work."
+                    }
                 ],
-                weakcurrent_online: [
-                    { title: "CCTV configuration (P2P/Cloud)", desc: "Camera setup, cloud recording and remote access to surveillance." },
-                    { title: "Router, Wi-Fi & VPN setup", desc: "Complete configuration of routers, wireless networks and secure VPN connections." },
-                    { title: "Port forwarding & remote access", desc: "Port forwarding setup and secure remote access configuration for systems." },
-                    { title: "NAS storage configuration", desc: "Installation and configuration of NAS for backup, storage and data sharing." }
+
+                weakcurrent: [
+                    {
+                        title: "CCTV System Configuration",
+                        desc:
+                            "We support the configuration of IP cameras, NVR/DVR systems, secure access, video archiving, notifications and remote monitoring."
+                    },
+                    {
+                        title: "Network, Router and VPN Configuration",
+                        desc:
+                            "We configure network infrastructure for homes and commercial facilities, including routers, Wi-Fi, VLAN, VPN, secure access and stable communication between devices."
+                    },
+                    {
+                        title: "Access Control and Intercom Solutions",
+                        desc:
+                            "We consult and configure access control systems, IP intercoms, readers, control modules and integration scenarios with other technical systems."
+                    },
+                    {
+                        title: "Network Storage and Backup Configuration",
+                        desc:
+                            "We provide support for NAS, video archives, local backup, secure file access and reliable data storage infrastructure."
+                    }
                 ],
-                smarthome_online: [
-                    { title: "Automation scripts (Home Assistant)", desc: "Creation and optimization of automation scenarios with Home Assistant or similar platforms." },
-                    { title: "Tuya / Smart Life / Wiren Board setup", desc: "Setup and integration of smart devices on popular smart home platforms." },
-                    { title: "Integration with Siri, Alexa, Google Home", desc: "Connection to voice assistants for full voice control of your system." },
-                    { title: "Remote automation debugging", desc: "Problem solving, performance optimization and regular system updates." },
-                    { title: "KNX Design & Configuration", desc: "Line configuration, device addressing, and remote debugging of KNX systems via ETS." },
-                    { title: "DALI / DALI-2 Lighting Setup", desc: "Ballast addressing, DALI-KNX / Home Assistant gateway integration, scene setup, and Tunable White." }
+
+                smarthome: [
+                    {
+                        title: "Smart Home Scenario Configuration",
+                        desc:
+                            "We develop automation scenarios for lighting, climate control, security, sensors, smart sockets and connected equipment within a unified control system."
+                    },
+                    {
+                        title: "Home Assistant, Tuya and Smart Life Integration",
+                        desc:
+                            "We configure smart devices, gateways, sensors, relays, Wi-Fi/Zigbee modules and integrate them into centralized control platforms."
+                    },
+                    {
+                        title: "Voice Control and Mobile App Integration",
+                        desc:
+                            "We configure control through mobile applications and voice assistants, allowing users to manage comfort, lighting and automation in a simple and secure way."
+                    },
+                    {
+                        title: "KNX and DALI Configuration for Modern Buildings",
+                        desc:
+                            "We provide support for KNX device addressing, line configuration, DALI/DALI-2 lighting scenes and system integration into residential or commercial projects."
+                    }
                 ],
-                automation_online: [
-                    { title: "PLC programming (Siemens, OWEN etc.)", desc: "Online PLC programming and debugging with direct support via AnyDesk/VPN." },
-                    { title: "HMI panels & VFD setup", desc: "Configuration of operator interface, inverter parameters and monitoring systems." },
-                    { title: "Remote debugging via AnyDesk / VPN", desc: "Diagnosis and troubleshooting of production lines in real-time from a distance." },
-                    { title: "Industrial logic modification", desc: "Adjustment of algorithms, scenarios and control logic for process optimization." }
+
+                automation: [
+                    {
+                        title: "PLC Logic Programming and Optimization",
+                        desc:
+                            "We develop and adjust control logic for industrial equipment, technological processes and production lines with a focus on stability, safety and efficiency."
+                    },
+                    {
+                        title: "HMI and Operator Interface Configuration",
+                        desc:
+                            "We create operator screens for parameter monitoring, equipment control, alarm display, operating states and technological scenarios."
+                    },
+                    {
+                        title: "Frequency Drive Parameterization",
+                        desc:
+                            "We configure frequency drives for motor control, speed regulation, equipment protection and adaptation of operation to the technological process."
+                    },
+                    {
+                        title: "Automation System Diagnostics",
+                        desc:
+                            "We analyze errors in control logic, industrial communications, sensors, actuators, drives and control equipment to restore correct system operation."
+                    }
                 ]
             }
         };
 
         function renderServices(containerId, services) {
             const container = document.getElementById(containerId);
-            container.innerHTML = '';
+            container.innerHTML = "";
+
             services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                div.innerHTML = `<span class="badge">ONLINE</span><h3>${service.title}</h3><p>${service.desc}</p>`;
+                const div = document.createElement("div");
+                div.className = "service-item";
+                div.innerHTML = `<h3>${service.title}</h3><p>${service.desc}</p>`;
                 container.appendChild(div);
             });
         }
 
         function setLang(lang) {
-            localStorage.setItem('preferred_lang', lang);
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const onclickAttr = btn.getAttribute('onclick');
+            localStorage.setItem("preferred_lang", lang);
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.classList.remove("active");
+
+                const onclickAttr = btn.getAttribute("onclick");
+
                 if (onclickAttr && onclickAttr.includes(`'${lang}'`)) {
-                    btn.classList.add('active');
+                    btn.classList.add("active");
                 }
             });
 
             const t = translations[lang];
+
             if (!t) return;
 
-            document.getElementById('page-title').textContent = t.page_title;
-            document.getElementById('page-desc').textContent = t.page_desc;
-            document.getElementById('back-btn').textContent = t.back_btn;
-            document.getElementById('sec-electrical-online').textContent = t.sec_electrical_online;
-            document.getElementById('sec-weakcurrent-online').textContent = t.sec_weakcurrent_online;
-            document.getElementById('sec-smarthome-online').textContent = t.sec_smarthome_online;
-            document.getElementById('sec-automation-online').textContent = t.sec_automation_online;
-            document.getElementById('contact-title').textContent = t.contact_title;
-            document.getElementById('contact-desc').textContent = t.contact_desc;
+            document.documentElement.lang = lang;
 
-            renderServices('electrical-online-services', t.electrical_online);
-            renderServices('weakcurrent-online-services', t.weakcurrent_online);
-            renderServices('smarthome-online-services', t.smarthome_online);
-            renderServices('automation-online-services', t.automation_online);
+            document.getElementById("page-title").textContent = t.page_title;
+            document.getElementById("page-desc").textContent = t.page_desc;
+            document.getElementById("back-btn").textContent = t.back_btn;
+
+            document.getElementById("sec-electrical").textContent = t.sec_electrical;
+            document.getElementById("sec-weakcurrent").textContent = t.sec_weakcurrent;
+            document.getElementById("sec-smarthome").textContent = t.sec_smarthome;
+            document.getElementById("sec-automation").textContent = t.sec_automation;
+
+            renderServices("electrical-services", t.electrical);
+            renderServices("weakcurrent-services", t.weakcurrent);
+            renderServices("smarthome-services", t.smarthome);
+            renderServices("automation-services", t.automation);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem('preferred_lang') || 'ro';
+            const savedLang = localStorage.getItem("preferred_lang") || "ro";
             setLang(savedLang);
         });
     </script>
